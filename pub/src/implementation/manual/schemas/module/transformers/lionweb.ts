@@ -2,7 +2,7 @@ import * as _p from 'pareto-core/dist/assign'
 
 import * as d_in_s from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/module/data/resolved"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 //dependencies
 import * as t_schema_to_lionweb from "../../schema/transformers/lionweb"
@@ -10,7 +10,7 @@ import * as t_lionweb_to_json from "../../lionweb/transformers/json"
 import * as t_json_to_fountain_pen_block from "pareto-json/dist/implementation/manual/schemas/json/transformers/fountain_pen_block"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/block"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 
 export const Schema_Tree = ($: d_in_s.Schema_Tree): d_out.Directory => _p.decide.state($, ($) => {

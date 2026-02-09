@@ -3,15 +3,15 @@ import * as _p from 'pareto-core/dist/assign'
 //interface
 
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+import * as d_out from "pareto-static-html/dist/interface/generated/liana/schemas/static-html/data"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/block"
+import * as sh from "pareto-static-html/dist/shorthands/static_html"
 
 
 export const Schema_Tree = (
     $: d_in.Schema_Tree
-): d_out.Paragraph => _p.decide.state($, ($) => {
+): d_out.Flow_Content => _p.decide.state($, ($) => {
     switch ($[0]) {
         case 'schema': return _p.ss($, ($) => sh.g.sub([
             sh.pg.single_line("types:"),
@@ -37,7 +37,7 @@ export const Schema_Tree = (
     }
 })
 
-export const Schemas = ($: d_in.Schemas): d_out.Paragraph => sh.g.sub($.__to_list(($, id) => sh.g.sub([
+export const Schemas = ($: d_in.Schemas): d_out.Flow_Content => sh.g.sub($.__to_list(($, id) => sh.g.sub([
     sh.pg.single_line(key),
     sh.g.nested_block([
         sh.ph.indent([

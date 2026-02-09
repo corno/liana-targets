@@ -8,7 +8,7 @@
 
 // import {
 //     b, l, block,
-// } from "pareto-fountain-pen/dist/shorthands/block"
+// } from "pareto-fountain-pen/dist/shorthands/prose"
 
 // import { impure, pure } from "pareto-standard-operations"
 

@@ -1,5 +1,5 @@
 import * as d_in from "../../../../../../../interface/generated/liana/schemas/lionweb/data"
-import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/block/data"
+import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 //dependencies
 import * as t_json_to_fountain_pen_block from "pareto-json/dist/implementation/manual/schemas/json/transformers/fountain_pen"

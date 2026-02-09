@@ -7,7 +7,7 @@ import * as signatures from "../../../interface/signatures"
 import * as t_block_to_lines from "pareto-fountain-pen/dist/implementation/manual/schemas/block/transformers/lines"
 
 //shorthands
-import * as sh from "pareto-fountain-pen/dist/shorthands/block"
+import * as sh from "pareto-fountain-pen/dist/shorthands/prose"
 
 export const $$: signatures.commands.console_log = _p.command_procedure(
     ($p, $cr) => [
