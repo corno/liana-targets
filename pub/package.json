@@ -10,9 +10,9 @@
     "dist"
   ],
   "dependencies": {
-    "pareto-graphviz": "^0.2.18",
-    "pareto-liana": "^0.0.5",
-    "pareto-lionweb": "^0.1.5",
+    "pareto-graphviz": "^0.2.19",
+    "pareto-liana": "^0.0.6",
+    "pareto-lionweb": "^0.1.6",
     "pareto-static-html": "^0.1.26"
   }
 }
