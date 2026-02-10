@@ -9,6 +9,12 @@ import * as d_out from "pareto-static-html/dist/interface/generated/liana/schema
 import * as sh from "pareto-static-html/dist/shorthands/static_html"
 
 
+export const Package = ($: d_in.Package): d_out.Document => _p.dictionary.literal({
+    "doc.html": sh.n.file(sh.group([
+        t_schema_to_documentation.Schema_Tree($['schema tree'])
+    ]))
+})
+
 export const Schema_Tree = (
     $: d_in.Schema_Tree
 ): d_out.Flow_Content => _p.decide.state($, ($) => {

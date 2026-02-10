@@ -15,6 +15,27 @@ export const MetaPointer = (
     'key': $,
 })
 
+
+export const Schema_Tree = ($: d_in_s.Schema_Tree): d_out.Directory => _p.decide.state($, ($) => {
+    switch ($[0]) {
+        case 'schema': return _p.ss($, ($) => _p.dictionary.literal({
+            "lionweb.json": sh.n.file(
+                t_json_to_fountain_pen_block.Document(
+                    t_lionweb_to_json.SerializationChunk(
+                        t_schema_to_lionweb.Schema($)
+                    )
+                ),
+            )
+        }))
+        case 'set': return _p.ss($, ($) => Schemas($))
+        default: return _p.au($[0])
+    }
+})
+
+export const Schemas = ($: d_in_s.Schemas): d_out.Directory => $.__d_map(($, id) => sh.n.directory(Schema_Tree($)))
+
+export const Module = ($: d_in.Module): d_out.Directory => Schema_Tree($['schema tree'])
+
 // export const Type_Node_2_properties = (
 //     $: d_in.Type_Node,
 //     $p: {
