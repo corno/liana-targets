@@ -9,7 +9,7 @@ import * as d_write_to_directory from "../../../modules/pareto-fountain-pen-dire
 
 //dependencies
 import * as r_liana_module from "pareto-liana/dist/implementation/temp/resolvers/module"
-import * as t_liana_module_to_fountain_pen_block from "../schemas/liana_module/transformers/fountain_pen_block"
+import * as t_liana_module_to_fountain_pen_block from "../transformers/liana_module/transformers/fountain_pen_block"
 
 
 export const $$: signatures.commands.generate_and_write_to_disk = _p.command_procedure(

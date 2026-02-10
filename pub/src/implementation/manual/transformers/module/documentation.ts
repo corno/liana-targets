@@ -4,7 +4,7 @@ import * as d_in from "pareto/dist/interface/generated/liana/schemas/module/data
 import * as d_out from "pareto-static-html/dist/interface/generated/liana/schemas/static-html/data"
 
 //dependecies
-import * as t_schema_to_documentation from "../../schema/transformers/documentation"
+import * as t_schema_to_documentation from "../schema/documentation"
 
 //shorthands
 import * as sh from "pareto-static-html/dist/shorthands/static_html"
