@@ -1,5 +1,5 @@
 
-import * as d_in from "../../../../../../../interface/generated/liana/schemas/lionweb/data"
+import * as d_in from "../../../../../../interface/generated/liana/schemas/lionweb/data"
 import * as d_out from "pareto-json/dist/interface/generated/liana/schemas/json/data"
 
 import * as sh from "pareto-json/dist/shorthands/json"
