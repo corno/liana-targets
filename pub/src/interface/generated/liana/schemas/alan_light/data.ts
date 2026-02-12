@@ -37,10 +37,9 @@ export namespace Path_ {
         
     }
     
-    export type context = {
-        readonly 'sibling': context.sibling
-        readonly 'state constraint': context.state_constraint
-    }
+    export type context = 
+        | readonly ['sibling', context.sibling]
+        | readonly ['state constraint', context.state_constraint]
     
     export namespace selection_steps {
         
@@ -78,11 +77,10 @@ export namespace Path_ {
             
         }
         
-        export type L = {
-            readonly 'group': L.group
-            readonly 'state constraint': L.state_constraint
-            readonly 'reference': L.reference
-        }
+        export type L = 
+            | readonly ['group', L.group]
+            | readonly ['state constraint', L.state_constraint]
+            | readonly ['reference', L.reference]
         
     }
     

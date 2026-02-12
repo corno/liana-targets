@@ -32,78 +32,112 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.dictionar
         ),
         "context": _p_change_context(
             $['context'],
-            ($) => ['group', ['verbose', _p.dictionary.literal(
-                {
-                    "sibling": _p_change_context(
-                        $['sibling'],
-                        ($) => ['group', ['verbose', _p.dictionary.literal(
-                            {},
-                        )]],
-                    ),
-                    "state constraint": _p_change_context(
-                        $['state constraint'],
-                        ($) => ['group', ['verbose', _p.dictionary.literal(
-                            {
-                                "name": _p_change_context(
-                                    $['name'],
-                                    ($) => Identifier(
-                                        $,
-                                    ),
-                                ),
-                            },
-                        )]],
-                    ),
+            ($) => ['state', _p.decide.state(
+                $,
+                ($): t_out.Value.state => {
+                    switch ($[0]) {
+                        case 'sibling':
+                            return _p.ss(
+                                $,
+                                ($) => ({
+                                    'option': 'sibling',
+                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                        {},
+                                    )]],
+                                }),
+                            )
+                        case 'state constraint':
+                            return _p.ss(
+                                $,
+                                ($) => ({
+                                    'option': 'state constraint',
+                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                        {
+                                            "name": _p_change_context(
+                                                $['name'],
+                                                ($) => Identifier(
+                                                    $,
+                                                ),
+                                            ),
+                                        },
+                                    )]],
+                                }),
+                            )
+                        default:
+                            return _p.au(
+                                $[0],
+                            )
+                    }
                 },
-            )]],
+            )],
         ),
         "selection steps": _p_change_context(
             $['selection steps'],
             ($) => ['list', _p.list.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.dictionary.literal(
-                    {
-                        "group": _p_change_context(
-                            $['group'],
-                            ($) => ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    "name": _p_change_context(
-                                        $['name'],
-                                        ($) => Identifier(
-                                            $,
-                                        ),
-                                    ),
-                                },
-                            )]],
-                        ),
-                        "state constraint": _p_change_context(
-                            $['state constraint'],
-                            ($) => ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    "name": _p_change_context(
-                                        $['name'],
-                                        ($) => Identifier(
-                                            $,
-                                        ),
-                                    ),
-                                },
-                            )]],
-                        ),
-                        "reference": _p_change_context(
-                            $['reference'],
-                            ($) => ['group', ['verbose', _p.dictionary.literal(
-                                {
-                                    "name": _p_change_context(
-                                        $['name'],
-                                        ($) => Identifier(
-                                            $,
-                                        ),
-                                    ),
-                                },
-                            )]],
-                        ),
+                ($) => ['state', _p.decide.state(
+                    $,
+                    ($): t_out.Value.state => {
+                        switch ($[0]) {
+                            case 'group':
+                                return _p.ss(
+                                    $,
+                                    ($) => ({
+                                        'option': 'group',
+                                        'value': ['group', ['verbose', _p.dictionary.literal(
+                                            {
+                                                "name": _p_change_context(
+                                                    $['name'],
+                                                    ($) => Identifier(
+                                                        $,
+                                                    ),
+                                                ),
+                                            },
+                                        )]],
+                                    }),
+                                )
+                            case 'state constraint':
+                                return _p.ss(
+                                    $,
+                                    ($) => ({
+                                        'option': 'state constraint',
+                                        'value': ['group', ['verbose', _p.dictionary.literal(
+                                            {
+                                                "name": _p_change_context(
+                                                    $['name'],
+                                                    ($) => Identifier(
+                                                        $,
+                                                    ),
+                                                ),
+                                            },
+                                        )]],
+                                    }),
+                                )
+                            case 'reference':
+                                return _p.ss(
+                                    $,
+                                    ($) => ({
+                                        'option': 'reference',
+                                        'value': ['group', ['verbose', _p.dictionary.literal(
+                                            {
+                                                "name": _p_change_context(
+                                                    $['name'],
+                                                    ($) => Identifier(
+                                                        $,
+                                                    ),
+                                                ),
+                                            },
+                                        )]],
+                                    }),
+                                )
+                            default:
+                                return _p.au(
+                                    $[0],
+                                )
+                        }
                     },
-                )]],
+                )],
             )],
         ),
     },

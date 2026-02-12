@@ -20,64 +20,87 @@ export const Path: t_signatures.Path = ($) => ({
     ),
     'context': _p_change_context(
         $['context'],
-        ($) => ({
-            'sibling': _p_change_context(
-                $['sibling'],
-                ($) => null,
-            ),
-            'state constraint': _p_change_context(
-                $['state constraint'],
-                ($) => ({
-                    'name': _p_change_context(
-                        $['name'],
-                        ($) => Identifier(
+        ($) => _p.decide.state(
+            $,
+            ($): t_out.Path.context => {
+                switch ($[0]) {
+                    case 'sibling':
+                        return _p.ss(
                             $,
-                        ),
-                    ),
-                }),
-            ),
-        }),
+                            ($) => ['sibling', null],
+                        )
+                    case 'state constraint':
+                        return _p.ss(
+                            $,
+                            ($) => ['state constraint', {
+                                'name': _p_change_context(
+                                    $['name'],
+                                    ($) => Identifier(
+                                        $,
+                                    ),
+                                ),
+                            }],
+                        )
+                    default:
+                        return _p.au(
+                            $[0],
+                        )
+                }
+            },
+        ),
     ),
     'selection steps': _p_change_context(
         $['selection steps'],
         ($) => _p.list.from.list(
             $,
         ).map(
-            ($) => ({
-                'group': _p_change_context(
-                    $['group'],
-                    ($) => ({
-                        'name': _p_change_context(
-                            $['name'],
-                            ($) => Identifier(
+            ($) => _p.decide.state(
+                $,
+                ($): t_out.Path.selection_steps.L => {
+                    switch ($[0]) {
+                        case 'group':
+                            return _p.ss(
                                 $,
-                            ),
-                        ),
-                    }),
-                ),
-                'state constraint': _p_change_context(
-                    $['state constraint'],
-                    ($) => ({
-                        'name': _p_change_context(
-                            $['name'],
-                            ($) => Identifier(
+                                ($) => ['group', {
+                                    'name': _p_change_context(
+                                        $['name'],
+                                        ($) => Identifier(
+                                            $,
+                                        ),
+                                    ),
+                                }],
+                            )
+                        case 'state constraint':
+                            return _p.ss(
                                 $,
-                            ),
-                        ),
-                    }),
-                ),
-                'reference': _p_change_context(
-                    $['reference'],
-                    ($) => ({
-                        'name': _p_change_context(
-                            $['name'],
-                            ($) => Identifier(
+                                ($) => ['state constraint', {
+                                    'name': _p_change_context(
+                                        $['name'],
+                                        ($) => Identifier(
+                                            $,
+                                        ),
+                                    ),
+                                }],
+                            )
+                        case 'reference':
+                            return _p.ss(
                                 $,
-                            ),
-                        ),
-                    }),
-                ),
-            }),
+                                ($) => ['reference', {
+                                    'name': _p_change_context(
+                                        $['name'],
+                                        ($) => Identifier(
+                                            $,
+                                        ),
+                                    ),
+                                }],
+                            )
+                        default:
+                            return _p.au(
+                                $[0],
+                            )
+                    }
+                },
+            ),
         ),
     ),
 })
