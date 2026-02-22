@@ -11,9 +11,9 @@
   ],
   "dependencies": {
     "pareto-fountain-pen-file-structure": "^0.0.6",
-    "pareto-graphviz": "^0.2.21",
+    "pareto-graphviz": "^0.2.22",
     "pareto-liana": "^0.0.6",
-    "pareto-lionweb": "^0.1.8",
-    "pareto-static-html": "^0.1.27"
+    "pareto-lionweb": "^0.1.9",
+    "pareto-static-html": "^0.1.28"
   }
 }
