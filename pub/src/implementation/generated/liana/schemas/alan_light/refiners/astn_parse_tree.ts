@@ -425,472 +425,448 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                                 $,
                             ),
                         ),
-                        ($) => _p_variables(
-                            () => {
-                                
-                                const var_dictionary_range = v_parse_tree_to_location.Value(
-                                    $['value'],
-                                )
-                                return _p.dictionary.from.dictionary(
-                                    $['entries'],
-                                ).map(
-                                    ($, id) => _p_change_context(
-                                        v_unmarshalled_from_parse_tree.Verbose_Group(
-                                            $,
-                                            ($) => abort(
-                                                $,
-                                            ),
+                        ($) => _p.dictionary.from.dictionary(
+                            $['entries'],
+                        ).map(
+                            ($, id) => _p_change_context(
+                                v_unmarshalled_from_parse_tree.Verbose_Group(
+                                    $,
+                                    ($) => abort(
+                                        $,
+                                    ),
+                                    {
+                                        'expected properties': _p.dictionary.literal(
                                             {
-                                                'expected properties': _p.dictionary.literal(
-                                                    {
-                                                        "type": null,
-                                                    },
-                                                ),
+                                                "type": null,
                                             },
                                         ),
-                                        ($) => _p_variables(
-                                            () => {
-                                                
-                                                const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                    $['value'],
-                                                )
-                                                return {
-                                                    'type': _p_change_context(
-                                                        v_unmarshalled_from_parse_tree.Property(
+                                    },
+                                ),
+                                ($) => _p_variables(
+                                    () => {
+                                        
+                                        const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                            $['value'],
+                                        )
+                                        return {
+                                            'type': _p_change_context(
+                                                v_unmarshalled_from_parse_tree.Property(
+                                                    $,
+                                                    ($) => abort(
+                                                        $,
+                                                    ),
+                                                    {
+                                                        'id': 'type',
+                                                    },
+                                                ),
+                                                ($) => _p_change_context(
+                                                    v_unmarshalled_from_parse_tree.State(
+                                                        $,
+                                                        ($) => abort(
                                                             $,
-                                                            ($) => abort(
-                                                                $,
-                                                            ),
-                                                            {
-                                                                'id': 'type',
-                                                            },
                                                         ),
-                                                        ($) => _p_change_context(
-                                                            v_unmarshalled_from_parse_tree.State(
-                                                                $,
-                                                                ($) => abort(
-                                                                    $,
-                                                                ),
-                                                            ),
-                                                            ($) => _p.decide.text(
-                                                                $['option']['value'],
-                                                                ($t): t_out.Node.properties.D.type_ => {
-                                                                    switch ($t) {
-                                                                        case 'collection':
-                                                                            return _p_change_context(
-                                                                                $['value'],
-                                                                                ($) => ['collection', _p_change_context(
-                                                                                    v_unmarshalled_from_parse_tree.Verbose_Group(
-                                                                                        $,
-                                                                                        ($) => abort(
-                                                                                            $,
-                                                                                        ),
+                                                    ),
+                                                    ($) => _p.decide.text(
+                                                        $['option']['value'],
+                                                        ($t): t_out.Node.properties.D.type_ => {
+                                                            switch ($t) {
+                                                                case 'collection':
+                                                                    return _p_change_context(
+                                                                        $['value'],
+                                                                        ($) => ['collection', _p_change_context(
+                                                                            v_unmarshalled_from_parse_tree.Verbose_Group(
+                                                                                $,
+                                                                                ($) => abort(
+                                                                                    $,
+                                                                                ),
+                                                                                {
+                                                                                    'expected properties': _p.dictionary.literal(
                                                                                         {
-                                                                                            'expected properties': _p.dictionary.literal(
+                                                                                            "node": null,
+                                                                                            "key": null,
+                                                                                        },
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ($) => _p_variables(
+                                                                                () => {
+                                                                                    
+                                                                                    const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                                                                        $['value'],
+                                                                                    )
+                                                                                    return {
+                                                                                        'node': _p_change_context(
+                                                                                            v_unmarshalled_from_parse_tree.Property(
+                                                                                                $,
+                                                                                                ($) => abort(
+                                                                                                    $,
+                                                                                                ),
                                                                                                 {
-                                                                                                    "node": null,
-                                                                                                    "key": null,
+                                                                                                    'id': 'node',
                                                                                                 },
                                                                                             ),
-                                                                                        },
-                                                                                    ),
-                                                                                    ($) => _p_variables(
-                                                                                        () => {
-                                                                                            
-                                                                                            const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                                                                $['value'],
-                                                                                            )
-                                                                                            return {
-                                                                                                'node': _p_change_context(
-                                                                                                    v_unmarshalled_from_parse_tree.Property(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            $,
-                                                                                                        ),
-                                                                                                        {
-                                                                                                            'id': 'node',
-                                                                                                        },
-                                                                                                    ),
-                                                                                                    ($) => Node(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            $,
-                                                                                                        ),
-                                                                                                    ),
+                                                                                            ($) => Node(
+                                                                                                $,
+                                                                                                ($) => abort(
+                                                                                                    $,
                                                                                                 ),
-                                                                                                'key': _p_change_context(
-                                                                                                    v_unmarshalled_from_parse_tree.Property(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            $,
-                                                                                                        ),
-                                                                                                        {
-                                                                                                            'id': 'key',
-                                                                                                        },
-                                                                                                    ),
-                                                                                                    ($) => Identifier(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            $,
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                ),
-                                                                                            }
-                                                                                        },
-                                                                                    ),
-                                                                                )],
-                                                                            )
-                                                                        case 'group':
-                                                                            return _p_change_context(
-                                                                                $['value'],
-                                                                                ($) => ['group', _p_change_context(
-                                                                                    v_unmarshalled_from_parse_tree.Verbose_Group(
-                                                                                        $,
-                                                                                        ($) => abort(
-                                                                                            $,
+                                                                                            ),
                                                                                         ),
-                                                                                        {
-                                                                                            'expected properties': _p.dictionary.literal(
+                                                                                        'key': _p_change_context(
+                                                                                            v_unmarshalled_from_parse_tree.Property(
+                                                                                                $,
+                                                                                                ($) => abort(
+                                                                                                    $,
+                                                                                                ),
                                                                                                 {
-                                                                                                    "node": null,
+                                                                                                    'id': 'key',
                                                                                                 },
                                                                                             ),
-                                                                                        },
-                                                                                    ),
-                                                                                    ($) => _p_variables(
-                                                                                        () => {
-                                                                                            
-                                                                                            const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                                                                $['value'],
-                                                                                            )
-                                                                                            return {
-                                                                                                'node': _p_change_context(
-                                                                                                    v_unmarshalled_from_parse_tree.Property(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            $,
-                                                                                                        ),
-                                                                                                        {
-                                                                                                            'id': 'node',
-                                                                                                        },
-                                                                                                    ),
-                                                                                                    ($) => Node(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            $,
-                                                                                                        ),
-                                                                                                    ),
+                                                                                            ($) => Identifier(
+                                                                                                $,
+                                                                                                ($) => abort(
+                                                                                                    $,
                                                                                                 ),
-                                                                                            }
+                                                                                            ),
+                                                                                        ),
+                                                                                    }
+                                                                                },
+                                                                            ),
+                                                                        )],
+                                                                    )
+                                                                case 'group':
+                                                                    return _p_change_context(
+                                                                        $['value'],
+                                                                        ($) => ['group', _p_change_context(
+                                                                            v_unmarshalled_from_parse_tree.Verbose_Group(
+                                                                                $,
+                                                                                ($) => abort(
+                                                                                    $,
+                                                                                ),
+                                                                                {
+                                                                                    'expected properties': _p.dictionary.literal(
+                                                                                        {
+                                                                                            "node": null,
                                                                                         },
                                                                                     ),
-                                                                                )],
-                                                                            )
-                                                                        case 'text':
-                                                                            return _p_change_context(
-                                                                                $['value'],
-                                                                                ($) => ['text', _p_change_context(
-                                                                                    v_unmarshalled_from_parse_tree.Verbose_Group(
-                                                                                        $,
-                                                                                        ($) => abort(
-                                                                                            $,
-                                                                                        ),
-                                                                                        {
-                                                                                            'expected properties': _p.dictionary.literal(
+                                                                                },
+                                                                            ),
+                                                                            ($) => _p_variables(
+                                                                                () => {
+                                                                                    
+                                                                                    const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                                                                        $['value'],
+                                                                                    )
+                                                                                    return {
+                                                                                        'node': _p_change_context(
+                                                                                            v_unmarshalled_from_parse_tree.Property(
+                                                                                                $,
+                                                                                                ($) => abort(
+                                                                                                    $,
+                                                                                                ),
                                                                                                 {
-                                                                                                    "constraint": null,
+                                                                                                    'id': 'node',
                                                                                                 },
                                                                                             ),
+                                                                                            ($) => Node(
+                                                                                                $,
+                                                                                                ($) => abort(
+                                                                                                    $,
+                                                                                                ),
+                                                                                            ),
+                                                                                        ),
+                                                                                    }
+                                                                                },
+                                                                            ),
+                                                                        )],
+                                                                    )
+                                                                case 'text':
+                                                                    return _p_change_context(
+                                                                        $['value'],
+                                                                        ($) => ['text', _p_change_context(
+                                                                            v_unmarshalled_from_parse_tree.Verbose_Group(
+                                                                                $,
+                                                                                ($) => abort(
+                                                                                    $,
+                                                                                ),
+                                                                                {
+                                                                                    'expected properties': _p.dictionary.literal(
+                                                                                        {
+                                                                                            "constraint": null,
                                                                                         },
                                                                                     ),
-                                                                                    ($) => _p_variables(
-                                                                                        () => {
-                                                                                            
-                                                                                            const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                                                                $['value'],
-                                                                                            )
-                                                                                            return {
-                                                                                                'constraint': _p_change_context(
-                                                                                                    v_unmarshalled_from_parse_tree.Property(
+                                                                                },
+                                                                            ),
+                                                                            ($) => _p_variables(
+                                                                                () => {
+                                                                                    
+                                                                                    const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                                                                        $['value'],
+                                                                                    )
+                                                                                    return {
+                                                                                        'constraint': _p_change_context(
+                                                                                            v_unmarshalled_from_parse_tree.Property(
+                                                                                                $,
+                                                                                                ($) => abort(
+                                                                                                    $,
+                                                                                                ),
+                                                                                                {
+                                                                                                    'id': 'constraint',
+                                                                                                },
+                                                                                            ),
+                                                                                            ($) => _p.optional.from.optional(
+                                                                                                v_unmarshalled_from_parse_tree.Optional(
+                                                                                                    $,
+                                                                                                    ($) => abort(
+                                                                                                        $,
+                                                                                                    ),
+                                                                                                )['optional'],
+                                                                                            ).map(
+                                                                                                ($) => _p_change_context(
+                                                                                                    v_unmarshalled_from_parse_tree.Verbose_Group(
                                                                                                         $,
                                                                                                         ($) => abort(
                                                                                                             $,
                                                                                                         ),
                                                                                                         {
-                                                                                                            'id': 'constraint',
-                                                                                                        },
-                                                                                                    ),
-                                                                                                    ($) => _p.optional.from.optional(
-                                                                                                        v_unmarshalled_from_parse_tree.Optional(
-                                                                                                            $,
-                                                                                                            ($) => abort(
-                                                                                                                $,
-                                                                                                            ),
-                                                                                                        )['optional'],
-                                                                                                    ).map(
-                                                                                                        ($) => _p_change_context(
-                                                                                                            v_unmarshalled_from_parse_tree.Verbose_Group(
-                                                                                                                $,
-                                                                                                                ($) => abort(
-                                                                                                                    $,
-                                                                                                                ),
+                                                                                                            'expected properties': _p.dictionary.literal(
                                                                                                                 {
-                                                                                                                    'expected properties': _p.dictionary.literal(
+                                                                                                                    "path": null,
+                                                                                                                    "dictionary": null,
+                                                                                                                },
+                                                                                                            ),
+                                                                                                        },
+                                                                                                    ),
+                                                                                                    ($) => _p_variables(
+                                                                                                        () => {
+                                                                                                            
+                                                                                                            const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                                                                                                $['value'],
+                                                                                                            )
+                                                                                                            return {
+                                                                                                                'path': _p_change_context(
+                                                                                                                    v_unmarshalled_from_parse_tree.Property(
+                                                                                                                        $,
+                                                                                                                        ($) => abort(
+                                                                                                                            $,
+                                                                                                                        ),
                                                                                                                         {
-                                                                                                                            "path": null,
-                                                                                                                            "dictionary": null,
+                                                                                                                            'id': 'path',
                                                                                                                         },
                                                                                                                     ),
-                                                                                                                },
-                                                                                                            ),
-                                                                                                            ($) => _p_variables(
-                                                                                                                () => {
-                                                                                                                    
-                                                                                                                    const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                                                                                        $['value'],
-                                                                                                                    )
-                                                                                                                    return {
-                                                                                                                        'path': _p_change_context(
-                                                                                                                            v_unmarshalled_from_parse_tree.Property(
-                                                                                                                                $,
-                                                                                                                                ($) => abort(
-                                                                                                                                    $,
-                                                                                                                                ),
-                                                                                                                                {
-                                                                                                                                    'id': 'path',
-                                                                                                                                },
-                                                                                                                            ),
-                                                                                                                            ($) => Path(
-                                                                                                                                $,
-                                                                                                                                ($) => abort(
-                                                                                                                                    $,
-                                                                                                                                ),
-                                                                                                                            ),
+                                                                                                                    ($) => Path(
+                                                                                                                        $,
+                                                                                                                        ($) => abort(
+                                                                                                                            $,
                                                                                                                         ),
-                                                                                                                        'dictionary': _p_change_context(
-                                                                                                                            v_unmarshalled_from_parse_tree.Property(
-                                                                                                                                $,
-                                                                                                                                ($) => abort(
-                                                                                                                                    $,
-                                                                                                                                ),
-                                                                                                                                {
-                                                                                                                                    'id': 'dictionary',
-                                                                                                                                },
-                                                                                                                            ),
-                                                                                                                            ($) => Identifier(
-                                                                                                                                $,
-                                                                                                                                ($) => abort(
-                                                                                                                                    $,
-                                                                                                                                ),
-                                                                                                                            ),
+                                                                                                                    ),
+                                                                                                                ),
+                                                                                                                'dictionary': _p_change_context(
+                                                                                                                    v_unmarshalled_from_parse_tree.Property(
+                                                                                                                        $,
+                                                                                                                        ($) => abort(
+                                                                                                                            $,
                                                                                                                         ),
-                                                                                                                    }
-                                                                                                                },
-                                                                                                            ),
-                                                                                                        ),
-                                                                                                    ),
-                                                                                                ),
-                                                                                            }
-                                                                                        },
-                                                                                    ),
-                                                                                )],
-                                                                            )
-                                                                        case 'state group':
-                                                                            return _p_change_context(
-                                                                                $['value'],
-                                                                                ($) => ['state group', _p_change_context(
-                                                                                    v_unmarshalled_from_parse_tree.Verbose_Group(
-                                                                                        $,
-                                                                                        ($) => abort(
-                                                                                            $,
-                                                                                        ),
-                                                                                        {
-                                                                                            'expected properties': _p.dictionary.literal(
-                                                                                                {
-                                                                                                    "states": null,
-                                                                                                },
-                                                                                            ),
-                                                                                        },
-                                                                                    ),
-                                                                                    ($) => _p_variables(
-                                                                                        () => {
-                                                                                            
-                                                                                            const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                                                                $['value'],
-                                                                                            )
-                                                                                            return {
-                                                                                                'states': _p_change_context(
-                                                                                                    v_unmarshalled_from_parse_tree.Property(
-                                                                                                        $,
-                                                                                                        ($) => abort(
-                                                                                                            $,
-                                                                                                        ),
-                                                                                                        {
-                                                                                                            'id': 'states',
+                                                                                                                        {
+                                                                                                                            'id': 'dictionary',
+                                                                                                                        },
+                                                                                                                    ),
+                                                                                                                    ($) => Identifier(
+                                                                                                                        $,
+                                                                                                                        ($) => abort(
+                                                                                                                            $,
+                                                                                                                        ),
+                                                                                                                    ),
+                                                                                                                ),
+                                                                                                            }
                                                                                                         },
                                                                                                     ),
-                                                                                                    ($) => _p_change_context(
-                                                                                                        v_unmarshalled_from_parse_tree.Dictionary(
+                                                                                                ),
+                                                                                            ),
+                                                                                        ),
+                                                                                    }
+                                                                                },
+                                                                            ),
+                                                                        )],
+                                                                    )
+                                                                case 'state group':
+                                                                    return _p_change_context(
+                                                                        $['value'],
+                                                                        ($) => ['state group', _p_change_context(
+                                                                            v_unmarshalled_from_parse_tree.Verbose_Group(
+                                                                                $,
+                                                                                ($) => abort(
+                                                                                    $,
+                                                                                ),
+                                                                                {
+                                                                                    'expected properties': _p.dictionary.literal(
+                                                                                        {
+                                                                                            "states": null,
+                                                                                        },
+                                                                                    ),
+                                                                                },
+                                                                            ),
+                                                                            ($) => _p_variables(
+                                                                                () => {
+                                                                                    
+                                                                                    const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                                                                        $['value'],
+                                                                                    )
+                                                                                    return {
+                                                                                        'states': _p_change_context(
+                                                                                            v_unmarshalled_from_parse_tree.Property(
+                                                                                                $,
+                                                                                                ($) => abort(
+                                                                                                    $,
+                                                                                                ),
+                                                                                                {
+                                                                                                    'id': 'states',
+                                                                                                },
+                                                                                            ),
+                                                                                            ($) => _p_change_context(
+                                                                                                v_unmarshalled_from_parse_tree.Dictionary(
+                                                                                                    $,
+                                                                                                    ($) => abort(
+                                                                                                        $,
+                                                                                                    ),
+                                                                                                ),
+                                                                                                ($) => _p.dictionary.from.dictionary(
+                                                                                                    $['entries'],
+                                                                                                ).map(
+                                                                                                    ($, id) => _p_change_context(
+                                                                                                        v_unmarshalled_from_parse_tree.Verbose_Group(
                                                                                                             $,
                                                                                                             ($) => abort(
                                                                                                                 $,
                                                                                                             ),
+                                                                                                            {
+                                                                                                                'expected properties': _p.dictionary.literal(
+                                                                                                                    {
+                                                                                                                        "constraints": null,
+                                                                                                                        "node": null,
+                                                                                                                    },
+                                                                                                                ),
+                                                                                                            },
                                                                                                         ),
                                                                                                         ($) => _p_variables(
                                                                                                             () => {
                                                                                                                 
-                                                                                                                const var_dictionary_range = v_parse_tree_to_location.Value(
+                                                                                                                const var_verbose_group_range = v_parse_tree_to_location.Value(
                                                                                                                     $['value'],
                                                                                                                 )
-                                                                                                                return _p.dictionary.from.dictionary(
-                                                                                                                    $['entries'],
-                                                                                                                ).map(
-                                                                                                                    ($, id) => _p_change_context(
-                                                                                                                        v_unmarshalled_from_parse_tree.Verbose_Group(
+                                                                                                                return {
+                                                                                                                    'constraints': _p_change_context(
+                                                                                                                        v_unmarshalled_from_parse_tree.Property(
                                                                                                                             $,
                                                                                                                             ($) => abort(
                                                                                                                                 $,
                                                                                                                             ),
                                                                                                                             {
-                                                                                                                                'expected properties': _p.dictionary.literal(
-                                                                                                                                    {
-                                                                                                                                        "constraints": null,
-                                                                                                                                        "node": null,
-                                                                                                                                    },
-                                                                                                                                ),
+                                                                                                                                'id': 'constraints',
                                                                                                                             },
                                                                                                                         ),
-                                                                                                                        ($) => _p_variables(
-                                                                                                                            () => {
-                                                                                                                                
-                                                                                                                                const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                                                                                                    $['value'],
-                                                                                                                                )
-                                                                                                                                return {
-                                                                                                                                    'constraints': _p_change_context(
-                                                                                                                                        v_unmarshalled_from_parse_tree.Property(
+                                                                                                                        ($) => _p_change_context(
+                                                                                                                            v_unmarshalled_from_parse_tree.Dictionary(
+                                                                                                                                $,
+                                                                                                                                ($) => abort(
+                                                                                                                                    $,
+                                                                                                                                ),
+                                                                                                                            ),
+                                                                                                                            ($) => _p.dictionary.from.dictionary(
+                                                                                                                                $['entries'],
+                                                                                                                            ).map(
+                                                                                                                                ($, id) => _p_change_context(
+                                                                                                                                    v_unmarshalled_from_parse_tree.Verbose_Group(
+                                                                                                                                        $,
+                                                                                                                                        ($) => abort(
                                                                                                                                             $,
-                                                                                                                                            ($) => abort(
-                                                                                                                                                $,
-                                                                                                                                            ),
-                                                                                                                                            {
-                                                                                                                                                'id': 'constraints',
-                                                                                                                                            },
                                                                                                                                         ),
-                                                                                                                                        ($) => _p_change_context(
-                                                                                                                                            v_unmarshalled_from_parse_tree.Dictionary(
-                                                                                                                                                $,
-                                                                                                                                                ($) => abort(
-                                                                                                                                                    $,
-                                                                                                                                                ),
-                                                                                                                                            ),
-                                                                                                                                            ($) => _p_variables(
-                                                                                                                                                () => {
-                                                                                                                                                    
-                                                                                                                                                    const var_dictionary_range = v_parse_tree_to_location.Value(
-                                                                                                                                                        $['value'],
-                                                                                                                                                    )
-                                                                                                                                                    return _p.dictionary.from.dictionary(
-                                                                                                                                                        $['entries'],
-                                                                                                                                                    ).map(
-                                                                                                                                                        ($, id) => _p_change_context(
-                                                                                                                                                            v_unmarshalled_from_parse_tree.Verbose_Group(
-                                                                                                                                                                $,
-                                                                                                                                                                ($) => abort(
-                                                                                                                                                                    $,
-                                                                                                                                                                ),
-                                                                                                                                                                {
-                                                                                                                                                                    'expected properties': _p.dictionary.literal(
-                                                                                                                                                                        {
-                                                                                                                                                                            "path": null,
-                                                                                                                                                                        },
-                                                                                                                                                                    ),
-                                                                                                                                                                },
-                                                                                                                                                            ),
-                                                                                                                                                            ($) => _p_variables(
-                                                                                                                                                                () => {
-                                                                                                                                                                    
-                                                                                                                                                                    const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                                                                                                                                        $['value'],
-                                                                                                                                                                    )
-                                                                                                                                                                    return {
-                                                                                                                                                                        'path': _p_change_context(
-                                                                                                                                                                            v_unmarshalled_from_parse_tree.Property(
-                                                                                                                                                                                $,
-                                                                                                                                                                                ($) => abort(
-                                                                                                                                                                                    $,
-                                                                                                                                                                                ),
-                                                                                                                                                                                {
-                                                                                                                                                                                    'id': 'path',
-                                                                                                                                                                                },
-                                                                                                                                                                            ),
-                                                                                                                                                                            ($) => Path(
-                                                                                                                                                                                $,
-                                                                                                                                                                                ($) => abort(
-                                                                                                                                                                                    $,
-                                                                                                                                                                                ),
-                                                                                                                                                                            ),
-                                                                                                                                                                        ),
-                                                                                                                                                                    }
-                                                                                                                                                                },
-                                                                                                                                                            ),
-                                                                                                                                                        ),
-                                                                                                                                                    )
+                                                                                                                                        {
+                                                                                                                                            'expected properties': _p.dictionary.literal(
+                                                                                                                                                {
+                                                                                                                                                    "path": null,
                                                                                                                                                 },
                                                                                                                                             ),
-                                                                                                                                        ),
+                                                                                                                                        },
                                                                                                                                     ),
-                                                                                                                                    'node': _p_change_context(
-                                                                                                                                        v_unmarshalled_from_parse_tree.Property(
-                                                                                                                                            $,
-                                                                                                                                            ($) => abort(
-                                                                                                                                                $,
-                                                                                                                                            ),
-                                                                                                                                            {
-                                                                                                                                                'id': 'node',
-                                                                                                                                            },
-                                                                                                                                        ),
-                                                                                                                                        ($) => Node(
-                                                                                                                                            $,
-                                                                                                                                            ($) => abort(
-                                                                                                                                                $,
-                                                                                                                                            ),
-                                                                                                                                        ),
+                                                                                                                                    ($) => _p_variables(
+                                                                                                                                        () => {
+                                                                                                                                            
+                                                                                                                                            const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                                                                                                                                $['value'],
+                                                                                                                                            )
+                                                                                                                                            return {
+                                                                                                                                                'path': _p_change_context(
+                                                                                                                                                    v_unmarshalled_from_parse_tree.Property(
+                                                                                                                                                        $,
+                                                                                                                                                        ($) => abort(
+                                                                                                                                                            $,
+                                                                                                                                                        ),
+                                                                                                                                                        {
+                                                                                                                                                            'id': 'path',
+                                                                                                                                                        },
+                                                                                                                                                    ),
+                                                                                                                                                    ($) => Path(
+                                                                                                                                                        $,
+                                                                                                                                                        ($) => abort(
+                                                                                                                                                            $,
+                                                                                                                                                        ),
+                                                                                                                                                    ),
+                                                                                                                                                ),
+                                                                                                                                            }
+                                                                                                                                        },
                                                                                                                                     ),
-                                                                                                                                }
-                                                                                                                            },
+                                                                                                                                ),
+                                                                                                                            ),
                                                                                                                         ),
                                                                                                                     ),
-                                                                                                                )
+                                                                                                                    'node': _p_change_context(
+                                                                                                                        v_unmarshalled_from_parse_tree.Property(
+                                                                                                                            $,
+                                                                                                                            ($) => abort(
+                                                                                                                                $,
+                                                                                                                            ),
+                                                                                                                            {
+                                                                                                                                'id': 'node',
+                                                                                                                            },
+                                                                                                                        ),
+                                                                                                                        ($) => Node(
+                                                                                                                            $,
+                                                                                                                            ($) => abort(
+                                                                                                                                $,
+                                                                                                                            ),
+                                                                                                                        ),
+                                                                                                                    ),
+                                                                                                                }
                                                                                                             },
                                                                                                         ),
                                                                                                     ),
                                                                                                 ),
-                                                                                            }
-                                                                                        },
-                                                                                    ),
-                                                                                )],
-                                                                            )
-                                                                        default:
-                                                                            return abort(
-                                                                                ['liana', {
-                                                                                    'type': ['state', ['unknown option', $['option']['value']]],
-                                                                                    'range': v_parse_tree_to_location.Value(
-                                                                                        $['value'],
-                                                                                    ),
-                                                                                }],
-                                                                            )
-                                                                    }
-                                                                },
-                                                            ),
-                                                        ),
+                                                                                            ),
+                                                                                        ),
+                                                                                    }
+                                                                                },
+                                                                            ),
+                                                                        )],
+                                                                    )
+                                                                default:
+                                                                    return abort(
+                                                                        ['liana', {
+                                                                            'type': ['state', ['unknown option', $['option']['value']]],
+                                                                            'range': v_parse_tree_to_location.Value(
+                                                                                $['value'],
+                                                                            ),
+                                                                        }],
+                                                                    )
+                                                            }
+                                                        },
                                                     ),
-                                                }
-                                            },
-                                        ),
-                                    ),
-                                )
-                            },
+                                                ),
+                                            ),
+                                        }
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 ),
@@ -938,39 +914,31 @@ export const Root: t_signatures.Root = ($, abort) => _p_change_context(
                                 $,
                             ),
                         ),
-                        ($) => _p_variables(
-                            () => {
-                                
-                                const var_dictionary_range = v_parse_tree_to_location.Value(
-                                    $['value'],
-                                )
-                                return _p.dictionary.from.dictionary(
-                                    $['entries'],
-                                ).map(
-                                    ($, id) => _p_change_context(
-                                        v_unmarshalled_from_parse_tree.Verbose_Group(
-                                            $,
-                                            ($) => abort(
-                                                $,
-                                            ),
-                                            {
-                                                'expected properties': _p.dictionary.literal(
-                                                    {},
-                                                ),
-                                            },
-                                        ),
-                                        ($) => _p_variables(
-                                            () => {
-                                                
-                                                const var_verbose_group_range = v_parse_tree_to_location.Value(
-                                                    $['value'],
-                                                )
-                                                return null
-                                            },
-                                        ),
+                        ($) => _p.dictionary.from.dictionary(
+                            $['entries'],
+                        ).map(
+                            ($, id) => _p_change_context(
+                                v_unmarshalled_from_parse_tree.Verbose_Group(
+                                    $,
+                                    ($) => abort(
+                                        $,
                                     ),
-                                )
-                            },
+                                    {
+                                        'expected properties': _p.dictionary.literal(
+                                            {},
+                                        ),
+                                    },
+                                ),
+                                ($) => _p_variables(
+                                    () => {
+                                        
+                                        const var_verbose_group_range = v_parse_tree_to_location.Value(
+                                            $['value'],
+                                        )
+                                        return null
+                                    },
+                                ),
+                            ),
                         ),
                     ),
                 ),
