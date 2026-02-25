@@ -14,6 +14,6 @@
     "pareto-graphviz": "^0.2.22",
     "pareto-liana": "^0.0.6",
     "pareto-lionweb": "^0.1.9",
-    "pareto-static-html": "^0.1.28"
+    "pareto-static-html": "^0.1.29"
   }
 }
