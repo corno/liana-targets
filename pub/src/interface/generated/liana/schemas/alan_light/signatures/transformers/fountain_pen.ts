@@ -1,15 +1,15 @@
 
 import * as _pi from 'pareto-core/dist/interface'
 
-import * as i_out from "astn-core/dist/interface/generated/liana/schemas/sealed_target/data"
+import * as i_in from "../../data"
 
-import * as i_in from "./data"
+import * as i_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
 export namespace Identifier_ {
     
     export type I = i_in.Identifier
     
-    export type O = i_out.Value
+    export type O = i_out.Paragraph
     
     export namespace P {
         
@@ -25,7 +25,7 @@ export namespace Path_ {
     
     export type I = i_in.Path
     
-    export type O = i_out.Value
+    export type O = i_out.Paragraph
     
     export namespace P {
         
@@ -41,7 +41,7 @@ export namespace Node_ {
     
     export type I = i_in.Node
     
-    export type O = i_out.Value
+    export type O = i_out.Paragraph
     
     export namespace P {
         
@@ -57,7 +57,7 @@ export namespace Root_ {
     
     export type I = i_in.Root
     
-    export type O = i_out.Value
+    export type O = i_out.Paragraph
     
     export namespace P {
         
