@@ -179,8 +179,8 @@ export const Node: t_signatures.Node = ($) => ({
                                     return _p.ss(
                                         $,
                                         ($) => ['state group', {
-                                            'states': _p_change_context(
-                                                $['states'],
+                                            'options': _p_change_context(
+                                                $['options'],
                                                 ($) => _p.dictionary.from.dictionary(
                                                     $,
                                                 ).map(
