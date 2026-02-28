@@ -33,14 +33,14 @@ export const Schema_Tree: Schema_Tree = ($, abort) => _p.decide.state($, ($) => 
     }
 })
 
-// export const Schema: Schema = ($, abort) => ({
-//     'numerical types': _p.dictionary.from.dictionary(
-//         $.globals['number types']
-//     ).map(
-//         ($) => sh.numerical_type()
-//     ),
-//     'root': xxx
-// })
+export const Schema: Schema = ($, abort) => ({
+    'numerical types': _p.dictionary.from.dictionary(
+        $.globals['number types']
+    ).map(
+        ($) => sh.numerical_type()
+    ),
+    'root': xxx
+})
 
 // export const Value_to_Property: Value_to_Property = ($, abort) => _p.decide.state($, ($) => {
 //     switch ($[0]) {

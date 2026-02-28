@@ -76,12 +76,7 @@ export const constraint = (
 ): d_target.Node.properties.D.type_.state_group.states.D.constraints.D => ({
     'path': {
         'up steps': _p.list.literal(up_steps),
-        'context': {
-            'sibling': null,
-            'state constraint': {   
-                'name': "FIXME",
-            },
-        },
+        'context': ['sibling', null],
         'selection steps': _p.list.literal(selection_steps),
     }
 })

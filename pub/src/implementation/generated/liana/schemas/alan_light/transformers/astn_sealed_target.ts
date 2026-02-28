@@ -237,8 +237,8 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
                                                     'option': 'state group',
                                                     'value': ['group', ['verbose', _p.dictionary.literal(
                                                         {
-                                                            "options": _p_change_context(
-                                                                $['options'],
+                                                            "states": _p_change_context(
+                                                                $['states'],
                                                                 ($) => ['dictionary', _p.dictionary.from.dictionary(
                                                                     $,
                                                                 ).map(

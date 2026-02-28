@@ -154,7 +154,7 @@ export namespace Node_ {
                 
                 export namespace state_group {
                     
-                    export namespace options {
+                    export namespace states {
                         
                         export namespace D {
                             
@@ -185,12 +185,12 @@ export namespace Node_ {
                         
                     }
                     
-                    export type options = _pi.Dictionary<options.D>
+                    export type states = _pi.Dictionary<states.D>
                     
                 }
                 
                 export type state_group = {
-                    readonly 'options': state_group.options
+                    readonly 'states': state_group.states
                 }
                 
             }

@@ -701,7 +701,7 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                                                                                 {
                                                                                     'expected properties': _p.dictionary.literal(
                                                                                         {
-                                                                                            "options": null,
+                                                                                            "states": null,
                                                                                         },
                                                                                     ),
                                                                                 },
@@ -713,14 +713,14 @@ export const Node: t_signatures.Node = ($, abort) => _p_change_context(
                                                                                         $['value'],
                                                                                     )
                                                                                     return {
-                                                                                        'options': _p_change_context(
+                                                                                        'states': _p_change_context(
                                                                                             v_unmarshalled_from_parse_tree.Property(
                                                                                                 $,
                                                                                                 ($) => abort(
                                                                                                     $,
                                                                                                 ),
                                                                                                 {
-                                                                                                    'id': 'options',
+                                                                                                    'id': 'states',
                                                                                                 },
                                                                                             ),
                                                                                             ($) => _p_change_context(
