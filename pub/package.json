@@ -12,7 +12,7 @@
   "dependencies": {
     "pareto-fountain-pen-file-structure": "^0.0.6",
     "pareto-graphviz": "^0.2.24",
-    "pareto-liana": "^0.0.16",
+    "pareto-liana": "^0.0.23",
     "pareto-lionweb": "^0.1.11",
     "pareto-static-html": "^0.1.30"
   }
