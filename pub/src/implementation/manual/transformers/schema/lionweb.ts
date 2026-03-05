@@ -1,14 +1,13 @@
 import * as _p from 'pareto-core/dist/assign'
+import * as _pi from 'pareto-core/dist/interface'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
-// import * as d_out from "../../../../../interface/generated/liana/schemas/lionweb/data"
+import * as d_out from "pareto-lionweb/dist/interface/generated/liana/schemas/serialization_chunk/data"
 
 // //dependencies
 
-export const MetaPointer = (
-    $: string,
-): d_out.MetaPointer => ({
+export const Meta_Pointer: _pi.Transformer<string, d_out.Meta_Pointer> = ($) => ({
     'language': "astn",
     'version': "0.1",
     'key': $,
