@@ -1,5 +1,7 @@
 import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
+import _p_unreachable_path from 'pareto-core/dist/_p_unreachable_code_path'
+import * as _pdev from 'pareto-core-dev'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
@@ -14,48 +16,47 @@ export const Meta_Pointer: _pi.Transformer<string, d_out.Meta_Pointer> = ($) => 
 })
 
 
-// export const Schema = (
-//     $: d_in.Schema,
-// ): d_out.SerializationChunk => ({
-//     'serializationFormatVersion': "2023.1",
-//     'languages': _p.list.literal([
-//         {
-//             'key': "LionCore-M3",
-//             'version': "2023.1",
-//         },
-//         {
-//             'key': "LionCore-builtins",
-//             'version': "2023.1",
-//         }
-//     ]),
-//     'nodes': _p.list.flatten(
-//         $.types.__to_list(
-//             ($, id) => Type_Node_2_Document_nodes(
-//                 $.node,
-//                 {
-//                     'path': key,
-//                 }
-//             )
-//         ),
-//         ($) => $,
-//     )
-// })
+export const Schema = (
+    $: d_in.Schema,
+): d_out.Serialization_Chunk => ({
+    'range': _p_unreachable_path("REMOVE range property"),
+    'serializationFormatVersion': "2023.1",
+    'languages': _p.list.literal([
+        {
+            'key': "LionCore-M3",
+            'version': "2023.1",
+        },
+        {
+            'key': "LionCore-builtins",
+            'version': "2023.1",
+        }
+    ]),
+    'nodes': _p.list.from.dictionary($.modules).flatten(
+        ($, id) => _pdev.implement_me("lionweb")
+        // ($, id) => Type_Node_2_Document_nodes(
+        //     $['root value'],
+        //     {
+        //         'path': id,
+        //     }
+        // ),
+    )
+})
 
 // export const Type_Node_2_properties = (
 //     $: d_in.Type_Node,
 //     $p: {
 //         'path': string,
 //     }
-// ): d_out.SerializationChunk.nodes.L.properties => _p.list.literal([])
+// ): d_out.Serialization_Chunk.nodes.L.properties => _p.list.literal([])
 
 // export const Type_Node_2_Document_nodes = (
 //     $: d_in.Type_Node,
 //     $p: {
 //         'path': string,
 //     }
-// ): d_out.SerializationChunk.nodes => _p.decide.state($, ($) => {
+// ): d_out.Serialization_Chunk.nodes => _p.decide.state($, ($) => {
 //     switch ($[0]) {
-//         case 'dictionary': return _p.ss($, ($): d_out.SerializationChunk.nodes => _p.list.nested_literal_old<d_out.SerializationChunk.nodes.L>([
+//         case 'dictionary': return _p.ss($, ($): d_out.Serialization_Chunk.nodes => _p.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
 //             _p.list.literal([
 //                 {
 //                     'id': $p.path,
@@ -93,7 +94,7 @@ export const Meta_Pointer: _pi.Transformer<string, d_out.Meta_Pointer> = ($) => 
 //                 }
 //             ),
 //         ]))
-//         case 'group': return _p.ss($, ($): d_out.SerializationChunk.nodes => _p.list.nested_literal_old<d_out.SerializationChunk.nodes.L>([
+//         case 'group': return _p.ss($, ($): d_out.Serialization_Chunk.nodes => _p.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
@@ -120,7 +121,7 @@ export const Meta_Pointer: _pi.Transformer<string, d_out.Meta_Pointer> = ($) => 
 //                 ($) => $,
 //             ),
 //         ]))
-//         case 'list': return _p.ss($, ($): d_out.SerializationChunk.nodes => _p.list.nested_literal_old<d_out.SerializationChunk.nodes.L>([
+//         case 'list': return _p.ss($, ($): d_out.Serialization_Chunk.nodes => _p.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
@@ -144,7 +145,7 @@ export const Meta_Pointer: _pi.Transformer<string, d_out.Meta_Pointer> = ($) => 
 //                 }
 //             ),
 //         ]))
-//         case 'optional': return _p.ss($, ($): d_out.SerializationChunk.nodes => _p.list.nested_literal_old<d_out.SerializationChunk.nodes.L>([
+//         case 'optional': return _p.ss($, ($): d_out.Serialization_Chunk.nodes => _p.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
@@ -168,7 +169,7 @@ export const Meta_Pointer: _pi.Transformer<string, d_out.Meta_Pointer> = ($) => 
 //                 }
 //             ),
 //         ]))
-//         case 'state group': return _p.ss($, ($): d_out.SerializationChunk.nodes => _p.list.nested_literal_old<d_out.SerializationChunk.nodes.L>([
+//         case 'state group': return _p.ss($, ($): d_out.Serialization_Chunk.nodes => _p.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,

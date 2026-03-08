@@ -5,7 +5,7 @@ import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schem
 import * as d_out from "pareto-fountain-pen-file-structure/dist/interface/to_be_generated/file-system"
 
 //dependencies
-import * as t_lionweb_to_fountain_pen from "pareto-lionweb/dist/implementation/manual/transformers/fountain_pen"
+import * as t_lionweb_to_fountain_pen from "pareto-lionweb/dist/modules/lionweb-core/implementation/manual/transformers/serialization_chunk/fountain_pen"
 import * as t_schema_to_lionweb from "./lionweb_serialization_chunk"
 
 //shorthands
@@ -20,10 +20,8 @@ export const Schema_Tree = (
     switch ($[0]) {
         case 'schema': return _p.ss($, ($) => _p.dictionary.literal({
             "lionweb.json": sh.n.file(
-                t_lionweb_to_fountain_pen.Graph(
-                    t_schema_to_lionweb.Schema($, {
-                        'graph name': $p['graph name']
-                    })
+                t_lionweb_to_fountain_pen.Serialization_Chunk(
+                    t_schema_to_lionweb.Schema($)
                 ),
             )
         }))
