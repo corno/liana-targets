@@ -1,7 +1,7 @@
 import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
 import _p_unreachable_path from 'pareto-core/dist/_p_unreachable_code_path'
-import * as _pdev from 'pareto-core-dev'
+import _p_implement_me from 'pareto-core-dev/dist/implement_me'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
@@ -32,7 +32,7 @@ export const Schema = (
         }
     ]),
     'nodes': _p.list.from.dictionary($.modules).flatten(
-        ($, id) => _pdev.implement_me("lionweb")
+        ($, id) => _p_implement_me("lionweb")
         // ($, id) => Type_Node_2_Document_nodes(
         //     $['root value'],
         //     {
