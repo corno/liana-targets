@@ -1,204 +1,204 @@
 (
-    'omit (de)serializer': false
-    'schema tree': | 'set' {
-        `alan light`: | 'schema' (
-            'schema imports': {}
-            'resolver imports': {}
-            'globals': (
-                'complexity': | 'unconstrained' ~
-                'text types': {
-                    `Pseudo Reference`: (
-                        'type': | 'single line' ~
+    `omit (de)serializer`: false
+    `schema tree`: | `set` {
+        'alan light': | `schema` (
+            `schema imports`: {}
+            `resolver imports`: {}
+            `globals`: (
+                `complexity`: | `unconstrained` ~
+                `text types`: {
+                    'Pseudo Reference': (
+                        `type`: | `single line` ~
                     )
                 }
-                'number types': {}
+                `number types`: {}
             )
-            'modules': {
-                `Identifier`: (
-                    'root value': | 'text' | 'global' `Pseudo Reference`
+            `modules`: {
+                'Identifier': (
+                    `root value`: | `text` | `global` 'Pseudo Reference'
                 )
-                `Path`: (
-                    'root value': | 'group' {
-                        `up steps`: (
-                            'description': ~
-                            'value': | 'list' (
-                                'value': | 'group' {}
-                                'results': ~
+                'Path': (
+                    `root value`: | `group` {
+                        'up steps': (
+                            `description`: _
+                            `value`: | `list` (
+                                `value`: | `group` {}
+                                `results`: _
                             )
                         )
-                        `context`: (
-                            'description': ~
-                            'value': | 'state' (
-                                'options': {
-                                    `sibling`: (
-                                        'constraints': ~
-                                        'description': ~
-                                        'value': | 'group' {}
+                        'context': (
+                            `description`: _
+                            `value`: | `state` (
+                                `options`: {
+                                    'sibling': (
+                                        `constraints`: _
+                                        `description`: _
+                                        `value`: | `group` {}
                                     )
-                                    `state constraint`: (
-                                        'constraints': ~
-                                        'description': ~
-                                        'value': | 'group' {
-                                            `name`: (
-                                                'description': ~
-                                                'value': | 'component' (
-                                                    'type': | 'internal' `Identifier`
-                                                    'results': ~
+                                    'state constraint': (
+                                        `constraints`: _
+                                        `description`: _
+                                        `value`: | `group` {
+                                            'name': (
+                                                `description`: _
+                                                `value`: | `component` (
+                                                    `type`: | `internal` 'Identifier'
+                                                    `results`: _
                                                 )
                                             )
                                         }
                                     )
                                 }
-                                'results': ~
+                                `results`: _
                             )
                         )
-                        `selection steps`: (
-                            'description': ~
-                            'value': | 'list' (
-                                'value': | 'state' (
-                                    'options': {
-                                        `group`: (
-                                            'constraints': ~
-                                            'description': ~
-                                            'value': | 'group' {
-                                                `name`: (
-                                                    'description': ~
-                                                    'value': | 'component' (
-                                                        'type': | 'internal' `Identifier`
-                                                        'results': ~
+                        'selection steps': (
+                            `description`: _
+                            `value`: | `list` (
+                                `value`: | `state` (
+                                    `options`: {
+                                        'group': (
+                                            `constraints`: _
+                                            `description`: _
+                                            `value`: | `group` {
+                                                'name': (
+                                                    `description`: _
+                                                    `value`: | `component` (
+                                                        `type`: | `internal` 'Identifier'
+                                                        `results`: _
                                                     )
                                                 )
                                             }
                                         )
-                                        `state constraint`: (
-                                            'constraints': ~
-                                            'description': ~
-                                            'value': | 'group' {
-                                                `name`: (
-                                                    'description': ~
-                                                    'value': | 'component' (
-                                                        'type': | 'internal' `Identifier`
-                                                        'results': ~
+                                        'state constraint': (
+                                            `constraints`: _
+                                            `description`: _
+                                            `value`: | `group` {
+                                                'name': (
+                                                    `description`: _
+                                                    `value`: | `component` (
+                                                        `type`: | `internal` 'Identifier'
+                                                        `results`: _
                                                     )
                                                 )
                                             }
                                         )
-                                        `reference`: (
-                                            'constraints': ~
-                                            'description': ~
-                                            'value': | 'group' {
-                                                `name`: (
-                                                    'description': ~
-                                                    'value': | 'component' (
-                                                        'type': | 'internal' `Identifier`
-                                                        'results': ~
+                                        'reference': (
+                                            `constraints`: _
+                                            `description`: _
+                                            `value`: | `group` {
+                                                'name': (
+                                                    `description`: _
+                                                    `value`: | `component` (
+                                                        `type`: | `internal` 'Identifier'
+                                                        `results`: _
                                                     )
                                                 )
                                             }
                                         )
                                     }
-                                    'results': ~
+                                    `results`: _
                                 )
-                                'results': ~
+                                `results`: _
                             )
                         )
                     }
                 )
-                `Node`: (
-                    'root value': | 'group' {
-                        `properties`: (
-                            'description': ~
-                            'value': | 'dictionary' (
-                                'value': | 'group' {
-                                    `type`: (
-                                        'description': ~
-                                        'value': | 'state' (
-                                            'options': {
-                                                `collection`: (
-                                                    'constraints': ~
-                                                    'description': ~
-                                                    'value': | 'group' {
-                                                        `node`: (
-                                                            'description': ~
-                                                            'value': | 'component' (
-                                                                'type': | 'internal' `Node`
-                                                                'results': ~
+                'Node': (
+                    `root value`: | `group` {
+                        'properties': (
+                            `description`: _
+                            `value`: | `dictionary` (
+                                `value`: | `group` {
+                                    'type': (
+                                        `description`: _
+                                        `value`: | `state` (
+                                            `options`: {
+                                                'collection': (
+                                                    `constraints`: _
+                                                    `description`: _
+                                                    `value`: | `group` {
+                                                        'node': (
+                                                            `description`: _
+                                                            `value`: | `component` (
+                                                                `type`: | `internal` 'Node'
+                                                                `results`: _
                                                             )
                                                         )
-                                                        `key`: (
-                                                            'description': ~
-                                                            'value': | 'component' (
-                                                                'type': | 'internal' `Identifier`
-                                                                'results': ~
-                                                            )
-                                                        )
-                                                    }
-                                                )
-                                                `group`: (
-                                                    'constraints': ~
-                                                    'description': ~
-                                                    'value': | 'group' {
-                                                        `node`: (
-                                                            'description': ~
-                                                            'value': | 'component' (
-                                                                'type': | 'internal' `Node`
-                                                                'results': ~
+                                                        'key': (
+                                                            `description`: _
+                                                            `value`: | `component` (
+                                                                `type`: | `internal` 'Identifier'
+                                                                `results`: _
                                                             )
                                                         )
                                                     }
                                                 )
-                                                `text`: (
-                                                    'constraints': ~
-                                                    'description': ~
-                                                    'value': | 'group' {
-                                                        `constraint`: (
-                                                            'description': ~
-                                                            'value': | 'optional' | 'group' {
-                                                                `path`: (
-                                                                    'description': ~
-                                                                    'value': | 'component' (
-                                                                        'type': | 'internal' `Path`
-                                                                        'results': ~
+                                                'group': (
+                                                    `constraints`: _
+                                                    `description`: _
+                                                    `value`: | `group` {
+                                                        'node': (
+                                                            `description`: _
+                                                            `value`: | `component` (
+                                                                `type`: | `internal` 'Node'
+                                                                `results`: _
+                                                            )
+                                                        )
+                                                    }
+                                                )
+                                                'text': (
+                                                    `constraints`: _
+                                                    `description`: _
+                                                    `value`: | `group` {
+                                                        'constraint': (
+                                                            `description`: _
+                                                            `value`: | `optional` | `group` {
+                                                                'path': (
+                                                                    `description`: _
+                                                                    `value`: | `component` (
+                                                                        `type`: | `internal` 'Path'
+                                                                        `results`: _
                                                                     )
                                                                 )
-                                                                `dictionary`: (
-                                                                    'description': ~
-                                                                    'value': | 'component' (
-                                                                        'type': | 'internal' `Identifier`
-                                                                        'results': ~
+                                                                'dictionary': (
+                                                                    `description`: _
+                                                                    `value`: | `component` (
+                                                                        `type`: | `internal` 'Identifier'
+                                                                        `results`: _
                                                                     )
                                                                 )
                                                             }
                                                         )
                                                     }
                                                 )
-                                                `state group`: (
-                                                    'constraints': ~
-                                                    'description': ~
-                                                    'value': | 'group' {
-                                                        `states`: (
-                                                            'description': ~
-                                                            'value': | 'dictionary' (
-                                                                'value': | 'group' {
-                                                                    `constraints`: (
-                                                                        'description': ~
-                                                                        'value': | 'dictionary' (
-                                                                            'value': | 'group' {
-                                                                                `path`: (
-                                                                                    'description': ~
-                                                                                    'value': | 'component' (
-                                                                                        'type': | 'internal' `Path`
-                                                                                        'results': ~
+                                                'state group': (
+                                                    `constraints`: _
+                                                    `description`: _
+                                                    `value`: | `group` {
+                                                        'states': (
+                                                            `description`: _
+                                                            `value`: | `dictionary` (
+                                                                `value`: | `group` {
+                                                                    'constraints': (
+                                                                        `description`: _
+                                                                        `value`: | `dictionary` (
+                                                                            `value`: | `group` {
+                                                                                'path': (
+                                                                                    `description`: _
+                                                                                    `value`: | `component` (
+                                                                                        `type`: | `internal` 'Path'
+                                                                                        `results`: _
                                                                                     )
                                                                                 )
                                                                             }
                                                                         )
                                                                     )
-                                                                    `node`: (
-                                                                        'description': ~
-                                                                        'value': | 'component' (
-                                                                            'type': | 'internal' `Node`
-                                                                            'results': ~
+                                                                    'node': (
+                                                                        `description`: _
+                                                                        `value`: | `component` (
+                                                                            `type`: | `internal` 'Node'
+                                                                            `results`: _
                                                                         )
                                                                     )
                                                                 }
@@ -207,7 +207,7 @@
                                                     }
                                                 )
                                             }
-                                            'results': ~
+                                            `results`: _
                                         )
                                     )
                                 }
@@ -215,25 +215,25 @@
                         )
                     }
                 )
-                `Root`: (
-                    'root value': | 'group' {
-                        `numerical types`: (
-                            'description': ~
-                            'value': | 'dictionary' (
-                                'value': | 'group' {}
+                'Root': (
+                    `root value`: | `group` {
+                        'numerical types': (
+                            `description`: _
+                            `value`: | `dictionary` (
+                                `value`: | `group` {}
                             )
                         )
-                        `root`: (
-                            'description': ~
-                            'value': | 'component' (
-                                'type': | 'internal' `Node`
-                                'results': ~
+                        'root': (
+                            `description`: _
+                            `value`: | `component` (
+                                `type`: | `internal` 'Node'
+                                `results`: _
                             )
                         )
                     }
                 )
             }
-            'complexity': | 'unconstrained' ~
+            `complexity`: | `unconstrained` ~
         )
     }
 )
