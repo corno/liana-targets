@@ -36,7 +36,7 @@ export const Schema_Tree: Schema_Tree = ($, abort) => _p.decide.state($, ($) => 
 
 export const Schema: Schema = ($, abort) => ({
     'numerical types': _p.dictionary.from.dictionary(
-        $.globals['number types']
+        $.globals['simple types']
     ).map(
         ($) => sh.numerical_type()
     ),

@@ -11,7 +11,7 @@
                         `type`: | `single line` ~
                     )
                 }
-                `number types`: {}
+                `simple types`: {}
             )
             `modules`: {
                 'Identifier': (
