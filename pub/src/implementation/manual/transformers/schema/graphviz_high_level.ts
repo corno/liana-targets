@@ -33,8 +33,7 @@ export const Value = (
     },
 ): d_out.Graph.type_.directed.edges => _p.decide.state($, ($) => {
     switch ($[0]) {
-        case 'number': return _p.ss($, ($) => _p.list.literal([]))
-        case 'boolean': return _p.ss($, ($) => _p.list.literal([]))
+        case 'simple': return _p.ss($, ($) => _p.list.literal([]))
         case 'list': return _p.ss($, ($) => Value($.value, $p))
         case 'nothing': return _p.ss($, ($) => _p.list.literal([]))
         case 'reference': return _p.ss($, ($) => _p.list.literal([]))
