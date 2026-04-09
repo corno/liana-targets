@@ -1,6 +1,6 @@
 {
   "name": "liana-targets",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "A library that generates all kinds of target formats from liana schemas",
@@ -10,10 +10,10 @@
     "dist"
   ],
   "dependencies": {
-    "pareto-fountain-pen-file-structure": "0.1.3",
-    "pareto-graphviz": "0.2.31",
-    "pareto-liana": "0.1.17",
-    "pareto-lionweb": "0.1.16",
-    "pareto-static-html": "0.1.37"
+    "pareto-fountain-pen-file-structure": "0.1.4",
+    "pareto-graphviz": "0.2.32",
+    "pareto-liana": "0.1.26",
+    "pareto-lionweb": "0.1.17",
+    "pareto-static-html": "0.1.38"
   }
 }
