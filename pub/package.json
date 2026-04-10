@@ -1,6 +1,6 @@
 {
   "name": "liana-targets",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Corno",
   "license": "Apache-2.0",
   "description": "A library that generates all kinds of target formats from liana schemas",
