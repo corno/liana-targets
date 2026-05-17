@@ -1,6 +1,6 @@
 import * as _p from 'pareto-core/dist/assign'
 import * as _pi from 'pareto-core/dist/interface'
-import _p_unreachable_path from 'pareto-core/dist/_p_unreachable_code_path'
+import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
 import _p_implement_me from 'pareto-core-dev/dist/implement_me'
 
 //data types
@@ -19,7 +19,7 @@ export const Meta_Pointer: _pi.Transformer<string, d_out.Meta_Pointer> = ($) => 
 export const Schema = (
     $: d_in.Schema,
 ): d_out.Serialization_Chunk => ({
-    'range': _p_unreachable_path("REMOVE range property"),
+    'range': _p_unreachable_code_path("REMOVE range property"),
     'serializationFormatVersion': "2023.1",
     'languages': _p.list.literal([
         {
