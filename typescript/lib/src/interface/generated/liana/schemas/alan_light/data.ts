@@ -11,7 +11,7 @@ export namespace Path_ {
             
         }
         
-        export type L = null
+        export type L = symbol
         
     }
     
@@ -23,7 +23,7 @@ export namespace Path_ {
             
         }
         
-        export type sibling = null
+        export type sibling = symbol
         
         export namespace state_constraint {
             
@@ -225,7 +225,7 @@ export namespace Root_ {
             
         }
         
-        export type D = null
+        export type D = symbol
         
     }
     

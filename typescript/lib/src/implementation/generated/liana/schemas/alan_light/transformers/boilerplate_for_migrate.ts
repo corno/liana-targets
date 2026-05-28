@@ -3,6 +3,8 @@ import * as _p from 'pareto-core/dist/assign'
 
 import _p_change_context from 'pareto-core/dist/_p_change_context'
 
+import _p_create_symbol from 'pareto-core/dist/_p_create_symbol'
+
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/alan_light/signatures/transformers/boilerplate_for_migrate"
 
 import * as t_out from "../../../../../../interface/generated/liana/schemas/alan_light/data"
@@ -15,7 +17,7 @@ export const Path: t_signatures.Path = ($) => ({
         ($) => _p.list.from.list(
             $,
         ).map(
-            ($) => null,
+            ($) => _p_create_symbol(),
         ),
     ),
     'context': _p_change_context(
@@ -27,7 +29,7 @@ export const Path: t_signatures.Path = ($) => ({
                     case 'sibling':
                         return _p.ss(
                             $,
-                            ($) => ['sibling', null],
+                            ($) => ['sibling', _p_create_symbol()],
                         )
                     case 'state constraint':
                         return _p.ss(
@@ -230,7 +232,7 @@ export const Root: t_signatures.Root = ($) => ({
         ($) => _p.dictionary.from.dictionary(
             $,
         ).map(
-            ($, id) => null,
+            ($, id) => _p_create_symbol(),
         ),
     ),
     'root': _p_change_context(
