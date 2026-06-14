@@ -1,18 +1,18 @@
-import * as _p from 'pareto-core-shorthands/dist/unconstrained'
-import _p_create_symbol from 'pareto-core/dist/_p_create_symbol'
+import * as pt from 'pareto-core-shorthands/dist/unconstrained'
+import p_create_symbol from 'pareto-core/dist/_p_create_symbol'
 
 import * as d_target from "../../../interface/generated/liana/schemas/alan_light/data"
 
 export const root = (
-    numerical_types: _p.Raw_Or_Normal_Dictionary<d_target.Root.numerical_types.D>,
+    numerical_types: pt.Raw_Or_Normal_Dictionary<d_target.Root.numerical_types.D>,
     root: d_target.Node
 ): d_target.Root => ({
-    'numerical types': _p.dictionary.literal(numerical_types),
+    'numerical types': pt.dictionary.literal(numerical_types),
     'root': root
 })
 
 export const numerical_type = (
-): d_target.Root.numerical_types.D => (_p_create_symbol())
+): d_target.Root.numerical_types.D => (p_create_symbol())
 
 export namespace prop {
 
@@ -37,7 +37,7 @@ export namespace prop {
     export const text = (
     ): d_target.Node.properties.D => ({
         'type': ['text', {
-            'constraint': _p.optional.literal.not_set(),
+            'constraint': pt.optional.literal.not_set(),
         }]
     })
 
@@ -46,7 +46,7 @@ export namespace prop {
         dictionary: d_target.Identifier,
     ): d_target.Node.properties.D => ({
         'type': ['text', {
-            'constraint': _p.optional.literal.set({
+            'constraint': pt.optional.literal.set({
                 'path': path,
                 'dictionary': dictionary,
             }),
@@ -54,48 +54,48 @@ export namespace prop {
     })
 
     export const state_group = (
-        states: _p.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D>,
+        states: pt.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D>,
     ): d_target.Node.properties.D => ({
         'type': ['state group', {
-            'states': _p.dictionary.literal(states),
+            'states': pt.dictionary.literal(states),
         }]
     })
 
 }
 
 export const state = (
-    constraints: _p.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D.constraints.D>,
+    constraints: pt.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D.constraints.D>,
     node: d_target.Node,
 ): d_target.Node.properties.D.type_.state_group.states.D => ({
-    'constraints': _p.dictionary.literal(constraints),
+    'constraints': pt.dictionary.literal(constraints),
     'node': node,
 })
 
 export const constraint = (
-    up_steps: _p.Raw_Or_Normal_List<d_target.Path.up_steps.L>,
-    selection_steps: _p.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
+    up_steps: pt.Raw_Or_Normal_List<d_target.Path.up_steps.L>,
+    selection_steps: pt.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
 ): d_target.Node.properties.D.type_.state_group.states.D.constraints.D => ({
     'path': {
-        'up steps': _p.list.literal(up_steps),
-        'context': ['sibling', _p_create_symbol()],
-        'selection steps': _p.list.literal(selection_steps),
+        'up steps': pt.list.literal(up_steps),
+        'context': ['sibling', p_create_symbol()],
+        'selection steps': pt.list.literal(selection_steps),
     }
 })
 
 export const path = (
-    up_steps: _p.Raw_Or_Normal_List<d_target.Path.up_steps.L>,
+    up_steps: pt.Raw_Or_Normal_List<d_target.Path.up_steps.L>,
     context: d_target.Path.context,
-    selection_steps: _p.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
+    selection_steps: pt.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
 ): d_target.Path => ({
-    'up steps': _p.list.literal(up_steps),
+    'up steps': pt.list.literal(up_steps),
     'context': context,
-    'selection steps': _p.list.literal(selection_steps),
+    'selection steps': pt.list.literal(selection_steps),
 })
 
 export const node = (
-    properties: _p.Raw_Or_Normal_Dictionary<d_target.Node.properties.D>,
+    properties: pt.Raw_Or_Normal_Dictionary<d_target.Node.properties.D>,
 ): d_target.Node => ({
-    'properties': _p.dictionary.literal(properties),
+    'properties': pt.dictionary.literal(properties),
 })
 
 

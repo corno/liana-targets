@@ -1,4 +1,4 @@
-import * as _p from 'pareto-core/dist/assign'
+import * as pt from 'pareto-core/dist/assign'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
@@ -19,11 +19,11 @@ export const Package = ($: d_in.Package): d_out.Document => sh.document(
 
 export const Schema_Tree = (
     $: d_in.Schema_Tree
-): d_out.Flow_Element => _p.decide.state($, ($): d_out.Flow_Element => {
+): d_out.Flow_Element => pt.decide.state($, ($): d_out.Flow_Element => {
     switch ($[0]) {
-        case 'schema': return _p.ss($, ($) => Schema($))
-        case 'set': return _p.ss($, ($) => sh.f.div(Schemas($)))
-        default: return _p.au($[0])
+        case 'schema': return pt.ss($, ($) => Schema($))
+        case 'set': return pt.ss($, ($) => sh.f.div(Schemas($)))
+        default: return pt.au($[0])
     }
 })
 

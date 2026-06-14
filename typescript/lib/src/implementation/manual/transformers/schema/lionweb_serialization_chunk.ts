@@ -1,7 +1,7 @@
-import * as _p from 'pareto-core/dist/assign'
-import * as _pi from 'pareto-core/dist/interface'
-import _p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
-import _p_implement_me from 'pareto-core-dev/dist/implement_me'
+import * as pt from 'pareto-core/dist/assign'
+import * as pi from 'pareto-core/dist/interface'
+import p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import p_implement_me from 'pareto-core-dev/dist/implement_me'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
@@ -9,7 +9,7 @@ import * as d_out from "pareto-lionweb/dist/interface/generated/liana/schemas/se
 
 // //dependencies
 
-export const Meta_Pointer: _pi.Transformer<string, d_out.Meta_Pointer> = ($) => ({
+export const Meta_Pointer: pi.Transformer<string, d_out.Meta_Pointer> = ($) => ({
     'language': "astn",
     'version': "0.1",
     'key': $,
@@ -19,9 +19,9 @@ export const Meta_Pointer: _pi.Transformer<string, d_out.Meta_Pointer> = ($) => 
 export const Schema = (
     $: d_in.Schema,
 ): d_out.Serialization_Chunk => ({
-    'range': _p_unreachable_code_path("REMOVE range property"),
+    'range': p_unreachable_code_path("REMOVE range property"),
     'serializationFormatVersion': "2023.1",
-    'languages': _p.list.literal([
+    'languages': pt.list.literal([
         {
             'key': "LionCore-M3",
             'version': "2023.1",
@@ -31,8 +31,8 @@ export const Schema = (
             'version': "2023.1",
         }
     ]),
-    'nodes': _p.list.from.dictionary($.modules).flatten(
-        ($, id) => _p_implement_me("lionweb")
+    'nodes': pt.list.from.dictionary($.modules).flatten(
+        ($, id) => p_implement_me("lionweb")
         // ($, id) => Type_Node_2_Document_nodes(
         //     $['root value'],
         //     {
@@ -47,44 +47,44 @@ export const Schema = (
 //     $p: {
 //         'path': string,
 //     }
-// ): d_out.Serialization_Chunk.nodes.L.properties => _p.list.literal([])
+// ): d_out.Serialization_Chunk.nodes.L.properties => pt.list.literal([])
 
 // export const Type_Node_2_Document_nodes = (
 //     $: d_in.Type_Node,
 //     $p: {
 //         'path': string,
 //     }
-// ): d_out.Serialization_Chunk.nodes => _p.decide.state($, ($) => {
+// ): d_out.Serialization_Chunk.nodes => pt.decide.state($, ($) => {
 //     switch ($[0]) {
-//         case 'dictionary': return _p.ss($, ($): d_out.Serialization_Chunk.nodes => _p.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
-//             _p.list.literal([
+//         case 'dictionary': return pt.ss($, ($): d_out.Serialization_Chunk.nodes => pt.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
+//             pt.list.literal([
 //                 {
 //                     'id': $p.path,
-//                     'parent': _p.optional.literal.not_set(),
-//                     'annotations': _p.list.literal([]),
+//                     'parent': pt.optional.literal.not_set(),
+//                     'annotations': pt.list.literal([]),
 //                     'classifier': MetaPointer("dictionary"),
-//                     'containments': _p.list.literal([
+//                     'containments': pt.list.literal([
 //                         {
 //                             'containment': MetaPointer("entry"),
-//                             'children': _p.list.literal([$p.path plus ".D"]),
+//                             'children': pt.list.literal([$p.path plus ".D"]),
 //                         },
 //                     ]),
-//                     'properties': _p.list.literal([]),
-//                     'references': _p.list.literal([])
+//                     'properties': pt.list.literal([]),
+//                     'references': pt.list.literal([])
 //                 },
 //                 {
 //                     'id': $p.path plus ".D",
-//                     'parent': _p.optional.literal.not_set(),
-//                     'annotations': _p.list.literal([]),
+//                     'parent': pt.optional.literal.not_set(),
+//                     'annotations': pt.list.literal([]),
 //                     'classifier': MetaPointer("entry"),
-//                     'containments': _p.list.literal([
+//                     'containments': pt.list.literal([
 //                         {
 //                             'containment': MetaPointer("entries"),
-//                             'children': _p.list.literal([$p.path plus ".D"]),
+//                             'children': pt.list.literal([$p.path plus ".D"]),
 //                         },
 //                     ]),
-//                     'properties': _p.list.literal([]),
-//                     'references': _p.list.literal([])
+//                     'properties': pt.list.literal([]),
+//                     'references': pt.list.literal([])
 //                 }
 //             ]),
 //             Type_Node_2_Document_nodes(
@@ -94,24 +94,24 @@ export const Schema = (
 //                 }
 //             ),
 //         ]))
-//         case 'group': return _p.ss($, ($): d_out.Serialization_Chunk.nodes => _p.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
+//         case 'group': return pt.ss($, ($): d_out.Serialization_Chunk.nodes => pt.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
-//                     'parent': _p.optional.literal.not_set(),
-//                     'annotations': _p.list.literal([]),
+//                     'parent': pt.optional.literal.not_set(),
+//                     'annotations': pt.list.literal([]),
 //                     'classifier': MetaPointer("group"),
-//                     'containments': _p.list.literal([
+//                     'containments': pt.list.literal([
 //                         {
 //                             'containment': MetaPointer("properties"),
 //                             'children': $.__to_list(($, id) => $p.path plus "." + key),
 //                         },
 //                     ]),
-//                     'properties': _p.list.literal([]),
-//                     'references': _p.list.literal([])
+//                     'properties': pt.list.literal([]),
+//                     'references': pt.list.literal([])
 //                 }
 //             ],
-//             _p.list.flatten(
+//             pt.list.flatten(
 //                 $.__to_list(($, id) => Type_Node_2_Document_nodes(
 //                     $.node,
 //                     {
@@ -121,21 +121,21 @@ export const Schema = (
 //                 ($) => $,
 //             ),
 //         ]))
-//         case 'list': return _p.ss($, ($): d_out.Serialization_Chunk.nodes => _p.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
+//         case 'list': return pt.ss($, ($): d_out.Serialization_Chunk.nodes => pt.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
-//                     'parent': _p.optional.literal.not_set(),
-//                     'annotations': _p.list.literal([]),
+//                     'parent': pt.optional.literal.not_set(),
+//                     'annotations': pt.list.literal([]),
 //                     'classifier': MetaPointer("list"),
-//                     'containments': _p.list.literal([
+//                     'containments': pt.list.literal([
 //                         {
 //                             'containment': MetaPointer("elements"),
-//                             'children': _p.list.literal([$p.path plus ".L"]),
+//                             'children': pt.list.literal([$p.path plus ".L"]),
 //                         },
 //                     ]),
-//                     'properties': _p.list.literal([]),
-//                     'references': _p.list.literal([])
+//                     'properties': pt.list.literal([]),
+//                     'references': pt.list.literal([])
 //                 }
 //             ],
 //             Type_Node_2_Document_nodes(
@@ -145,21 +145,21 @@ export const Schema = (
 //                 }
 //             ),
 //         ]))
-//         case 'optional': return _p.ss($, ($): d_out.Serialization_Chunk.nodes => _p.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
+//         case 'optional': return pt.ss($, ($): d_out.Serialization_Chunk.nodes => pt.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
-//                     'parent': _p.optional.literal.not_set(),
-//                     'annotations': _p.list.literal([]),
+//                     'parent': pt.optional.literal.not_set(),
+//                     'annotations': pt.list.literal([]),
 //                     'classifier': MetaPointer("list"),
-//                     'containments': _p.list.literal([
+//                     'containments': pt.list.literal([
 //                         {
 //                             'containment': MetaPointer("optional"),
-//                             'children': _p.list.literal([$p.path plus ".O"]),
+//                             'children': pt.list.literal([$p.path plus ".O"]),
 //                         },
 //                     ]),
-//                     'properties': _p.list.literal([]),
-//                     'references': _p.list.literal([])
+//                     'properties': pt.list.literal([]),
+//                     'references': pt.list.literal([])
 //                 }
 //             ],
 //             Type_Node_2_Document_nodes(
@@ -169,44 +169,44 @@ export const Schema = (
 //                 }
 //             ),
 //         ]))
-//         case 'state group': return _p.ss($, ($): d_out.Serialization_Chunk.nodes => _p.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
+//         case 'state group': return pt.ss($, ($): d_out.Serialization_Chunk.nodes => pt.list.nested_literal_old<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
-//                     'parent': _p.optional.literal.not_set(),
-//                     'annotations': _p.list.literal([]),
+//                     'parent': pt.optional.literal.not_set(),
+//                     'annotations': pt.list.literal([]),
 //                     'classifier': MetaPointer("state group"),
-//                     'containments': _p.list.literal([
+//                     'containments': pt.list.literal([
 //                         {
 //                             'containment': MetaPointer("states"),
-//                             'children': _p.list.from_dictionary($, ($, id) => $p.path plus "." + key),
+//                             'children': pt.list.from_dictionary($, ($, id) => $p.path plus "." + key),
 //                         },
 //                     ]),
-//                     'properties': _p.list.literal([]),
-//                     'references': _p.list.literal([])
+//                     'properties': pt.list.literal([]),
+//                     'references': pt.list.literal([])
 //                 }
 //             ],
-//             _p.list.from_dictionary($, ($, id) => ({
+//             pt.list.from_dictionary($, ($, id) => ({
 //                 'id': $p.path,
-//                 'parent': _p.optional.literal.not_set(),
-//                 'annotations': _p.list.literal([]),
+//                 'parent': pt.optional.literal.not_set(),
+//                 'annotations': pt.list.literal([]),
 //                 'classifier': MetaPointer("state"),
-//                 'containments': _p.list.literal([
+//                 'containments': pt.list.literal([
 //                     {
 //                         'containment': MetaPointer("states"),
-//                         'children': _p.list.literal([$p.path plus "." + key]),
+//                         'children': pt.list.literal([$p.path plus "." + key]),
 //                     },
 //                 ]),
-//                 'properties': _p.list.literal([
+//                 'properties': pt.list.literal([
 //                     {
 //                         'value': key,
 //                         'property': MetaPointer("state"),
 //                     }
 //                 ]),
-//                 'references': _p.list.literal([])
+//                 'references': pt.list.literal([])
 //             })),
-//             _p.list.flatten(
-//                 _p.list.from_dictionary($, ($, id) => Type_Node_2_Document_nodes(
+//             pt.list.flatten(
+//                 pt.list.from_dictionary($, ($, id) => Type_Node_2_Document_nodes(
 //                     $.node,
 //                     {
 //                         'path': $p.path plus "." + key,
@@ -215,6 +215,6 @@ export const Schema = (
 //                 ($) => $
 //             ),
 //         ]))
-//         default: return _p.list.literal([])
+//         default: return pt.list.literal([])
 //     }
 // })
