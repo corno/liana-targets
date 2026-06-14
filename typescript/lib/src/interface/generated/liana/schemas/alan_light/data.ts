@@ -1,5 +1,6 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
+import * as p_di from 'pareto-core/dist/data/interface'
 
 export type Identifier_ = string
 
@@ -15,7 +16,7 @@ export namespace Path_ {
         
     }
     
-    export type up_steps = _pi.List<up_steps.L>
+    export type up_steps = p_di.List<up_steps.L>
     
     export namespace context {
         
@@ -84,7 +85,7 @@ export namespace Path_ {
         
     }
     
-    export type selection_steps = _pi.List<selection_steps.L>
+    export type selection_steps = p_di.List<selection_steps.L>
     
 }
 
@@ -144,7 +145,7 @@ export namespace Node_ {
                         
                     }
                     
-                    export type constraint = _pi.Optional_Value<constraint.O>
+                    export type constraint = p_di.Optional_Value<constraint.O>
                     
                 }
                 
@@ -172,7 +173,7 @@ export namespace Node_ {
                                 
                             }
                             
-                            export type constraints = _pi.Dictionary<constraints.D>
+                            export type constraints = p_di.Dictionary<constraints.D>
                             
                             export type node = Node_
                             
@@ -185,7 +186,7 @@ export namespace Node_ {
                         
                     }
                     
-                    export type states = _pi.Dictionary<states.D>
+                    export type states = p_di.Dictionary<states.D>
                     
                 }
                 
@@ -209,7 +210,7 @@ export namespace Node_ {
         
     }
     
-    export type properties = _pi.Dictionary<properties.D>
+    export type properties = p_di.Dictionary<properties.D>
     
 }
 
@@ -229,7 +230,7 @@ export namespace Root_ {
         
     }
     
-    export type numerical_types = _pi.Dictionary<numerical_types.D>
+    export type numerical_types = p_di.Dictionary<numerical_types.D>
     
     export type root = Node_
     

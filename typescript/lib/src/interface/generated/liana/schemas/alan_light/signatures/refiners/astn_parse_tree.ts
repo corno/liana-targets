@@ -1,5 +1,5 @@
 
-import * as _pi from 'pareto-core/dist/interface'
+import * as p_i from 'pareto-core/dist/interface'
 
 import * as i_generic from "liana-core/dist/interface/to_be_generated/unmarshall"
 
@@ -23,7 +23,7 @@ export namespace Identifier_ {
 
 export type Identifier_ = (
     context: Identifier_.I,
-    abort: _pi.Abort<Identifier_.E>,
+    abort: p_i.Abort<Identifier_.E>,
 ) => Identifier_.O
 
 export namespace Path_ {
@@ -42,7 +42,7 @@ export namespace Path_ {
 
 export type Path_ = (
     context: Path_.I,
-    abort: _pi.Abort<Path_.E>,
+    abort: p_i.Abort<Path_.E>,
 ) => Path_.O
 
 export namespace Node_ {
@@ -61,7 +61,7 @@ export namespace Node_ {
 
 export type Node_ = (
     context: Node_.I,
-    abort: _pi.Abort<Node_.E>,
+    abort: p_i.Abort<Node_.E>,
 ) => Node_.O
 
 export namespace Root_ {
@@ -80,7 +80,7 @@ export namespace Root_ {
 
 export type Root_ = (
     context: Root_.I,
-    abort: _pi.Abort<Root_.E>,
+    abort: p_i.Abort<Root_.E>,
 ) => Root_.O
 
 export { 

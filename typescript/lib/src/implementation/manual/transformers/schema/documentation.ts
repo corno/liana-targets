@@ -29,8 +29,8 @@ export const Schema_Tree = (
 
 export const Schemas = ($: d_in.Schemas): d_out.Flow_Content => $.__to_list(($, id) => sh.f.div([
     sh.f.span([
-        sh.p.p("schema:"),
-        sh.p.p(id),
+        sh.p_.p_("schema:"),
+        sh.p_.p_(id),
     ]),
     Schema_Tree($)
 ]))
@@ -42,8 +42,8 @@ export const Schema = ($: d_in.Schema): d_out.Flow_Element => sh.f.classified_di
     ],
     $.modules.__to_list(($, id) => sh.f.div([
         sh.f.span([
-            sh.p.p("module:"),
-            sh.p.p(id),
+            sh.p_.p_("module:"),
+            sh.p_.p_(id),
         ]),
     ]))
 )

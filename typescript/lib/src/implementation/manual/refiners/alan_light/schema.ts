@@ -1,4 +1,4 @@
-import * as pi from 'pareto-core/dist/interface'
+import * as p_ri from 'pareto-core/dist/refiner/interface'
 import * as pt from 'pareto-core/dist/assign'
 import p_implement_me from 'pareto-core-dev/dist/implement_me'
 
@@ -14,11 +14,11 @@ export type My_Error =
     | ['foo', null]
 
 //signatures
-export type Package = pi.Refiner<d_out_package.Node, My_Error, d_in.Package>
-export type Schema_Tree = pi.Refiner<d_out_package.Node, My_Error, d_in.Schema_Tree>
-export type Schema = pi.Refiner<d_out.Root, My_Error, d_in.Schema>
-export type Value_to_Node = pi.Refiner<d_out.Node, My_Error, d_in.Value>
-export type Value_to_Property = pi.Refiner<d_out.Node.properties.D, My_Error, d_in.Value>
+export type Package = p_ri.Refiner<d_out_package.Node, My_Error, d_in.Package>
+export type Schema_Tree = p_ri.Refiner<d_out_package.Node, My_Error, d_in.Schema_Tree>
+export type Schema = p_ri.Refiner<d_out.Root, My_Error, d_in.Schema>
+export type Value_to_Node = p_ri.Refiner<d_out.Node, My_Error, d_in.Value>
+export type Value_to_Property = p_ri.Refiner<d_out.Node.properties.D, My_Error, d_in.Value>
 
 export const Package: Package = ($, abort) => Schema_Tree($['schema tree'], abort)
 

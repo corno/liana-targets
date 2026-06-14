@@ -1,7 +1,8 @@
 import * as pt from 'pareto-core/dist/assign'
-import * as pi from 'pareto-core/dist/interface'
-import p_unreachable_code_path from 'pareto-core/dist/_p_unreachable_code_path'
+import * as p_di from 'pareto-core/dist/data/interface'
+import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
 import p_implement_me from 'pareto-core-dev/dist/implement_me'
+import * as p_ti from 'pareto-core/dist/transformer/interface'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
@@ -9,7 +10,7 @@ import * as d_out from "pareto-lionweb/dist/interface/generated/liana/schemas/se
 
 // //dependencies
 
-export const Meta_Pointer: pi.Transformer<string, d_out.Meta_Pointer> = ($) => ({
+export const Meta_Pointer: p_ti.Transformer<string, d_out.Meta_Pointer> = ($) => ({
     'language': "astn",
     'version': "0.1",
     'key': $,
