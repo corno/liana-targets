@@ -1,5 +1,4 @@
 import * as pt from 'pareto-core/dist/transformer/implementation'
-import * as p_di from 'pareto-core/dist/data/interface'
 import p_list_from_text from 'pareto-core/dist/specials/list_from_text'
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/alan_light/data"
@@ -39,57 +38,57 @@ export const Root = (
 
 export const Identifier = (
     $: d_in.Identifier
-): d_out.Phrase => sh.ph.serialize(pt.list.nested_literal_old([
+): d_out.Phrase => sh.ph.serialize(pt.literal.nested_list([
     [
         0x60, // `
     ],
     pt.list.from.list(
         p_list_from_text($, ($) => $),
     ).flatten(
-        ($): p_di.List<number> => {
+        ($) => {
             switch ($) {
                 case 0x22: // " (\")
-                    return pt.list.literal([
+                    return pt.literal.list([
                         0x5C, // \
                         0x22, // "
                     ])
                 case 0x5C: // \ (\\)
-                    return pt.list.literal([
+                    return pt.literal.list([
                         0x5C, // \
                         0x5C, // \
                     ])
                 case 0x08: // backspace (\b)
-                    return pt.list.literal([
+                    return pt.literal.list([
                         0x5C, // \
                         0x62, // b
                     ])
                 case 0x0C: // form feed (\f)
-                    return pt.list.literal([
+                    return pt.literal.list([
                         0x5C, // \
                         0x66, // f
                     ])
                 case 0x0A: // line feed (\n)
-                    return pt.list.literal([
+                    return pt.literal.list([
                         0x5C, // \
                         0x6E, // n
                     ])
                 case 0x0D: // carriage return (\r)
-                    return pt.list.literal([
+                    return pt.literal.list([
                         0x5C, // \
                         0x72, // r
                     ])
                 case 0x09: // horizontal tab (\t)
-                    return pt.list.literal([
+                    return pt.literal.list([
                         0x5C, // \
                         0x74, // t
                     ])
                 case 0x0B: // vertical tab (\v)
-                    return pt.list.literal([
+                    return pt.literal.list([
                         0x5C, // \
                         0x76, // v
                     ])
                 default: {
-                    return pt.list.literal([
+                    return pt.literal.list([
                         $,
                     ])
                 }

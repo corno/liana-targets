@@ -18,7 +18,7 @@ export const Schema_Tree = (
     }
 ): d_out.Directory => pt.decide.state($, ($) => {
     switch ($[0]) {
-        case 'schema': return pt.ss($, ($) => pt.dictionary.literal({
+        case 'schema': return pt.ss($, ($) => pt.literal.dictionary({
             "graphviz.dot": sh.n.file(
                 t_graphviz_to_fountain_pen.Graph(
                     t_schema_to_graphviz.Schema($, {

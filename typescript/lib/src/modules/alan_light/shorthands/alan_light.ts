@@ -7,7 +7,7 @@ export const root = (
     numerical_types: pt.Raw_Or_Normal_Dictionary<d_target.Root.numerical_types.D>,
     root: d_target.Node
 ): d_target.Root => ({
-    'numerical types': pt.dictionary.literal(numerical_types),
+    'numerical types': pt.dictionary(numerical_types),
     'root': root
 })
 
@@ -37,7 +37,7 @@ export namespace prop {
     export const text = (
     ): d_target.Node.properties.D => ({
         'type': ['text', {
-            'constraint': pt.optional.literal.not_set(),
+            'constraint': pt.optional.not_set(),
         }]
     })
 
@@ -46,7 +46,7 @@ export namespace prop {
         dictionary: d_target.Identifier,
     ): d_target.Node.properties.D => ({
         'type': ['text', {
-            'constraint': pt.optional.literal.set({
+            'constraint': pt.optional.set({
                 'path': path,
                 'dictionary': dictionary,
             }),
@@ -57,7 +57,7 @@ export namespace prop {
         states: pt.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D>,
     ): d_target.Node.properties.D => ({
         'type': ['state group', {
-            'states': pt.dictionary.literal(states),
+            'states': pt.dictionary(states),
         }]
     })
 
@@ -67,7 +67,7 @@ export const state = (
     constraints: pt.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D.constraints.D>,
     node: d_target.Node,
 ): d_target.Node.properties.D.type_.state_group.states.D => ({
-    'constraints': pt.dictionary.literal(constraints),
+    'constraints': pt.dictionary(constraints),
     'node': node,
 })
 
@@ -76,9 +76,9 @@ export const constraint = (
     selection_steps: pt.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
 ): d_target.Node.properties.D.type_.state_group.states.D.constraints.D => ({
     'path': {
-        'up steps': pt.list.literal(up_steps),
+        'up steps': pt.list(up_steps),
         'context': ['sibling', p_create_symbol()],
-        'selection steps': pt.list.literal(selection_steps),
+        'selection steps': pt.list(selection_steps),
     }
 })
 
@@ -87,15 +87,15 @@ export const path = (
     context: d_target.Path.context,
     selection_steps: pt.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
 ): d_target.Path => ({
-    'up steps': pt.list.literal(up_steps),
+    'up steps': pt.list(up_steps),
     'context': context,
-    'selection steps': pt.list.literal(selection_steps),
+    'selection steps': pt.list(selection_steps),
 })
 
 export const node = (
     properties: pt.Raw_Or_Normal_Dictionary<d_target.Node.properties.D>,
 ): d_target.Node => ({
-    'properties': pt.dictionary.literal(properties),
+    'properties': pt.dictionary(properties),
 })
 
 

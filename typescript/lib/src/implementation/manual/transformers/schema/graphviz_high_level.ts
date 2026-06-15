@@ -11,11 +11,11 @@ export const Schema = (
     }
 
 ): d_out.Graph => ({
-    'name': pt.optional.literal.set($p['graph name']),
+    'name': pt.literal.set($p['graph name']),
     'tree': {
-        'attributes': pt.list.literal([]),
+        'attributes': pt.literal.list([]),
         'elements': $.modules.__d_map(($) => ['node', {
-            'attributes': pt.list.literal([]),
+            'attributes': pt.literal.list([]),
         }]),
     },
     'type': ['directed', {
@@ -33,16 +33,16 @@ export const Value = (
     },
 ): d_out.Graph.type_.directed.edges => pt.decide.state($, ($) => {
     switch ($[0]) {
-        case 'simple': return pt.ss($, ($) => pt.list.literal([]))
+        case 'simple': return pt.ss($, ($) => pt.literal.list([]))
         case 'list': return pt.ss($, ($) => Value($.value, $p))
-        case 'nothing': return pt.ss($, ($) => pt.list.literal([]))
-        case 'reference': return pt.ss($, ($) => pt.list.literal([]))
-        case 'component': return pt.ss($, ($) => pt.list.literal<d_out.Graph.type_.directed.edges.L>([
+        case 'nothing': return pt.ss($, ($) => pt.literal.list([]))
+        case 'reference': return pt.ss($, ($) => pt.literal.list([]))
+        case 'component': return pt.ss($, ($) => pt.literal.list<d_out.Graph.type_.directed.edges.L>([
             {
                 'from': {
                     'start': $p['type name'],
-                    'tail': pt.list.literal([]),
-                    'port data': pt.optional.literal.not_set()
+                    'tail': pt.literal.list([]),
+                    'port data': pt.literal.not_set()
                 },
                 'to': {
                     'start': pt.decide.state($.type, ($) => {
@@ -53,14 +53,14 @@ export const Value = (
                             default: return pt.au($[0])
                         }
                     }),
-                    'tail': pt.list.literal([]),
-                    'port data': pt.optional.literal.not_set()
+                    'tail': pt.literal.list([]),
+                    'port data': pt.literal.not_set()
                 },
                 'attributes': pt.decide.state($.type, ($) => {
                     switch ($[0]) {
-                        case 'external': return pt.ss($, ($) => pt.list.literal([]))
-                        case 'internal': return pt.ss($, ($) => pt.list.literal([]))
-                        case 'internal acyclic': return pt.ss($, ($) => pt.list.literal([
+                        case 'external': return pt.ss($, ($) => pt.literal.list([]))
+                        case 'internal': return pt.ss($, ($) => pt.literal.list([]))
+                        case 'internal acyclic': return pt.ss($, ($) => pt.literal.list([
                             ['color', "red"],
                         ]))
                         default: return pt.au($[0])
@@ -77,8 +77,8 @@ export const Value = (
         case 'state': return pt.ss($, ($) => pt.list.from.dictionary($.options).flatten(
             ($) => Value($.value, $p)
         ))
-        case 'text': return pt.ss($, ($) => pt.list.literal([]))
-        // case 'type parameter': return pa.ss($, ($) => pa.list.literal([]))
+        case 'text': return pt.ss($, ($) => pt.literal.list([]))
+        // case 'type parameter': return pa.ss($, ($) => pa.literal.list([]))
         default: return pt.au($[0])
     }
 })

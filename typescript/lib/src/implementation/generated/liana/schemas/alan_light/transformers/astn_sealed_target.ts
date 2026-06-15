@@ -16,14 +16,14 @@ export const Identifier: t_signatures.Identifier = ($) => ['text', {
     'value': $,
 }]
 
-export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "up steps": _p_change_context(
             $['up steps'],
             ($) => ['list', _p.list.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.dictionary.literal(
+                ($) => ['group', ['verbose', _p.literal.dictionary(
                     {},
                 )]],
             )],
@@ -39,7 +39,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.dictionar
                                 $,
                                 ($) => ({
                                     'option': 'sibling',
-                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                         {},
                                     )]],
                                 }),
@@ -49,7 +49,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.dictionar
                                 $,
                                 ($) => ({
                                     'option': 'state constraint',
-                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                         {
                                             "name": _p_change_context(
                                                 $['name'],
@@ -83,7 +83,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.dictionar
                                     $,
                                     ($) => ({
                                         'option': 'group',
-                                        'value': ['group', ['verbose', _p.dictionary.literal(
+                                        'value': ['group', ['verbose', _p.literal.dictionary(
                                             {
                                                 "name": _p_change_context(
                                                     $['name'],
@@ -100,7 +100,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.dictionar
                                     $,
                                     ($) => ({
                                         'option': 'state constraint',
-                                        'value': ['group', ['verbose', _p.dictionary.literal(
+                                        'value': ['group', ['verbose', _p.literal.dictionary(
                                             {
                                                 "name": _p_change_context(
                                                     $['name'],
@@ -117,7 +117,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.dictionar
                                     $,
                                     ($) => ({
                                         'option': 'reference',
-                                        'value': ['group', ['verbose', _p.dictionary.literal(
+                                        'value': ['group', ['verbose', _p.literal.dictionary(
                                             {
                                                 "name": _p_change_context(
                                                     $['name'],
@@ -141,14 +141,14 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.dictionar
     },
 )]]
 
-export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "properties": _p_change_context(
             $['properties'],
             ($) => ['dictionary', _p.dictionary.from.dictionary(
                 $,
             ).map(
-                ($, id) => ['group', ['verbose', _p.dictionary.literal(
+                ($, id) => ['group', ['verbose', _p.literal.dictionary(
                     {
                         "type": _p_change_context(
                             $['type'],
@@ -161,7 +161,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
                                                 $,
                                                 ($) => ({
                                                     'option': 'collection',
-                                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                                         {
                                                             "node": _p_change_context(
                                                                 $['node'],
@@ -184,7 +184,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
                                                 $,
                                                 ($) => ({
                                                     'option': 'group',
-                                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                                         {
                                                             "node": _p_change_context(
                                                                 $['node'],
@@ -201,13 +201,13 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
                                                 $,
                                                 ($) => ({
                                                     'option': 'text',
-                                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                                         {
                                                             "constraint": _p_change_context(
                                                                 $['constraint'],
                                                                 ($) => ['optional', _p.decide.optional(
                                                                     $,
-                                                                    ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.dictionary.literal(
+                                                                    ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.literal.dictionary(
                                                                         {
                                                                             "path": _p_change_context(
                                                                                 $['path'],
@@ -235,21 +235,21 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
                                                 $,
                                                 ($) => ({
                                                     'option': 'state group',
-                                                    'value': ['group', ['verbose', _p.dictionary.literal(
+                                                    'value': ['group', ['verbose', _p.literal.dictionary(
                                                         {
                                                             "states": _p_change_context(
                                                                 $['states'],
                                                                 ($) => ['dictionary', _p.dictionary.from.dictionary(
                                                                     $,
                                                                 ).map(
-                                                                    ($, id) => ['group', ['verbose', _p.dictionary.literal(
+                                                                    ($, id) => ['group', ['verbose', _p.literal.dictionary(
                                                                         {
                                                                             "constraints": _p_change_context(
                                                                                 $['constraints'],
                                                                                 ($) => ['dictionary', _p.dictionary.from.dictionary(
                                                                                     $,
                                                                                 ).map(
-                                                                                    ($, id) => ['group', ['verbose', _p.dictionary.literal(
+                                                                                    ($, id) => ['group', ['verbose', _p.literal.dictionary(
                                                                                         {
                                                                                             "path": _p_change_context(
                                                                                                 $['path'],
@@ -290,14 +290,14 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.dictionar
     },
 )]]
 
-export const Root: t_signatures.Root = ($) => ['group', ['verbose', _p.dictionary.literal(
+export const Root: t_signatures.Root = ($) => ['group', ['verbose', _p.literal.dictionary(
     {
         "numerical types": _p_change_context(
             $['numerical types'],
             ($) => ['dictionary', _p.dictionary.from.dictionary(
                 $,
             ).map(
-                ($, id) => ['group', ['verbose', _p.dictionary.literal(
+                ($, id) => ['group', ['verbose', _p.literal.dictionary(
                     {},
                 )]],
             )],
