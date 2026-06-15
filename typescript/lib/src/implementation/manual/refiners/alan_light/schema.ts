@@ -44,10 +44,10 @@ export const Schema: Schema = ($, abort) => ({
     'root': p_implement_me("alan light")
 })
 
-// export const Value_to_Property: Value_to_Property = ($, abort) => pt.decide.state($, ($) => {
+// export const Value_to_Property: Value_to_Property = ($, abort) => p_.decide.state($, ($) => {
 //     switch ($[0]) {
-//         case 'number': return pt.ss($, ($) => sh.prop.number())
-//         case 'boolean': return pt.ss($, ($) => sh.prop.state_group({
+//         case 'number': return p_.ss($, ($) => sh.prop.number())
+//         case 'boolean': return p_.ss($, ($) => sh.prop.state_group({
 //             "no": sh.state(
 //                 {},
 //                 sh.node({})
@@ -57,33 +57,33 @@ export const Schema: Schema = ($, abort) => ({
 //                 sh.node({})
 //             )
 //         }))
-//         case 'component': return pt.ss($, ($) => )
-//         case 'dictionary': return pt.ss($, ($) => )
-//         case 'group': return pt.ss($, ($) => )
-//         case 'list': return pt.ss($, ($) => )
-//         case 'nothing': return pt.ss($, ($) => )
-//         case 'optional': return pt.ss($, ($) => )
-//         case 'reference': return pt.ss($, ($) => )
-//         case 'state': return pt.ss($, ($) => sh.prop.state_group(pt.dictionary.map(
+//         case 'component': return p_.ss($, ($) => )
+//         case 'dictionary': return p_.ss($, ($) => )
+//         case 'group': return p_.ss($, ($) => )
+//         case 'list': return p_.ss($, ($) => )
+//         case 'nothing': return p_.ss($, ($) => )
+//         case 'optional': return p_.ss($, ($) => )
+//         case 'reference': return p_.ss($, ($) => )
+//         case 'state': return p_.ss($, ($) => sh.prop.state_group(p_.dictionary.map(
 //             $.options
 //         ).map(
 //             ($) => sh.state(
 //                 {},
 //                 Value($, abort)
 //             ))))
-//         case 'text': return pt.ss($, ($) => )
-//         default: return pt.au($[0])
+//         case 'text': return p_.ss($, ($) => )
+//         default: return p_.au($[0])
 //     }
 // })
 
 // export const Value_to_Node: Value_to_Node = ($, abort) => {
 //     const value = $
-//     return pt.decide.state($, ($) => {
+//     return p_.decide.state($, ($) => {
 //         switch ($[0]) {
-//             case 'number': return pt.ss($, ($) => sh.node({
+//             case 'number': return p_.ss($, ($) => sh.node({
 //                 "value": Value_to_Property(value, abort)
 //             }))
-//             case 'boolean': return pt.ss($, ($) => sh.prop.state_group({
+//             case 'boolean': return p_.ss($, ($) => sh.prop.state_group({
 //                 "no": sh.state(
 //                     {},
 //                     sh.node({})
@@ -93,29 +93,29 @@ export const Schema: Schema = ($, abort) => ({
 //                     sh.node({})
 //                 )
 //             }))
-//             case 'component': return pt.ss($, ($) => pt.decide.state($.type, ($) => {
+//             case 'component': return p_.ss($, ($) => p_.decide.state($.type, ($) => {
 //                 switch ($[0]) {
-//                     case 'external': return pt.ss($, ($) => )
-//                     case 'internal': return pt.ss($, ($) => )
-//                     case 'internal acyclic': return pt.ss($, ($) => )
-//                     default: return pt.au($[0])
+//                     case 'external': return p_.ss($, ($) => )
+//                     case 'internal': return p_.ss($, ($) => )
+//                     case 'internal acyclic': return p_.ss($, ($) => )
+//                     default: return p_.au($[0])
 //                 }
 //             }))
-//             case 'dictionary': return pt.ss($, ($) => )
-//             case 'group': return pt.ss($, ($) => )
-//             case 'list': return pt.ss($, ($) => )
-//             case 'nothing': return pt.ss($, ($) => )
-//             case 'optional': return pt.ss($, ($) => )
-//             case 'reference': return pt.ss($, ($) => )
-//             case 'state': return pt.ss($, ($) => sh.prop.state_group(pt.dictionary.map(
+//             case 'dictionary': return p_.ss($, ($) => )
+//             case 'group': return p_.ss($, ($) => )
+//             case 'list': return p_.ss($, ($) => )
+//             case 'nothing': return p_.ss($, ($) => )
+//             case 'optional': return p_.ss($, ($) => )
+//             case 'reference': return p_.ss($, ($) => )
+//             case 'state': return p_.ss($, ($) => sh.prop.state_group(p_.dictionary.map(
 //                 $.options
 //             ).map(
 //                 ($) => sh.state(
 //                     {},
 //                     Value($, abort)
 //                 ))))
-//             case 'text': return pt.ss($, ($) => )
-//             default: return pt.au($[0])
+//             case 'text': return p_.ss($, ($) => )
+//             default: return p_.au($[0])
 //         }
 //     })
 // }

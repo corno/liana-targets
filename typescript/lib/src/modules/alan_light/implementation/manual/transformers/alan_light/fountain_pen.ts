@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
 
 import * as d_in from "../../../../../../interface/generated/liana/schemas/alan_light/data"
@@ -38,57 +38,57 @@ export const Root = (
 
 export const Identifier = (
     $: d_in.Identifier
-): d_out.Phrase => sh.ph.serialize(pt.literal.nested_list([
+): d_out.Phrase => sh.ph.serialize(p_.literal.nested_list([
     [
         0x60, // `
     ],
-    pt.list.from.list(
+    p_.list.from.list(
         p_list_from_text($, ($) => $),
     ).flatten(
         ($) => {
             switch ($) {
                 case 0x22: // " (\")
-                    return pt.literal.list([
+                    return p_.literal.list([
                         0x5C, // \
                         0x22, // "
                     ])
                 case 0x5C: // \ (\\)
-                    return pt.literal.list([
+                    return p_.literal.list([
                         0x5C, // \
                         0x5C, // \
                     ])
                 case 0x08: // backspace (\b)
-                    return pt.literal.list([
+                    return p_.literal.list([
                         0x5C, // \
                         0x62, // b
                     ])
                 case 0x0C: // form feed (\f)
-                    return pt.literal.list([
+                    return p_.literal.list([
                         0x5C, // \
                         0x66, // f
                     ])
                 case 0x0A: // line feed (\n)
-                    return pt.literal.list([
+                    return p_.literal.list([
                         0x5C, // \
                         0x6E, // n
                     ])
                 case 0x0D: // carriage return (\r)
-                    return pt.literal.list([
+                    return p_.literal.list([
                         0x5C, // \
                         0x72, // r
                     ])
                 case 0x09: // horizontal tab (\t)
-                    return pt.literal.list([
+                    return p_.literal.list([
                         0x5C, // \
                         0x74, // t
                     ])
                 case 0x0B: // vertical tab (\v)
-                    return pt.literal.list([
+                    return p_.literal.list([
                         0x5C, // \
                         0x76, // v
                     ])
                 default: {
-                    return pt.literal.list([
+                    return p_.literal.list([
                         $,
                     ])
                 }
@@ -106,31 +106,31 @@ export const Node = (
     sh.ph.literal("{"),
     sh.ph.indent(
         sh.pg.sentences(
-            pt.list.from.dictionary(
+            p_.list.from.dictionary(
                 $.properties,
             ).convert(
                 ($, id) => sh.sentence([
                     Identifier(id),
                     sh.ph.literal(": "),
-                    pt.decide.state($.type, ($) => {
+                    p_.decide.state($.type, ($) => {
                         switch ($[0]) {
-                            case 'collection': return pt.ss($, ($) => sh.ph.composed([
+                            case 'collection': return p_.ss($, ($) => sh.ph.composed([
                                 sh.ph.literal("collection ["),
                                 Identifier($.key),
                                 sh.ph.literal("] "),
                                 Node($.node)
                             ]))
-                            case 'group': return pt.ss($, ($) => sh.ph.composed([
+                            case 'group': return p_.ss($, ($) => sh.ph.composed([
                                 sh.ph.literal("group "),
                                 Node($.node)
                             ]))
-                            case 'state group': return pt.ss($, ($) => pt.boolean.from.dictionary($.states).is_empty()
+                            case 'state group': return p_.ss($, ($) => p_.boolean.from.dictionary($.states).is_empty()
                                 ? sh.ph.literal("group { }")
                                 : sh.ph.composed([
                                     sh.ph.literal("stategroup ("),
                                     sh.ph.indent(
                                         sh.pg.sentences(
-                                            pt.list.from.dictionary(
+                                            p_.list.from.dictionary(
                                                 $.states,
                                             ).convert(
                                                 ($, id) => sh.sentence([
@@ -143,8 +143,8 @@ export const Node = (
                                     ),
                                     sh.ph.literal(")")
                                 ]))
-                            case 'text': return pt.ss($, ($) => sh.ph.literal("text"))
-                            default: return pt.au($[0])
+                            case 'text': return p_.ss($, ($) => sh.ph.literal("text"))
+                            default: return p_.au($[0])
                         }
                     })
                 ])

@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
@@ -16,9 +16,9 @@ export const Schema_Tree = (
     $p: {
         'graph name': string
     }
-): d_out.Directory => pt.decide.state($, ($) => {
+): d_out.Directory => p_.decide.state($, ($) => {
     switch ($[0]) {
-        case 'schema': return pt.ss($, ($) => pt.literal.dictionary({
+        case 'schema': return p_.ss($, ($) => p_.literal.dictionary({
             "graphviz.dot": sh.n.file(
                 t_graphviz_to_fountain_pen.Graph(
                     t_schema_to_graphviz.Schema($, {
@@ -27,8 +27,8 @@ export const Schema_Tree = (
                 ),
             )
         }))
-        case 'set': return pt.ss($, ($) => Schemas($))
-        default: return pt.au($[0])
+        case 'set': return p_.ss($, ($) => Schemas($))
+        default: return p_.au($[0])
     }
 })
 

@@ -1,13 +1,13 @@
-import * as pt from 'pareto-core-shorthands/dist/unconstrained'
+import * as p_ from 'pareto-core-shorthands/dist/unconstrained'
 import p_create_symbol from 'pareto-core/dist/implementation/specials/create_symbol'
 
 import * as d_target from "../../../interface/generated/liana/schemas/alan_light/data"
 
 export const root = (
-    numerical_types: pt.Raw_Or_Normal_Dictionary<d_target.Root.numerical_types.D>,
+    numerical_types: p_.Raw_Or_Normal_Dictionary<d_target.Root.numerical_types.D>,
     root: d_target.Node
 ): d_target.Root => ({
-    'numerical types': pt.dictionary(numerical_types),
+    'numerical types': p_.dictionary(numerical_types),
     'root': root
 })
 
@@ -37,7 +37,7 @@ export namespace prop {
     export const text = (
     ): d_target.Node.properties.D => ({
         'type': ['text', {
-            'constraint': pt.optional.not_set(),
+            'constraint': p_.optional.not_set(),
         }]
     })
 
@@ -46,7 +46,7 @@ export namespace prop {
         dictionary: d_target.Identifier,
     ): d_target.Node.properties.D => ({
         'type': ['text', {
-            'constraint': pt.optional.set({
+            'constraint': p_.optional.set({
                 'path': path,
                 'dictionary': dictionary,
             }),
@@ -54,48 +54,48 @@ export namespace prop {
     })
 
     export const state_group = (
-        states: pt.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D>,
+        states: p_.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D>,
     ): d_target.Node.properties.D => ({
         'type': ['state group', {
-            'states': pt.dictionary(states),
+            'states': p_.dictionary(states),
         }]
     })
 
 }
 
 export const state = (
-    constraints: pt.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D.constraints.D>,
+    constraints: p_.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D.constraints.D>,
     node: d_target.Node,
 ): d_target.Node.properties.D.type_.state_group.states.D => ({
-    'constraints': pt.dictionary(constraints),
+    'constraints': p_.dictionary(constraints),
     'node': node,
 })
 
 export const constraint = (
-    up_steps: pt.Raw_Or_Normal_List<d_target.Path.up_steps.L>,
-    selection_steps: pt.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
+    up_steps: p_.Raw_Or_Normal_List<d_target.Path.up_steps.L>,
+    selection_steps: p_.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
 ): d_target.Node.properties.D.type_.state_group.states.D.constraints.D => ({
     'path': {
-        'up steps': pt.list(up_steps),
+        'up steps': p_.list(up_steps),
         'context': ['sibling', p_create_symbol()],
-        'selection steps': pt.list(selection_steps),
+        'selection steps': p_.list(selection_steps),
     }
 })
 
 export const path = (
-    up_steps: pt.Raw_Or_Normal_List<d_target.Path.up_steps.L>,
+    up_steps: p_.Raw_Or_Normal_List<d_target.Path.up_steps.L>,
     context: d_target.Path.context,
-    selection_steps: pt.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
+    selection_steps: p_.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
 ): d_target.Path => ({
-    'up steps': pt.list(up_steps),
+    'up steps': p_.list(up_steps),
     'context': context,
-    'selection steps': pt.list(selection_steps),
+    'selection steps': p_.list(selection_steps),
 })
 
 export const node = (
-    properties: pt.Raw_Or_Normal_Dictionary<d_target.Node.properties.D>,
+    properties: p_.Raw_Or_Normal_Dictionary<d_target.Node.properties.D>,
 ): d_target.Node => ({
-    'properties': pt.dictionary(properties),
+    'properties': p_.dictionary(properties),
 })
 
 

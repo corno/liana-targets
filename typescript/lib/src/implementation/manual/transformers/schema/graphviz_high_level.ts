@@ -1,4 +1,4 @@
-import * as pt from 'pareto-core/dist/implementation/transformer'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
 
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
 import * as d_out from "pareto-graphviz/dist/interface/generated/liana/schemas/high_level/data"
@@ -11,15 +11,15 @@ export const Schema = (
     }
 
 ): d_out.Graph => ({
-    'name': pt.literal.set($p['graph name']),
+    'name': p_.literal.set($p['graph name']),
     'tree': {
-        'attributes': pt.literal.list([]),
+        'attributes': p_.literal.list([]),
         'elements': $.modules.__d_map(($) => ['node', {
-            'attributes': pt.literal.list([]),
+            'attributes': p_.literal.list([]),
         }]),
     },
     'type': ['directed', {
-        'edges': pt.list.from.dictionary($.modules).flatten(
+        'edges': p_.list.from.dictionary($.modules).flatten(
             ($, id) => Value($['root value'], { 'type name': id })
         ),
     }],
@@ -31,54 +31,54 @@ export const Value = (
     $p: {
         'type name': string,
     },
-): d_out.Graph.type_.directed.edges => pt.decide.state($, ($) => {
+): d_out.Graph.type_.directed.edges => p_.decide.state($, ($) => {
     switch ($[0]) {
-        case 'simple': return pt.ss($, ($) => pt.literal.list([]))
-        case 'list': return pt.ss($, ($) => Value($.value, $p))
-        case 'nothing': return pt.ss($, ($) => pt.literal.list([]))
-        case 'reference': return pt.ss($, ($) => pt.literal.list([]))
-        case 'component': return pt.ss($, ($) => pt.literal.list<d_out.Graph.type_.directed.edges.L>([
+        case 'simple': return p_.ss($, ($) => p_.literal.list([]))
+        case 'list': return p_.ss($, ($) => Value($.value, $p))
+        case 'nothing': return p_.ss($, ($) => p_.literal.list([]))
+        case 'reference': return p_.ss($, ($) => p_.literal.list([]))
+        case 'component': return p_.ss($, ($) => p_.literal.list<d_out.Graph.type_.directed.edges.L>([
             {
                 'from': {
                     'start': $p['type name'],
-                    'tail': pt.literal.list([]),
-                    'port data': pt.literal.not_set()
+                    'tail': p_.literal.list([]),
+                    'port data': p_.literal.not_set()
                 },
                 'to': {
-                    'start': pt.decide.state($.type, ($) => {
+                    'start': p_.decide.state($.type, ($) => {
                         switch ($[0]) {
-                            case 'external': return pt.ss($, ($) => "FIXME")
-                            case 'internal': return pt.ss($, ($) => $['l id'])
-                            case 'internal acyclic': return pt.ss($, ($) => $['l id'])
-                            default: return pt.au($[0])
+                            case 'external': return p_.ss($, ($) => "FIXME")
+                            case 'internal': return p_.ss($, ($) => $['l id'])
+                            case 'internal acyclic': return p_.ss($, ($) => $['l id'])
+                            default: return p_.au($[0])
                         }
                     }),
-                    'tail': pt.literal.list([]),
-                    'port data': pt.literal.not_set()
+                    'tail': p_.literal.list([]),
+                    'port data': p_.literal.not_set()
                 },
-                'attributes': pt.decide.state($.type, ($) => {
+                'attributes': p_.decide.state($.type, ($) => {
                     switch ($[0]) {
-                        case 'external': return pt.ss($, ($) => pt.literal.list([]))
-                        case 'internal': return pt.ss($, ($) => pt.literal.list([]))
-                        case 'internal acyclic': return pt.ss($, ($) => pt.literal.list([
+                        case 'external': return p_.ss($, ($) => p_.literal.list([]))
+                        case 'internal': return p_.ss($, ($) => p_.literal.list([]))
+                        case 'internal acyclic': return p_.ss($, ($) => p_.literal.list([
                             ['color', "red"],
                         ]))
-                        default: return pt.au($[0])
+                        default: return p_.au($[0])
                     }
                 }),
             }
 
         ]))
-        case 'dictionary': return pt.ss($, ($) => Value($.value, $p))
-        case 'group': return pt.ss($, ($) => pt.list.from.dictionary($).flatten(
+        case 'dictionary': return p_.ss($, ($) => Value($.value, $p))
+        case 'group': return p_.ss($, ($) => p_.list.from.dictionary($).flatten(
             ($, id) => Value($.value, $p)
         ))
-        case 'optional': return pt.ss($, ($) => Value($, $p))
-        case 'state': return pt.ss($, ($) => pt.list.from.dictionary($.options).flatten(
+        case 'optional': return p_.ss($, ($) => Value($, $p))
+        case 'state': return p_.ss($, ($) => p_.list.from.dictionary($.options).flatten(
             ($) => Value($.value, $p)
         ))
-        case 'text': return pt.ss($, ($) => pt.literal.list([]))
+        case 'text': return p_.ss($, ($) => p_.literal.list([]))
         // case 'type parameter': return pa.ss($, ($) => pa.literal.list([]))
-        default: return pt.au($[0])
+        default: return p_.au($[0])
     }
 })
