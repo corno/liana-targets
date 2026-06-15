@@ -1,5 +1,6 @@
-import * as p_ri from 'pareto-core/dist/refiner/interface'
-import * as pt from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/refiner'
+import * as p_temp from 'pareto-core/dist/assign'
+import * as p_i from 'pareto-core/dist/interface/refiner'
 import p_implement_me from 'pareto-core-dev/dist/implement_me'
 
 //data types
@@ -14,28 +15,28 @@ export type My_Error =
     | ['foo', null]
 
 //signatures
-export type Package = p_ri.Refiner<d_out_package.Node, My_Error, d_in.Package>
-export type Schema_Tree = p_ri.Refiner<d_out_package.Node, My_Error, d_in.Schema_Tree>
-export type Schema = p_ri.Refiner<d_out.Root, My_Error, d_in.Schema>
-export type Value_to_Node = p_ri.Refiner<d_out.Node, My_Error, d_in.Value>
-export type Value_to_Property = p_ri.Refiner<d_out.Node.properties.D, My_Error, d_in.Value>
+export type Package = p_i.Refiner<d_out_package.Node, My_Error, d_in.Package>
+export type Schema_Tree = p_i.Refiner<d_out_package.Node, My_Error, d_in.Schema_Tree>
+export type Schema = p_i.Refiner<d_out.Root, My_Error, d_in.Schema>
+export type Value_to_Node = p_i.Refiner<d_out.Node, My_Error, d_in.Value>
+export type Value_to_Property = p_i.Refiner<d_out.Node.properties.D, My_Error, d_in.Value>
 
 export const Package: Package = ($, abort) => Schema_Tree($['schema tree'], abort)
 
-export const Schema_Tree: Schema_Tree = ($, abort) => pt.decide.state($, ($) => {
+export const Schema_Tree: Schema_Tree = ($, abort) => p_.decide.state($, ($) => {
     switch ($[0]) {
-        case 'schema': return pt.ss($, ($) => ['model', Schema($, abort)])
-        case 'set': return pt.ss($, ($): d_out_package.Node => ['package', pt.dictionary.from.dictionary(
+        case 'schema': return p_.ss($, ($) => ['model', Schema($, abort)])
+        case 'set': return p_.ss($, ($): d_out_package.Node => ['package', p_temp.dictionary.from.dictionary(
             $
         ).map(
             ($) => Schema_Tree($, abort)
         )])
-        default: return pt.au($[0])
+        default: return p_.au($[0])
     }
 })
 
 export const Schema: Schema = ($, abort) => ({
-    'numerical types': pt.dictionary.from.dictionary(
+    'numerical types': p_temp.dictionary.from.dictionary(
         $.globals['simple types']
     ).map(
         ($) => sh.numerical_type()

@@ -1,7 +1,7 @@
-import * as pt from 'pareto-core/dist/transformer/implementation'
-import p_unreachable_code_path from 'pareto-core/dist/specials/unreachable_code_path'
+import * as pt from 'pareto-core/dist/implementation/transformer'
+import p_unreachable_code_path from 'pareto-core/dist/implementation/specials/unreachable_code_path'
 import p_implement_me from 'pareto-core-dev/dist/implement_me'
-import * as p_i from 'pareto-core/dist/transformer/interface'
+import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
