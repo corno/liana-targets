@@ -6,7 +6,7 @@ import p_implement_me from 'pareto-core-dev/dist/implement_me'
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
 import * as d_out from "../../../../interface/generated/liana/schemas/alan_light/data"
-import * as d_out_package from "../../../../interface/to_be_generated/alan_light_package"
+import * as d_out_package from "../../../../interface/data/alan_light_package"
 
 //shorthands
 import * as sh from "../../../../modules/alan_light/shorthands/alan_light"
