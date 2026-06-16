@@ -2,7 +2,7 @@ import * as p_ from 'pareto-core/dist/implementation/transformer'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
-import * as d_out from "pareto-fountain-pen-file-structure/dist/interface/to_be_generated/file-system"
+import * as d_out from "pareto-fountain-pen-file-structure/dist/interface/data/file-system"
 
 //dependencies
 import * as t_graphviz_to_fountain_pen from "pareto-graphviz/dist/implementation/manual/transformers/high_level/fountain_pen"
