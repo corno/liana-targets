@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_i from 'pareto-core/dist/interface/transformer'
 import p_unreachable_code_path from 'pareto-core/dist/implementation/specials/unreachable_code_path'
 import p_implement_me from 'pareto-core-dev/dist/implement_me'
-import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
@@ -16,9 +16,10 @@ export const Meta_Pointer: p_i.Transformer<string, d_out.Meta_Pointer> = ($) => 
 })
 
 
-export const Schema = (
-    $: d_in.Schema,
-): d_out.Serialization_Chunk => ({
+export const Schema: p_i.Transformer<
+    d_in.Schema,
+    d_out.Serialization_Chunk
+> = ($) => ({
     'range': p_unreachable_code_path("REMOVE range property"),
     'serializationFormatVersion': "2023.1",
     'languages': p_.literal.list([

@@ -1,16 +1,15 @@
 import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_i from 'pareto-core/dist/interface/transformer'
 
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
 import * as d_out from "pareto-graphviz/dist/interface/generated/liana/schemas/high_level/data"
 
 
-export const Schema = (
-    $: d_in.Schema,
-    $p: {
-        'graph name': string,
-    }
-
-): d_out.Graph => ({
+export const Schema: p_i.Transformer_With_Parameter<
+    d_in.Schema,
+    d_out.Graph,
+    { 'graph name': string }
+> = ($, $p) => ({
     'name': p_.literal.set($p['graph name']),
     'tree': {
         'attributes': p_.literal.list([]),
@@ -26,12 +25,11 @@ export const Schema = (
 })
 
 
-export const Value = (
-    $: d_in.Value,
-    $p: {
-        'type name': string,
-    },
-): d_out.Graph.type_.directed.edges => p_.decide.state($, ($) => {
+export const Value: p_i.Transformer_With_Parameter<
+    d_in.Value,
+    d_out.Graph.type_.directed.edges,
+    { 'type name': string }
+> = ($, $p) => p_.decide.state($, ($) => {
     switch ($[0]) {
         case 'simple': return p_.ss($, ($) => p_.literal.list([]))
         case 'list': return p_.ss($, ($) => Value($.value, $p))

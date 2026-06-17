@@ -1,8 +1,33 @@
 import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
 import * as d_out from "pareto-fountain-pen-file-structure/dist/interface/data/file-system"
+
+namespace interface_ {
+
+    export type Schema_Tree = p_i.Transformer_With_Parameter<
+        d_in.Schema_Tree,
+        d_out.Directory,
+        {
+            'graph name': string
+        }
+    >
+
+    export type Schemas = p_i.Transformer<
+        d_in.Schemas,
+        d_out.Directory
+    >
+
+    export type Package = p_i.Transformer_With_Parameter<
+        d_in.Package,
+        d_out.Directory,
+        {
+            'graph name': string
+        }
+    >   
+}
 
 //dependencies
 import * as t_lionweb_to_fountain_pen from "pareto-lionweb/dist/modules/lionweb-core/implementation/manual/transformers/serialization_chunk/fountain_pen"
@@ -11,12 +36,7 @@ import * as t_schema_to_lionweb from "./lionweb_serialization_chunk"
 //shorthands
 import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-system"
 
-export const Schema_Tree = (
-    $: d_in.Schema_Tree,
-    $p: {
-        'graph name': string
-    }
-): d_out.Directory => p_.decide.state($, ($) => {
+export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.decide.state($, ($) => {
     switch ($[0]) {
         case 'schema': return p_.ss($, ($) => p_.literal.dictionary({
             "lionweb.json": sh.n.file(
@@ -30,11 +50,6 @@ export const Schema_Tree = (
     }
 })
 
-export const Schemas = ($: d_in.Schemas): d_out.Directory => $.__d_map(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
+export const Schemas: interface_.Schemas = ($) => $.__d_map(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
 
-export const Package = (
-    $: d_in.Package,
-    $p: {
-        'graph name': string
-    }
-): d_out.Directory => Schema_Tree($['schema tree'], { 'graph name': $p['graph name'] })
+export const Package: interface_.Package = ($, $p) => Schema_Tree($['schema tree'], { 'graph name': $p['graph name'] })

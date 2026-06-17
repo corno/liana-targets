@@ -1,4 +1,5 @@
 import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_i from 'pareto-core/dist/interface/transformer'
 
 //data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
@@ -11,12 +12,11 @@ import * as t_schema_to_graphviz from "./graphviz_high_level"
 //shorthands
 import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-system"
 
-export const Schema_Tree = (
-    $: d_in.Schema_Tree,
-    $p: {
-        'graph name': string
-    }
-): d_out.Directory => p_.decide.state($, ($) => {
+export const Schema_Tree: p_i.Transformer_With_Parameter<
+    d_in.Schema_Tree,
+    d_out.Directory,
+    { 'graph name': string }
+> = ($, $p) => p_.decide.state($, ($) => {
     switch ($[0]) {
         case 'schema': return p_.ss($, ($) => p_.literal.dictionary({
             "graphviz.dot": sh.n.file(
@@ -32,11 +32,16 @@ export const Schema_Tree = (
     }
 })
 
-export const Schemas = ($: d_in.Schemas): d_out.Directory => $.__d_map(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
+export const Schemas: p_i.Transformer<
+    d_in.Schemas,
+    d_out.Directory
+> = ($) => $.__d_map(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
 
-export const Package = (
-    $: d_in.Package,
-    $p: {
-        'graph name': string
-    }
-): d_out.Directory => Schema_Tree($['schema tree'], { 'graph name': $p['graph name'] })
+export const Package: p_i.Transformer_With_Parameter<
+    d_in.Package,
+    d_out.Directory,
+    { 'graph name': string }
+> = (
+    $,
+    $p
+) => Schema_Tree($['schema tree'], { 'graph name': $p['graph name'] })
