@@ -46,7 +46,10 @@ export const Identifier: p_i.Transformer<
         0x60, // `
     ],
     p_.list.from.list(
-        p_list_from_text($, ($) => $),
+        p_list_from_text(
+            $,
+            ($) => $
+        ),
     ).flatten(
         ($) => {
             switch ($) {
