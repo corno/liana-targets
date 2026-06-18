@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_create_symbol from 'pareto-core/dist/implementation/specials/create_symbol'
 
@@ -12,30 +16,30 @@ import * as t_out from "../../../../../../interface/generated/liana/schemas/alan
 export const Identifier: t_signatures.Identifier = ($) => $
 
 export const Path: t_signatures.Path = ($) => ({
-    'up steps': _p_change_context(
+    'up steps': p_change_context(
         $['up steps'],
-        ($) => _p.list.from.list(
+        ($) => p_.from.list(
             $,
         ).map(
             ($) => _p_create_symbol(),
         ),
     ),
-    'context': _p_change_context(
+    'context': p_change_context(
         $['context'],
-        ($) => _p.decide.state(
+        ($) => p_decide_state(
             $,
             ($): t_out.Path.context => {
                 switch ($[0]) {
                     case 'sibling':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['sibling', _p_create_symbol()],
                         )
                     case 'state constraint':
-                        return _p.ss(
+                        return p_.ss(
                             $,
                             ($) => ['state constraint', {
-                                'name': _p_change_context(
+                                'name': p_change_context(
                                     $['name'],
                                     ($) => Identifier(
                                         $,
@@ -44,27 +48,27 @@ export const Path: t_signatures.Path = ($) => ({
                             }],
                         )
                     default:
-                        return _p.au(
+                        return p_.au(
                             $[0],
                         )
                 }
             },
         ),
     ),
-    'selection steps': _p_change_context(
+    'selection steps': p_change_context(
         $['selection steps'],
-        ($) => _p.list.from.list(
+        ($) => p_.from.list(
             $,
         ).map(
-            ($) => _p.decide.state(
+            ($) => p_decide_state(
                 $,
                 ($): t_out.Path.selection_steps.L => {
                     switch ($[0]) {
                         case 'group':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ['group', {
-                                    'name': _p_change_context(
+                                    'name': p_change_context(
                                         $['name'],
                                         ($) => Identifier(
                                             $,
@@ -73,10 +77,10 @@ export const Path: t_signatures.Path = ($) => ({
                                 }],
                             )
                         case 'state constraint':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ['state constraint', {
-                                    'name': _p_change_context(
+                                    'name': p_change_context(
                                         $['name'],
                                         ($) => Identifier(
                                             $,
@@ -85,10 +89,10 @@ export const Path: t_signatures.Path = ($) => ({
                                 }],
                             )
                         case 'reference':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ['reference', {
-                                    'name': _p_change_context(
+                                    'name': p_change_context(
                                         $['name'],
                                         ($) => Identifier(
                                             $,
@@ -97,7 +101,7 @@ export const Path: t_signatures.Path = ($) => ({
                                 }],
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }
@@ -108,29 +112,29 @@ export const Path: t_signatures.Path = ($) => ({
 })
 
 export const Node: t_signatures.Node = ($) => ({
-    'properties': _p_change_context(
+    'properties': p_change_context(
         $['properties'],
-        ($) => _p.dictionary.from.dictionary(
+        ($) => p_.from.dictionary(
             $,
         ).map(
             ($, id) => ({
-                'type': _p_change_context(
+                'type': p_change_context(
                     $['type'],
-                    ($) => _p.decide.state(
+                    ($) => p_decide_state(
                         $,
                         ($): t_out.Node.properties.D.type_ => {
                             switch ($[0]) {
                                 case 'collection':
-                                    return _p.ss(
+                                    return p_.ss(
                                         $,
                                         ($) => ['collection', {
-                                            'node': _p_change_context(
+                                            'node': p_change_context(
                                                 $['node'],
                                                 ($) => Node(
                                                     $,
                                                 ),
                                             ),
-                                            'key': _p_change_context(
+                                            'key': p_change_context(
                                                 $['key'],
                                                 ($) => Identifier(
                                                     $,
@@ -139,10 +143,10 @@ export const Node: t_signatures.Node = ($) => ({
                                         }],
                                     )
                                 case 'group':
-                                    return _p.ss(
+                                    return p_.ss(
                                         $,
                                         ($) => ['group', {
-                                            'node': _p_change_context(
+                                            'node': p_change_context(
                                                 $['node'],
                                                 ($) => Node(
                                                     $,
@@ -151,22 +155,22 @@ export const Node: t_signatures.Node = ($) => ({
                                         }],
                                     )
                                 case 'text':
-                                    return _p.ss(
+                                    return p_.ss(
                                         $,
                                         ($) => ['text', {
-                                            'constraint': _p_change_context(
+                                            'constraint': p_change_context(
                                                 $['constraint'],
-                                                ($) => _p.optional.from.optional(
+                                                ($) => p_.from.optional(
                                                     $,
                                                 ).map(
                                                     ($) => ({
-                                                        'path': _p_change_context(
+                                                        'path': p_change_context(
                                                             $['path'],
                                                             ($) => Path(
                                                                 $,
                                                             ),
                                                         ),
-                                                        'dictionary': _p_change_context(
+                                                        'dictionary': p_change_context(
                                                             $['dictionary'],
                                                             ($) => Identifier(
                                                                 $,
@@ -178,22 +182,22 @@ export const Node: t_signatures.Node = ($) => ({
                                         }],
                                     )
                                 case 'state group':
-                                    return _p.ss(
+                                    return p_.ss(
                                         $,
                                         ($) => ['state group', {
-                                            'states': _p_change_context(
+                                            'states': p_change_context(
                                                 $['states'],
-                                                ($) => _p.dictionary.from.dictionary(
+                                                ($) => p_.from.dictionary(
                                                     $,
                                                 ).map(
                                                     ($, id) => ({
-                                                        'constraints': _p_change_context(
+                                                        'constraints': p_change_context(
                                                             $['constraints'],
-                                                            ($) => _p.dictionary.from.dictionary(
+                                                            ($) => p_.from.dictionary(
                                                                 $,
                                                             ).map(
                                                                 ($, id) => ({
-                                                                    'path': _p_change_context(
+                                                                    'path': p_change_context(
                                                                         $['path'],
                                                                         ($) => Path(
                                                                             $,
@@ -202,7 +206,7 @@ export const Node: t_signatures.Node = ($) => ({
                                                                 }),
                                                             ),
                                                         ),
-                                                        'node': _p_change_context(
+                                                        'node': p_change_context(
                                                             $['node'],
                                                             ($) => Node(
                                                                 $,
@@ -214,7 +218,7 @@ export const Node: t_signatures.Node = ($) => ({
                                         }],
                                     )
                                 default:
-                                    return _p.au(
+                                    return p_.au(
                                         $[0],
                                     )
                             }
@@ -227,15 +231,15 @@ export const Node: t_signatures.Node = ($) => ({
 })
 
 export const Root: t_signatures.Root = ($) => ({
-    'numerical types': _p_change_context(
+    'numerical types': p_change_context(
         $['numerical types'],
-        ($) => _p.dictionary.from.dictionary(
+        ($) => p_.from.dictionary(
             $,
         ).map(
             ($, id) => _p_create_symbol(),
         ),
     ),
-    'root': _p_change_context(
+    'root': p_change_context(
         $['root'],
         ($) => Node(
             $,

@@ -36,7 +36,7 @@ import * as t_schema_to_lionweb from "./lionweb_serialization_chunk"
 //shorthands
 import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-system"
 
-export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.decide.state($, ($) => {
+export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).decide(($) => {
     switch ($[0]) {
         case 'schema': return p_.ss($, ($) => p_.literal.dictionary({
             "lionweb.json": sh.n.file(
@@ -50,6 +50,6 @@ export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.decide.state($,
     }
 })
 
-export const Schemas: interface_.Schemas = ($) => $.__d_map(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
+export const Schemas: interface_.Schemas = ($) => $.__d_map_deprecated(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
 
 export const Package: interface_.Package = ($, $p) => Schema_Tree($['schema tree'], { 'graph name': $p['graph name'] })

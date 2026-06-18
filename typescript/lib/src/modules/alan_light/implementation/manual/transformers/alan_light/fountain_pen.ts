@@ -45,7 +45,7 @@ export const Identifier: p_i.Transformer<
     [
         0x60, // `
     ],
-    p_.list.from.list(
+    p_.from.list(
         p_list_from_text(
             $,
             ($) => $
@@ -113,13 +113,13 @@ export const Node: p_i.Transformer<
     sh.ph.literal("{"),
     sh.ph.indent(
         sh.pg.sentences(
-            p_.list.from.dictionary(
+            p_.from.dictionary(
                 $.properties,
-            ).convert(
+            ).convert_to_list(
                 ($, id) => sh.sentence([
                     Identifier(id),
                     sh.ph.literal(": "),
-                    p_.decide.state($.type, ($) => {
+                    p_.from.state($.type).decide(($) => {
                         switch ($[0]) {
                             case 'collection': return p_.ss($, ($) => sh.ph.composed([
                                 sh.ph.literal("collection ["),
@@ -131,15 +131,15 @@ export const Node: p_i.Transformer<
                                 sh.ph.literal("group "),
                                 Node($.node)
                             ]))
-                            case 'state group': return p_.ss($, ($) => p_.boolean.from.dictionary($.states).is_empty()
+                            case 'state group': return p_.ss($, ($) => p_.from.dictionary($.states).is_empty()
                                 ? sh.ph.literal("group { }")
                                 : sh.ph.composed([
                                     sh.ph.literal("stategroup ("),
                                     sh.ph.indent(
                                         sh.pg.sentences(
-                                            p_.list.from.dictionary(
+                                            p_.from.dictionary(
                                                 $.states,
-                                            ).convert(
+                                            ).convert_to_list(
                                                 ($, id) => sh.sentence([
                                                     Identifier(id),
                                                     sh.ph.literal(" "),

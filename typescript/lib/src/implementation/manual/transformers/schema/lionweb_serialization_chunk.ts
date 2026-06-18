@@ -32,7 +32,7 @@ export const Schema: p_i.Transformer<
             'version': "2023.1",
         }
     ]),
-    'nodes': p_.list.from.dictionary($.modules).flatten(
+    'nodes': p_.from.dictionary($.modules).flatten_to_list(
         ($, id) => p_implement_me("lionweb")
         // ($, id) => Type_Node_2_Document_nodes(
         //     $['root value'],
@@ -55,7 +55,7 @@ export const Schema: p_i.Transformer<
 //     $p: {
 //         'path': string,
 //     }
-// ): d_out.Serialization_Chunk.nodes => p_.decide.state($, ($) => {
+// ): d_out.Serialization_Chunk.nodes => p_.from.state($).decide(($) => {
 //     switch ($[0]) {
 //         case 'dictionary': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_list<d_out.Serialization_Chunk.nodes.L>([
 //             p_.literal.list([

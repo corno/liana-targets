@@ -16,7 +16,7 @@ export const Schema_Tree: p_i.Transformer_With_Parameter<
     d_in.Schema_Tree,
     d_out.Directory,
     { 'graph name': string }
-> = ($, $p) => p_.decide.state($, ($) => {
+> = ($, $p) => p_.from.state($).decide(($) => {
     switch ($[0]) {
         case 'schema': return p_.ss($, ($) => p_.literal.dictionary({
             "graphviz.dot": sh.n.file(
@@ -35,7 +35,7 @@ export const Schema_Tree: p_i.Transformer_With_Parameter<
 export const Schemas: p_i.Transformer<
     d_in.Schemas,
     d_out.Directory
-> = ($) => $.__d_map(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
+> = ($) => $.__d_map_deprecated(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
 
 export const Package: p_i.Transformer_With_Parameter<
     d_in.Package,

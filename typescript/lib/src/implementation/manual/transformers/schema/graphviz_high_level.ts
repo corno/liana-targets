@@ -13,12 +13,12 @@ export const Schema: p_i.Transformer_With_Parameter<
     'name': p_.literal.set($p['graph name']),
     'tree': {
         'attributes': p_.literal.list([]),
-        'elements': $.modules.__d_map(($) => ['node', {
+        'elements': $.modules.__d_map_deprecated(($) => ['node', {
             'attributes': p_.literal.list([]),
         }]),
     },
     'type': ['directed', {
-        'edges': p_.list.from.dictionary($.modules).flatten(
+        'edges': p_.from.dictionary($.modules).flatten_to_list(
             ($, id) => Value($['root value'], { 'type name': id })
         ),
     }],
@@ -29,7 +29,7 @@ export const Value: p_i.Transformer_With_Parameter<
     d_in.Value,
     d_out.Graph.type_.directed.edges,
     { 'type name': string }
-> = ($, $p) => p_.decide.state($, ($) => {
+> = ($, $p) => p_.from.state($).decide(($) => {
     switch ($[0]) {
         case 'simple': return p_.ss($, ($) => p_.literal.list([]))
         case 'list': return p_.ss($, ($) => Value($.value, $p))
@@ -43,7 +43,7 @@ export const Value: p_i.Transformer_With_Parameter<
                     'port data': p_.literal.not_set()
                 },
                 'to': {
-                    'start': p_.decide.state($.type, ($) => {
+                    'start': p_.from.state($.type).decide(($) => {
                         switch ($[0]) {
                             case 'external': return p_.ss($, ($) => "FIXME")
                             case 'internal': return p_.ss($, ($) => $['l id'])
@@ -54,7 +54,7 @@ export const Value: p_i.Transformer_With_Parameter<
                     'tail': p_.literal.list([]),
                     'port data': p_.literal.not_set()
                 },
-                'attributes': p_.decide.state($.type, ($) => {
+                'attributes': p_.from.state($.type).decide(($) => {
                     switch ($[0]) {
                         case 'external': return p_.ss($, ($) => p_.literal.list([]))
                         case 'internal': return p_.ss($, ($) => p_.literal.list([]))
@@ -68,11 +68,11 @@ export const Value: p_i.Transformer_With_Parameter<
 
         ]))
         case 'dictionary': return p_.ss($, ($) => Value($.value, $p))
-        case 'group': return p_.ss($, ($) => p_.list.from.dictionary($).flatten(
+        case 'group': return p_.ss($, ($) => p_.from.dictionary($).flatten_to_list(
             ($, id) => Value($.value, $p)
         ))
         case 'optional': return p_.ss($, ($) => Value($, $p))
-        case 'state': return p_.ss($, ($) => p_.list.from.dictionary($.options).flatten(
+        case 'state': return p_.ss($, ($) => p_.from.dictionary($.options).flatten_to_list(
             ($) => Value($.value, $p)
         ))
         case 'text': return p_.ss($, ($) => p_.literal.list([]))

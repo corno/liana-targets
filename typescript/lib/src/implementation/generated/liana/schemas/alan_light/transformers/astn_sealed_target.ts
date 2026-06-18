@@ -1,7 +1,11 @@
 
-import * as _p from 'pareto-core/dist/assign'
+import * as p_ from 'pareto-core/dist/implementation/transformer'
+import * as p_di from 'pareto-core/dist/interface/data'
+const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
+const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import _p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
 
 import _p_text_from_list from 'pareto-core/dist/implementation/specials/text_from_list'
 
@@ -16,42 +20,42 @@ export const Identifier: t_signatures.Identifier = ($) => ['text', {
     'value': $,
 }]
 
-export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Path: t_signatures.Path = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "up steps": _p_change_context(
+        "up steps": p_change_context(
             $['up steps'],
-            ($) => ['list', _p.list.from.list(
+            ($) => ['list', p_.from.list(
                 $,
             ).map(
-                ($) => ['group', ['verbose', _p.literal.dictionary(
+                ($) => ['group', ['verbose', p_.literal.dictionary(
                     {},
                 )]],
             )],
         ),
-        "context": _p_change_context(
+        "context": p_change_context(
             $['context'],
-            ($) => ['state', _p.decide.state(
+            ($) => ['state', p_decide_state(
                 $,
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'sibling':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'sibling',
-                                    'value': ['group', ['verbose', _p.literal.dictionary(
+                                    'value': ['group', ['verbose', p_.literal.dictionary(
                                         {},
                                     )]],
                                 }),
                             )
                         case 'state constraint':
-                            return _p.ss(
+                            return p_.ss(
                                 $,
                                 ($) => ({
                                     'option': 'state constraint',
-                                    'value': ['group', ['verbose', _p.literal.dictionary(
+                                    'value': ['group', ['verbose', p_.literal.dictionary(
                                         {
-                                            "name": _p_change_context(
+                                            "name": p_change_context(
                                                 $['name'],
                                                 ($) => Identifier(
                                                     $,
@@ -62,30 +66,30 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.literal.d
                                 }),
                             )
                         default:
-                            return _p.au(
+                            return p_.au(
                                 $[0],
                             )
                     }
                 },
             )],
         ),
-        "selection steps": _p_change_context(
+        "selection steps": p_change_context(
             $['selection steps'],
-            ($) => ['list', _p.list.from.list(
+            ($) => ['list', p_.from.list(
                 $,
             ).map(
-                ($) => ['state', _p.decide.state(
+                ($) => ['state', p_decide_state(
                     $,
                     ($): t_out.Value.state => {
                         switch ($[0]) {
                             case 'group':
-                                return _p.ss(
+                                return p_.ss(
                                     $,
                                     ($) => ({
                                         'option': 'group',
-                                        'value': ['group', ['verbose', _p.literal.dictionary(
+                                        'value': ['group', ['verbose', p_.literal.dictionary(
                                             {
-                                                "name": _p_change_context(
+                                                "name": p_change_context(
                                                     $['name'],
                                                     ($) => Identifier(
                                                         $,
@@ -96,13 +100,13 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.literal.d
                                     }),
                                 )
                             case 'state constraint':
-                                return _p.ss(
+                                return p_.ss(
                                     $,
                                     ($) => ({
                                         'option': 'state constraint',
-                                        'value': ['group', ['verbose', _p.literal.dictionary(
+                                        'value': ['group', ['verbose', p_.literal.dictionary(
                                             {
-                                                "name": _p_change_context(
+                                                "name": p_change_context(
                                                     $['name'],
                                                     ($) => Identifier(
                                                         $,
@@ -113,13 +117,13 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.literal.d
                                     }),
                                 )
                             case 'reference':
-                                return _p.ss(
+                                return p_.ss(
                                     $,
                                     ($) => ({
                                         'option': 'reference',
-                                        'value': ['group', ['verbose', _p.literal.dictionary(
+                                        'value': ['group', ['verbose', p_.literal.dictionary(
                                             {
-                                                "name": _p_change_context(
+                                                "name": p_change_context(
                                                     $['name'],
                                                     ($) => Identifier(
                                                         $,
@@ -130,7 +134,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.literal.d
                                     }),
                                 )
                             default:
-                                return _p.au(
+                                return p_.au(
                                     $[0],
                                 )
                         }
@@ -141,35 +145,35 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', _p.literal.d
     },
 )]]
 
-export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "properties": _p_change_context(
+        "properties": p_change_context(
             $['properties'],
-            ($) => ['dictionary', _p.dictionary.from.dictionary(
+            ($) => ['dictionary', p_.from.dictionary(
                 $,
             ).map(
-                ($, id) => ['group', ['verbose', _p.literal.dictionary(
+                ($, id) => ['group', ['verbose', p_.literal.dictionary(
                     {
-                        "type": _p_change_context(
+                        "type": p_change_context(
                             $['type'],
-                            ($) => ['state', _p.decide.state(
+                            ($) => ['state', p_decide_state(
                                 $,
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'collection':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'collection',
-                                                    'value': ['group', ['verbose', _p.literal.dictionary(
+                                                    'value': ['group', ['verbose', p_.literal.dictionary(
                                                         {
-                                                            "node": _p_change_context(
+                                                            "node": p_change_context(
                                                                 $['node'],
                                                                 ($) => Node(
                                                                     $,
                                                                 ),
                                                             ),
-                                                            "key": _p_change_context(
+                                                            "key": p_change_context(
                                                                 $['key'],
                                                                 ($) => Identifier(
                                                                     $,
@@ -180,13 +184,13 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.literal.d
                                                 }),
                                             )
                                         case 'group':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'group',
-                                                    'value': ['group', ['verbose', _p.literal.dictionary(
+                                                    'value': ['group', ['verbose', p_.literal.dictionary(
                                                         {
-                                                            "node": _p_change_context(
+                                                            "node": p_change_context(
                                                                 $['node'],
                                                                 ($) => Node(
                                                                     $,
@@ -197,25 +201,25 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.literal.d
                                                 }),
                                             )
                                         case 'text':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'text',
-                                                    'value': ['group', ['verbose', _p.literal.dictionary(
+                                                    'value': ['group', ['verbose', p_.literal.dictionary(
                                                         {
-                                                            "constraint": _p_change_context(
+                                                            "constraint": p_change_context(
                                                                 $['constraint'],
-                                                                ($) => ['optional', _p.decide.optional(
+                                                                ($) => ['optional', p_decide_optional(
                                                                     $,
-                                                                    ($): t_out.Value.optional => ['set', ['group', ['verbose', _p.literal.dictionary(
+                                                                    ($): t_out.Value.optional => ['set', ['group', ['verbose', p_.literal.dictionary(
                                                                         {
-                                                                            "path": _p_change_context(
+                                                                            "path": p_change_context(
                                                                                 $['path'],
                                                                                 ($) => Path(
                                                                                     $,
                                                                                 ),
                                                                             ),
-                                                                            "dictionary": _p_change_context(
+                                                                            "dictionary": p_change_context(
                                                                                 $['dictionary'],
                                                                                 ($) => Identifier(
                                                                                     $,
@@ -231,27 +235,27 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.literal.d
                                                 }),
                                             )
                                         case 'state group':
-                                            return _p.ss(
+                                            return p_.ss(
                                                 $,
                                                 ($) => ({
                                                     'option': 'state group',
-                                                    'value': ['group', ['verbose', _p.literal.dictionary(
+                                                    'value': ['group', ['verbose', p_.literal.dictionary(
                                                         {
-                                                            "states": _p_change_context(
+                                                            "states": p_change_context(
                                                                 $['states'],
-                                                                ($) => ['dictionary', _p.dictionary.from.dictionary(
+                                                                ($) => ['dictionary', p_.from.dictionary(
                                                                     $,
                                                                 ).map(
-                                                                    ($, id) => ['group', ['verbose', _p.literal.dictionary(
+                                                                    ($, id) => ['group', ['verbose', p_.literal.dictionary(
                                                                         {
-                                                                            "constraints": _p_change_context(
+                                                                            "constraints": p_change_context(
                                                                                 $['constraints'],
-                                                                                ($) => ['dictionary', _p.dictionary.from.dictionary(
+                                                                                ($) => ['dictionary', p_.from.dictionary(
                                                                                     $,
                                                                                 ).map(
-                                                                                    ($, id) => ['group', ['verbose', _p.literal.dictionary(
+                                                                                    ($, id) => ['group', ['verbose', p_.literal.dictionary(
                                                                                         {
-                                                                                            "path": _p_change_context(
+                                                                                            "path": p_change_context(
                                                                                                 $['path'],
                                                                                                 ($) => Path(
                                                                                                     $,
@@ -261,7 +265,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.literal.d
                                                                                     )]],
                                                                                 )],
                                                                             ),
-                                                                            "node": _p_change_context(
+                                                                            "node": p_change_context(
                                                                                 $['node'],
                                                                                 ($) => Node(
                                                                                     $,
@@ -276,7 +280,7 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.literal.d
                                                 }),
                                             )
                                         default:
-                                            return _p.au(
+                                            return p_.au(
                                                 $[0],
                                             )
                                     }
@@ -290,19 +294,19 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', _p.literal.d
     },
 )]]
 
-export const Root: t_signatures.Root = ($) => ['group', ['verbose', _p.literal.dictionary(
+export const Root: t_signatures.Root = ($) => ['group', ['verbose', p_.literal.dictionary(
     {
-        "numerical types": _p_change_context(
+        "numerical types": p_change_context(
             $['numerical types'],
-            ($) => ['dictionary', _p.dictionary.from.dictionary(
+            ($) => ['dictionary', p_.from.dictionary(
                 $,
             ).map(
-                ($, id) => ['group', ['verbose', _p.literal.dictionary(
+                ($, id) => ['group', ['verbose', p_.literal.dictionary(
                     {},
                 )]],
             )],
         ),
-        "root": _p_change_context(
+        "root": p_change_context(
             $['root'],
             ($) => Node(
                 $,

@@ -18,7 +18,7 @@ export const Package: p_i.Transformer<d_in.Package, d_out.Document> = ($) => sh.
     Schema_Tree($['schema tree'])
 )
 
-export const Schema_Tree: p_i.Transformer<d_in.Schema_Tree, d_out.Flow_Element> = ($) => p_.decide.state($, ($) => {
+export const Schema_Tree: p_i.Transformer<d_in.Schema_Tree, d_out.Flow_Element> = ($) => p_.from.state($).decide(($) => {
     switch ($[0]) {
         case 'schema': return p_.ss($, ($) => Schema($))
         case 'set': return p_.ss($, ($) => sh.f.div(Schemas($)))
@@ -26,7 +26,7 @@ export const Schema_Tree: p_i.Transformer<d_in.Schema_Tree, d_out.Flow_Element> 
     }
 })
 
-export const Schemas: p_i.Transformer<d_in.Schemas, d_out.Flow_Content> = ($) => $.__to_list(($, id) => sh.f.div([
+export const Schemas: p_i.Transformer<d_in.Schemas, d_out.Flow_Content> = ($) => p_.from.dictionary($).convert_to_list(($, id) => sh.f.div([
     sh.f.span([
         sh.p.p("schema:"),
         sh.p.p(id),
@@ -39,7 +39,7 @@ export const Schema: p_i.Transformer<d_in.Schema, d_out.Flow_Element> = ($) => s
     [
         "modules"
     ],
-    $.modules.__to_list(($, id) => sh.f.div([
+    p_.from.dictionary($.modules).convert_to_list(($, id) => sh.f.div([
         sh.f.span([
             sh.p.p("module:"),
             sh.p.p(id),
