@@ -5,9 +5,9 @@ const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign(
 const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
 const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
 
-import _p_create_symbol from 'pareto-core/dist/implementation/specials/create_symbol'
+
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/alan_light/signatures/transformers/boilerplate_for_migrate"
 
@@ -21,7 +21,7 @@ export const Path: t_signatures.Path = ($) => ({
         ($) => p_.from.list(
             $,
         ).map(
-            ($) => _p_create_symbol(),
+            ($) => p_.literal.nothing(),
         ),
     ),
     'context': p_change_context(
@@ -33,7 +33,7 @@ export const Path: t_signatures.Path = ($) => ({
                     case 'sibling':
                         return p_.ss(
                             $,
-                            ($) => ['sibling', _p_create_symbol()],
+                            ($) => ['sibling', p_.literal.nothing()],
                         )
                     case 'state constraint':
                         return p_.ss(
@@ -236,7 +236,7 @@ export const Root: t_signatures.Root = ($) => ({
         ($) => p_.from.dictionary(
             $,
         ).map(
-            ($, id) => _p_create_symbol(),
+            ($, id) => p_.literal.nothing(),
         ),
     ),
     'root': p_change_context(

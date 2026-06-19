@@ -1,5 +1,5 @@
 import * as p_ from 'pareto-core-shorthands/dist/unconstrained'
-import p_create_symbol from 'pareto-core/dist/implementation/specials/create_symbol'
+
 
 import * as d_target from "../../../interface/generated/liana/schemas/alan_light/data"
 
@@ -12,7 +12,7 @@ export const root = (
 })
 
 export const numerical_type = (
-): d_target.Root.numerical_types.D => (p_create_symbol())
+): d_target.Root.numerical_types.D => (p_.nothing())
 
 export namespace prop {
 
@@ -77,7 +77,7 @@ export const constraint = (
 ): d_target.Node.properties.D.type_.state_group.states.D.constraints.D => ({
     'path': {
         'up steps': p_.list(up_steps),
-        'context': ['sibling', p_create_symbol()],
+        'context': ['sibling', p_.nothing()],
         'selection steps': p_.list(selection_steps),
     }
 })

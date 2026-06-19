@@ -5,13 +5,13 @@ const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign(
 const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => $.__decide(assign, otherwise)
 const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
 
-import p_change_context from 'pareto-core/dist/implementation/specials/change_context'
+import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
 
-import p_list_from_text from 'pareto-core/dist/implementation/specials/list_from_text'
+import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
 
-import p_variables from 'pareto-core/dist/implementation/specials/variables'
+import p_variables from 'pareto-core/dist/implementation/refiner/specials/variables'
 
-import _p_create_symbol from 'pareto-core/dist/implementation/specials/create_symbol'
+
 
 import * as t_signatures from "../../../../../../interface/generated/liana/schemas/alan_light/signatures/refiners/astn_parse_tree"
 
@@ -101,7 +101,7 @@ export const Path: t_signatures.Path = ($, abort) => p_change_context(
                                                 'subdocument context': p_.literal.not_set(),
                                             },
                                         )
-                                        return _p_create_symbol()
+                                        return p_.literal.nothing()
                                     },
                                 ),
                             ),
@@ -155,7 +155,7 @@ export const Path: t_signatures.Path = ($, abort) => p_change_context(
                                                                 'subdocument context': p_.literal.not_set(),
                                                             },
                                                         )
-                                                        return _p_create_symbol()
+                                                        return p_.literal.nothing()
                                                     },
                                                 ),
                                             )],
@@ -1060,7 +1060,7 @@ export const Root: t_signatures.Root = ($, abort) => p_change_context(
                                                 'subdocument context': p_.literal.not_set(),
                                             },
                                         )
-                                        return _p_create_symbol()
+                                        return p_.literal.nothing()
                                     },
                                 ),
                             ),
