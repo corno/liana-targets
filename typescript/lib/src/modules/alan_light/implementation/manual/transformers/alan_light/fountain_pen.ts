@@ -42,9 +42,9 @@ export const Identifier: p_i.Transformer<
     d_in.Identifier,
     d_out.Phrase
 > = ($) => sh.ph.serialize(p_.literal.nested_list([
-    [
+    p_.literal.list([
         0x60, // `
-    ],
+    ]),
     p_.from.list(
         p_list_from_text(
             $,
@@ -101,9 +101,9 @@ export const Identifier: p_i.Transformer<
             }
         }
     ),
-    [
+    p_.literal.list([
         0x60, // `
-    ]
+    ])
 ]))
 
 export const Node: p_i.Transformer<
