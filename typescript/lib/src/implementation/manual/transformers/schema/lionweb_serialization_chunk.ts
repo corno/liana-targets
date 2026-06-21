@@ -57,7 +57,7 @@ export const Schema: p_i.Transformer<
 //     }
 // ): d_out.Serialization_Chunk.nodes => p_.from.state($).decide(($) => {
 //     switch ($[0]) {
-//         case 'dictionary': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_list<d_out.Serialization_Chunk.nodes.L>([
+//         case 'dictionary': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
 //             p_.literal.list([
 //                 {
 //                     'id': $p.path,
@@ -95,7 +95,7 @@ export const Schema: p_i.Transformer<
 //                 }
 //             ),
 //         ]))
-//         case 'group': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_list<d_out.Serialization_Chunk.nodes.L>([
+//         case 'group': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
@@ -122,7 +122,7 @@ export const Schema: p_i.Transformer<
 //                 ($) => $,
 //             ),
 //         ]))
-//         case 'list': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_list<d_out.Serialization_Chunk.nodes.L>([
+//         case 'list': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
@@ -146,7 +146,7 @@ export const Schema: p_i.Transformer<
 //                 }
 //             ),
 //         ]))
-//         case 'optional': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_list<d_out.Serialization_Chunk.nodes.L>([
+//         case 'optional': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
@@ -170,7 +170,7 @@ export const Schema: p_i.Transformer<
 //                 }
 //             ),
 //         ]))
-//         case 'state group': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_list<d_out.Serialization_Chunk.nodes.L>([
+//         case 'state group': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,

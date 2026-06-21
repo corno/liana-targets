@@ -41,7 +41,7 @@ export const Root: p_i.Transformer<
 export const Identifier: p_i.Transformer<
     d_in.Identifier,
     d_out.Phrase
-> = ($) => sh.ph.serialize(p_.literal.nested_list([
+> = ($) => sh.ph.serialize(p_.literal.segmented_list([
     p_.literal.list([
         0x60, // `
     ]),
