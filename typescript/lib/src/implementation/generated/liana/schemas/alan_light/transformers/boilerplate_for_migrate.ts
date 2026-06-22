@@ -18,8 +18,7 @@ export const Identifier: t_signatures.Identifier = ($) => $
 export const Path: t_signatures.Path = ($) => ({
     'up steps': p_change_context(
         $['up steps'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => p_.literal.nothing(),
         ),
@@ -57,8 +56,7 @@ export const Path: t_signatures.Path = ($) => ({
     ),
     'selection steps': p_change_context(
         $['selection steps'],
-        ($) => p_.from.list(
-            $,
+        ($) => p_.from.list($,
         ).map(
             ($) => p_decide_state(
                 $,
@@ -114,8 +112,7 @@ export const Path: t_signatures.Path = ($) => ({
 export const Node: t_signatures.Node = ($) => ({
     'properties': p_change_context(
         $['properties'],
-        ($) => p_.from.dictionary(
-            $,
+        ($) => p_.from.dictionary($,
         ).map(
             ($, id) => ({
                 'type': p_change_context(
@@ -160,8 +157,7 @@ export const Node: t_signatures.Node = ($) => ({
                                         ($) => ['text', {
                                             'constraint': p_change_context(
                                                 $['constraint'],
-                                                ($) => p_.from.optional(
-                                                    $,
+                                                ($) => p_.from.optional($,
                                                 ).map(
                                                     ($) => ({
                                                         'path': p_change_context(
@@ -187,14 +183,12 @@ export const Node: t_signatures.Node = ($) => ({
                                         ($) => ['state group', {
                                             'states': p_change_context(
                                                 $['states'],
-                                                ($) => p_.from.dictionary(
-                                                    $,
+                                                ($) => p_.from.dictionary($,
                                                 ).map(
                                                     ($, id) => ({
                                                         'constraints': p_change_context(
                                                             $['constraints'],
-                                                            ($) => p_.from.dictionary(
-                                                                $,
+                                                            ($) => p_.from.dictionary($,
                                                             ).map(
                                                                 ($, id) => ({
                                                                     'path': p_change_context(
@@ -233,8 +227,7 @@ export const Node: t_signatures.Node = ($) => ({
 export const Root: t_signatures.Root = ($) => ({
     'numerical types': p_change_context(
         $['numerical types'],
-        ($) => p_.from.dictionary(
-            $,
+        ($) => p_.from.dictionary($,
         ).map(
             ($, id) => p_.literal.nothing(),
         ),

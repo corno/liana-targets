@@ -66,8 +66,7 @@ export const Path: t_signatures.Path = ($, abort) => p_change_context(
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.list(
-                        v_unmarshalled_from_parse_tree.List(
+                    ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,
@@ -239,8 +238,7 @@ export const Path: t_signatures.Path = ($, abort) => p_change_context(
                             'subdocument context': p_.literal.not_set(),
                         },
                     ),
-                    ($) => p_.from.list(
-                        v_unmarshalled_from_parse_tree.List(
+                    ($) => p_.from.list(v_unmarshalled_from_parse_tree.List(
                             $,
                             ($) => abort(
                                 $,
@@ -486,8 +484,7 @@ export const Node: t_signatures.Node = ($, abort) => p_change_context(
                                 'subdocument context': p_.literal.not_set(),
                             },
                         ),
-                        ($) => p_.from.dictionary(
-                            $['entries'],
+                        ($) => p_.from.dictionary($['entries'],
                         ).map(
                             ($, id) => p_change_context(
                                 v_unmarshalled_from_parse_tree.Verbose_Group(
@@ -696,8 +693,7 @@ export const Node: t_signatures.Node = ($, abort) => p_change_context(
                                                                                                     'subdocument context': p_.literal.not_set(),
                                                                                                 },
                                                                                             ),
-                                                                                            ($) => p_.from.optional(
-                                                                                                v_unmarshalled_from_parse_tree.Optional(
+                                                                                            ($) => p_.from.optional(v_unmarshalled_from_parse_tree.Optional(
                                                                                                     $,
                                                                                                     ($) => abort(
                                                                                                         $,
@@ -826,8 +822,7 @@ export const Node: t_signatures.Node = ($, abort) => p_change_context(
                                                                                                         'subdocument context': p_.literal.not_set(),
                                                                                                     },
                                                                                                 ),
-                                                                                                ($) => p_.from.dictionary(
-                                                                                                    $['entries'],
+                                                                                                ($) => p_.from.dictionary($['entries'],
                                                                                                 ).map(
                                                                                                     ($, id) => p_change_context(
                                                                                                         v_unmarshalled_from_parse_tree.Verbose_Group(
@@ -876,8 +871,7 @@ export const Node: t_signatures.Node = ($, abort) => p_change_context(
                                                                                                                                     'subdocument context': p_.literal.not_set(),
                                                                                                                                 },
                                                                                                                             ),
-                                                                                                                            ($) => p_.from.dictionary(
-                                                                                                                                $['entries'],
+                                                                                                                            ($) => p_.from.dictionary($['entries'],
                                                                                                                             ).map(
                                                                                                                                 ($, id) => p_change_context(
                                                                                                                                     v_unmarshalled_from_parse_tree.Verbose_Group(
@@ -1035,8 +1029,7 @@ export const Root: t_signatures.Root = ($, abort) => p_change_context(
                                 'subdocument context': p_.literal.not_set(),
                             },
                         ),
-                        ($) => p_.from.dictionary(
-                            $['entries'],
+                        ($) => p_.from.dictionary($['entries'],
                         ).map(
                             ($, id) => p_change_context(
                                 v_unmarshalled_from_parse_tree.Verbose_Group(

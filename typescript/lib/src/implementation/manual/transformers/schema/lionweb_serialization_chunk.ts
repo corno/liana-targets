@@ -55,7 +55,8 @@ export const Schema: p_i.Transformer<
 //     $p: {
 //         'path': string,
 //     }
-// ): d_out.Serialization_Chunk.nodes => p_.from.state($).decide(($) => {
+// ): d_out.Serialization_Chunk.nodes => p_.from.state($).decide(
+// ($) => {
 //     switch ($[0]) {
 //         case 'dictionary': return p_.ss($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
 //             p_.literal.list([
@@ -105,7 +106,8 @@ export const Schema: p_i.Transformer<
 //                     'containments': p_.literal.list([
 //                         {
 //                             'containment': MetaPointer("properties"),
-//                             'children': $.__to_list(($, id) => $p.path plus "." + key),
+//                             'children': $.__to_list(
+// ($, id) => $p.path plus "." + key),
 //                         },
 //                     ]),
 //                     'properties': p_.literal.list([]),
@@ -113,7 +115,8 @@ export const Schema: p_i.Transformer<
 //                 }
 //             ],
 //             p_.list.flatten(
-//                 $.__to_list(($, id) => Type_Node_2_Document_nodes(
+//                 $.__to_list(
+// ($, id) => Type_Node_2_Document_nodes(
 //                     $.node,
 //                     {
 //                         'path': $p.path plus "." + key,

@@ -45,11 +45,10 @@ export const Identifier: p_i.Transformer<
     p_.literal.list([
         0x60, // `
     ]),
-    p_.from.list(
-        p_list_from_text(
-            $,
-            ($) => $
-        ),
+    p_.from.list(p_list_from_text(
+        $,
+        ($) => $
+    ),
     ).flatten(
         ($) => {
             switch ($) {
@@ -113,48 +112,47 @@ export const Node: p_i.Transformer<
     sh.ph.literal("{"),
     sh.ph.indent(
         sh.pg.sentences(
-            p_.from.dictionary(
-                $.properties,
+            p_.from.dictionary($.properties,
             ).convert_to_list(
                 ($, id) => sh.sentence([
                     Identifier(id),
                     sh.ph.literal(": "),
-                    p_.from.state($.type).decide(($) => {
-                        switch ($[0]) {
-                            case 'collection': return p_.ss($, ($) => sh.ph.composed([
-                                sh.ph.literal("collection ["),
-                                Identifier($.key),
-                                sh.ph.literal("] "),
-                                Node($.node)
-                            ]))
-                            case 'group': return p_.ss($, ($) => sh.ph.composed([
-                                sh.ph.literal("group "),
-                                Node($.node)
-                            ]))
-                            case 'state group': return p_.ss($, ($) => p_.from.dictionary($.states).on_has_entries(
-                                ($) => sh.ph.composed([
-                                    sh.ph.literal("stategroup ("),
-                                    sh.ph.indent(
-                                        sh.pg.sentences(
-                                            p_.from.dictionary(
-                                                $,
-                                            ).convert_to_list(
-                                                ($, id) => sh.sentence([
-                                                    Identifier(id),
-                                                    sh.ph.literal(" "),
-                                                    Node($.node)
-                                                ])
+                    p_.from.state($.type).decide(
+                        ($) => {
+                            switch ($[0]) {
+                                case 'collection': return p_.ss($, ($) => sh.ph.composed([
+                                    sh.ph.literal("collection ["),
+                                    Identifier($.key),
+                                    sh.ph.literal("] "),
+                                    Node($.node)
+                                ]))
+                                case 'group': return p_.ss($, ($) => sh.ph.composed([
+                                    sh.ph.literal("group "),
+                                    Node($.node)
+                                ]))
+                                case 'state group': return p_.ss($, ($) => p_.from.dictionary($.states).on_has_entries(
+                                    ($) => sh.ph.composed([
+                                        sh.ph.literal("stategroup ("),
+                                        sh.ph.indent(
+                                            sh.pg.sentences(
+                                                p_.from.dictionary($,
+                                                ).convert_to_list(
+                                                    ($, id) => sh.sentence([
+                                                        Identifier(id),
+                                                        sh.ph.literal(" "),
+                                                        Node($.node)
+                                                    ])
+                                                )
                                             )
-                                        )
-                                    ),
-                                    sh.ph.literal(")")
-                                ]),
-                                () => sh.ph.literal("group { }")
-                            ))
-                            case 'text': return p_.ss($, ($) => sh.ph.literal("text"))
-                            default: return p_.au($[0])
-                        }
-                    })
+                                        ),
+                                        sh.ph.literal(")")
+                                    ]),
+                                    () => sh.ph.literal("group { }")
+                                ))
+                                case 'text': return p_.ss($, ($) => sh.ph.literal("text"))
+                                default: return p_.au($[0])
+                            }
+                        })
                 ])
             )
         ),

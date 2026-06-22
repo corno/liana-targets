@@ -22,28 +22,28 @@ export type Value_to_Property = p_i.Refiner<d_out.Node.properties.D, My_Error, d
 
 export const Package: Package = ($, abort) => Schema_Tree($['schema tree'], abort)
 
-export const Schema_Tree: Schema_Tree = ($, abort) => p_.from.state($).decide(($) => {
-    switch ($[0]) {
-        case 'schema': return p_.ss($, ($) => ['model', Schema($, abort)])
-        case 'set': return p_.ss($, ($): d_out_package.Node => ['package', p_.from.dictionary(
-            $
-        ).map(
-            ($) => Schema_Tree($, abort)
-        )])
-        default: return p_.au($[0])
-    }
-})
+export const Schema_Tree: Schema_Tree = ($, abort) => p_.from.state($).decide(
+    ($) => {
+        switch ($[0]) {
+            case 'schema': return p_.ss($, ($) => ['model', Schema($, abort)])
+            case 'set': return p_.ss($, ($): d_out_package.Node => ['package', p_.from.dictionary($
+            ).map(
+                ($) => Schema_Tree($, abort)
+            )])
+            default: return p_.au($[0])
+        }
+    })
 
 export const Schema: Schema = ($, abort) => ({
-    'numerical types': p_.from.dictionary(
-        $.globals['simple types']
+    'numerical types': p_.from.dictionary($.globals['simple types']
     ).map(
         ($) => sh.numerical_type()
     ),
     'root': p_implement_me("alan light")
 })
 
-// export const Value_to_Property: Value_to_Property = ($, abort) => p_.from.state($).decide(($) => {
+// export const Value_to_Property: Value_to_Property = ($, abort) => p_.from.state($).decide(
+// ($) => {
 //     switch ($[0]) {
 //         case 'number': return p_.ss($, ($) => sh.prop.number())
 //         case 'boolean': return p_.ss($, ($) => sh.prop.state_group({
@@ -77,7 +77,8 @@ export const Schema: Schema = ($, abort) => ({
 
 // export const Value_to_Node: Value_to_Node = ($, abort) => {
 //     const value = $
-//     return p_.from.state($).decide(($) => {
+//     return p_.from.state($).decide(
+// ($) => {
 //         switch ($[0]) {
 //             case 'number': return p_.ss($, ($) => sh.node({
 //                 "value": Value_to_Property(value, abort)
@@ -92,7 +93,8 @@ export const Schema: Schema = ($, abort) => ({
 //                     sh.node({})
 //                 )
 //             }))
-//             case 'component': return p_.ss($, ($) => p_.from.state($.type).decide(($) => {
+//             case 'component': return p_.ss($, ($) => p_.from.state($.type).decide(
+// ($) => {
 //                 switch ($[0]) {
 //                     case 'external': return p_.ss($, ($) => )
 //                     case 'internal': return p_.ss($, ($) => )

@@ -26,7 +26,7 @@ namespace interface_ {
         {
             'graph name': string
         }
-    >   
+    >
 }
 
 //dependencies
@@ -36,20 +36,22 @@ import * as t_schema_to_lionweb from "./lionweb_serialization_chunk"
 //shorthands
 import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-system"
 
-export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).decide(($) => {
-    switch ($[0]) {
-        case 'schema': return p_.ss($, ($) => p_.literal.dictionary({
-            "lionweb.json": sh.n.file(
-                t_lionweb_to_fountain_pen.Serialization_Chunk(
-                    t_schema_to_lionweb.Schema($)
-                ),
-            )
-        }))
-        case 'set': return p_.ss($, ($) => Schemas($))
-        default: return p_.au($[0])
-    }
-})
+export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).decide(
+    ($) => {
+        switch ($[0]) {
+            case 'schema': return p_.ss($, ($) => p_.literal.dictionary({
+                "lionweb.json": sh.n.file(
+                    t_lionweb_to_fountain_pen.Serialization_Chunk(
+                        t_schema_to_lionweb.Schema($)
+                    ),
+                )
+            }))
+            case 'set': return p_.ss($, ($) => Schemas($))
+            default: return p_.au($[0])
+        }
+    })
 
-export const Schemas: interface_.Schemas = ($) => p_.from.dictionary($).map(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
+export const Schemas: interface_.Schemas = ($) => p_.from.dictionary($).map(
+    ($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
 
 export const Package: interface_.Package = ($, $p) => Schema_Tree($['schema tree'], { 'graph name': $p['graph name'] })
