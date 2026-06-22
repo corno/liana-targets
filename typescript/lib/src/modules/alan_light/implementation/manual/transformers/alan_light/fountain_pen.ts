@@ -131,14 +131,13 @@ export const Node: p_i.Transformer<
                                 sh.ph.literal("group "),
                                 Node($.node)
                             ]))
-                            case 'state group': return p_.ss($, ($) => p_.from.dictionary($.states).is_empty()
-                                ? sh.ph.literal("group { }")
-                                : sh.ph.composed([
+                            case 'state group': return p_.ss($, ($) => p_.from.dictionary($.states).on_has_entries(
+                                ($) => sh.ph.composed([
                                     sh.ph.literal("stategroup ("),
                                     sh.ph.indent(
                                         sh.pg.sentences(
                                             p_.from.dictionary(
-                                                $.states,
+                                                $,
                                             ).convert_to_list(
                                                 ($, id) => sh.sentence([
                                                     Identifier(id),
@@ -149,7 +148,9 @@ export const Node: p_i.Transformer<
                                         )
                                     ),
                                     sh.ph.literal(")")
-                                ]))
+                                ]),
+                                () => sh.ph.literal("group { }")
+                            ))
                             case 'text': return p_.ss($, ($) => sh.ph.literal("text"))
                             default: return p_.au($[0])
                         }

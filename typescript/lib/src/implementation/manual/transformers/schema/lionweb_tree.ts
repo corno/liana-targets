@@ -50,6 +50,6 @@ export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).d
     }
 })
 
-export const Schemas: interface_.Schemas = ($) => $.__d_map_deprecated(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
+export const Schemas: interface_.Schemas = ($) => p_.from.dictionary($).map(($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
 
 export const Package: interface_.Package = ($, $p) => Schema_Tree($['schema tree'], { 'graph name': $p['graph name'] })

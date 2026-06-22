@@ -13,7 +13,7 @@ export const Schema: p_i.Transformer_With_Parameter<
     'name': p_.literal.set($p['graph name']),
     'tree': {
         'attributes': p_.literal.list([]),
-        'elements': $.modules.__d_map_deprecated(($) => ['node', {
+        'elements': p_.from.dictionary($.modules).map(($) => ['node', {
             'attributes': p_.literal.list([]),
         }]),
     },
