@@ -1,9 +1,9 @@
 
 import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_di from 'pareto-core/dist/interface/data'
-const p_decide_state = <State, B>($: State,  assign: ($: State) => B) => assign($)
-const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>,  assign: ($: OV) => B,  otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
-const p_decide_text = <B>($: string,  assign: ($: string) => B) => assign($)
+const p_decide_state = <State, B>($: State, assign: ($: State) => B) => assign($)
+const p_decide_optional = <OV extends p_di.Value, B extends p_di.Value>($: p_di.Optional_Value<OV>, assign: ($: OV) => B, otherwise: () => B) => p_.from.optional($).decide(assign, otherwise)
+const p_decide_text = <B>($: string, assign: ($: string) => B) => assign($)
 
 import p_change_context from 'pareto-core/dist/implementation/refiner/specials/change_context'
 
@@ -143,13 +143,13 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', p_.literal.d
     },
 )]]
 
-export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.dictionary(
+export const Node: t_signatures.Node = ($): t_out.Value => ['group', ['verbose', p_.literal.dictionary(
     {
         "properties": p_change_context(
             $['properties'],
-            ($) => ['dictionary', p_.from.dictionary($,
+            ($): t_out.Value => ['dictionary', p_.from.dictionary($,
             ).map(
-                ($, id) => ['group', ['verbose', p_.literal.dictionary(
+                ($, id): t_out.Value => ['group', ['verbose', p_.literal.dictionary(
                     {
                         "type": p_change_context(
                             $['type'],
@@ -240,15 +240,13 @@ export const Node: t_signatures.Node = ($) => ['group', ['verbose', p_.literal.d
                                                         {
                                                             "states": p_change_context(
                                                                 $['states'],
-                                                                ($) => ['dictionary', p_.from.dictionary($,
-                                                                ).map(
-                                                                    ($, id) => ['group', ['verbose', p_.literal.dictionary(
+                                                                ($) => ['dictionary', p_.from.dictionary($).map(
+                                                                    ($, id): t_out.Value => ['group', ['verbose', p_.literal.dictionary(
                                                                         {
                                                                             "constraints": p_change_context(
                                                                                 $['constraints'],
-                                                                                ($) => ['dictionary', p_.from.dictionary($,
-                                                                                ).map(
-                                                                                    ($, id) => ['group', ['verbose', p_.literal.dictionary(
+                                                                                ($) => ['dictionary', p_.from.dictionary($).map(
+                                                                                    ($, id): t_out.Value => ['group', ['verbose', p_.literal.dictionary(
                                                                                         {
                                                                                             "path": p_change_context(
                                                                                                 $['path'],
@@ -293,9 +291,8 @@ export const Root: t_signatures.Root = ($) => ['group', ['verbose', p_.literal.d
     {
         "numerical types": p_change_context(
             $['numerical types'],
-            ($) => ['dictionary', p_.from.dictionary($,
-            ).map(
-                ($, id) => ['group', ['verbose', p_.literal.dictionary(
+            ($) => ['dictionary', p_.from.dictionary($).map(
+                ($, id): t_out.Value => ['group', ['verbose', p_.literal.dictionary(
                     {},
                 )]],
             )],
