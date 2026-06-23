@@ -9,7 +9,9 @@ import * as d_out from "pareto-lionweb/dist/interface/generated/liana/schemas/se
 
 // //dependencies
 
-export const Meta_Pointer: p_i.Transformer<string, d_out.Meta_Pointer> = ($) => ({
+export const Meta_Pointer: p_i.Transformer<
+string, d_out.Meta_Pointer
+> = ($) => ({
     'language': "astn",
     'version': "0.1",
     'key': $,

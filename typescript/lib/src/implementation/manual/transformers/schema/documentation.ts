@@ -9,7 +9,9 @@ import * as d_out from "pareto-static-html/dist/interface/generated/liana/schema
 import * as sh from "pareto-static-html/dist/shorthands/static_html"
 
 
-export const Package: p_i.Transformer<d_in.Package, d_out.Document> = ($) => sh.document(
+export const Package: p_i.Transformer<
+d_in.Package, d_out.Document
+> = ($) => sh.document(
     `/*CSS*/
     
     .div#modules
@@ -18,7 +20,9 @@ export const Package: p_i.Transformer<d_in.Package, d_out.Document> = ($) => sh.
     Schema_Tree($['schema tree'])
 )
 
-export const Schema_Tree: p_i.Transformer<d_in.Schema_Tree, d_out.Flow_Element> = ($) => p_.from.state($).decide(
+export const Schema_Tree: p_i.Transformer<
+d_in.Schema_Tree, d_out.Flow_Element
+> = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'schema': return p_.ss($, ($) => Schema($))
@@ -27,7 +31,9 @@ export const Schema_Tree: p_i.Transformer<d_in.Schema_Tree, d_out.Flow_Element> 
         }
     })
 
-export const Schemas: p_i.Transformer<d_in.Schemas, d_out.Flow_Content> = ($) => p_.from.dictionary($).convert_to_list(
+export const Schemas: p_i.Transformer<
+d_in.Schemas, d_out.Flow_Content
+> = ($) => p_.from.dictionary($).convert_to_list(
     ($, id) => sh.f.div([
         sh.f.span([
             sh.p.p("schema:"),
@@ -37,7 +43,9 @@ export const Schemas: p_i.Transformer<d_in.Schemas, d_out.Flow_Content> = ($) =>
     ]))
 
 
-export const Schema: p_i.Transformer<d_in.Schema, d_out.Flow_Element> = ($) => sh.f.classified_div(
+export const Schema: p_i.Transformer<
+d_in.Schema, d_out.Flow_Element
+> = ($) => sh.f.classified_div(
     [
         "modules"
     ],
