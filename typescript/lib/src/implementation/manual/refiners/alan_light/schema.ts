@@ -14,11 +14,21 @@ export type My_Error =
     | ['foo', null]
 
 //signatures
-export type Package = p_i.Refiner<d_out_package.Node, My_Error, d_in.Package>
-export type Schema_Tree = p_i.Refiner<d_out_package.Node, My_Error, d_in.Schema_Tree>
-export type Schema = p_i.Refiner<d_out.Root, My_Error, d_in.Schema>
-export type Value_to_Node = p_i.Refiner<d_out.Node, My_Error, d_in.Value>
-export type Value_to_Property = p_i.Refiner<d_out.Node.properties.D, My_Error, d_in.Value>
+export type Package = p_i.Refiner<
+d_out_package.Node, My_Error, d_in.Package
+>
+export type Schema_Tree = p_i.Refiner<
+d_out_package.Node, My_Error, d_in.Schema_Tree
+>
+export type Schema = p_i.Refiner<
+d_out.Root, My_Error, d_in.Schema
+>
+export type Value_to_Node = p_i.Refiner<
+d_out.Node, My_Error, d_in.Value
+>
+export type Value_to_Property = p_i.Refiner<
+d_out.Node.properties.D, My_Error, d_in.Value
+>
 
 export const Package: Package = ($, abort) => Schema_Tree($['schema tree'], abort)
 
