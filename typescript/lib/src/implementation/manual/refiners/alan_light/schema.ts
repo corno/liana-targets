@@ -8,7 +8,7 @@ import * as d_out from "../../../../interface/generated/liana/schemas/alan_light
 import * as d_out_package from "../../../../interface/data/alan_light_package"
 
 //shorthands
-import * as sh from "../../../../modules/alan_light/shorthands/alan_light"
+import * as sh from "../../../../modules/alan_light/shorthands/alan_light/target"
 
 export type My_Error =
     | ['foo', null]

@@ -34,7 +34,7 @@ import * as t_lionweb_to_fountain_pen from "pareto-lionweb/dist/modules/lionweb-
 import * as t_schema_to_lionweb from "./lionweb_serialization_chunk"
 
 //shorthands
-import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-system"
+import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-system/target"
 
 export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).decide(
     ($) => {

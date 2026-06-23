@@ -10,7 +10,7 @@ import * as t_graphviz_to_fountain_pen from "pareto-graphviz/dist/implementation
 import * as t_schema_to_graphviz from "./graphviz_high_level"
 
 //shorthands
-import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-system"
+import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-system/target"
 
 export const Schema_Tree: p_i.Transformer_With_Parameter<
     d_in.Schema_Tree,

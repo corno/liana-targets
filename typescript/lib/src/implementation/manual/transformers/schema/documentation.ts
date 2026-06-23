@@ -6,11 +6,11 @@ import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schem
 import * as d_out from "pareto-static-html/dist/interface/generated/liana/schemas/static-html/data"
 
 //shorthands
-import * as sh from "pareto-static-html/dist/shorthands/static_html"
+import * as sh from "pareto-static-html/dist/shorthands/static_html/target"
 
 
 export const Package: p_i.Transformer<
-d_in.Package, d_out.Document
+    d_in.Package, d_out.Document
 > = ($) => sh.document(
     `/*CSS*/
     
@@ -21,7 +21,7 @@ d_in.Package, d_out.Document
 )
 
 export const Schema_Tree: p_i.Transformer<
-d_in.Schema_Tree, d_out.Flow_Element
+    d_in.Schema_Tree, d_out.Flow_Element
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
@@ -32,28 +32,38 @@ d_in.Schema_Tree, d_out.Flow_Element
     })
 
 export const Schemas: p_i.Transformer<
-d_in.Schemas, d_out.Flow_Content
+    d_in.Schemas, d_out.Flow_Content
 > = ($) => p_.from.dictionary($).convert_to_list(
-    ($, id) => sh.f.div([
-        sh.f.span([
-            sh.p.p("schema:"),
-            sh.p.p(id),
-        ]),
-        Schema_Tree($)
-    ]))
+    ($, id) => sh.f.div(
+        p_.literal.list([
+            sh.f.span(
+                p_.literal.list([
+                    sh.p.p("schema:"),
+                    sh.p.p(id),
+                ])
+            ),
+            Schema_Tree($)
+        ])
+    )
+)
 
 
 export const Schema: p_i.Transformer<
-d_in.Schema, d_out.Flow_Element
+    d_in.Schema, d_out.Flow_Element
 > = ($) => sh.f.classified_div(
-    [
+    p_.literal.list([
         "modules"
-    ],
+    ]),
     p_.from.dictionary($.modules).convert_to_list(
-        ($, id) => sh.f.div([
-            sh.f.span([
-                sh.p.p("module:"),
-                sh.p.p(id),
-            ]),
-        ]))
+        ($, id) => sh.f.div(
+            p_.literal.list([
+                sh.f.span(
+                    p_.literal.list([
+                        sh.p.p("module:"),
+                        sh.p.p(id),
+                    ])
+                ),
+            ])
+        )
+    )
 )

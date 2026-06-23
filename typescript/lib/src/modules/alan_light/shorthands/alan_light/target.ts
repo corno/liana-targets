@@ -1,10 +1,10 @@
-import * as p_ from 'pareto-core-shorthands/dist/unconstrained'
+import * as p_ from 'pareto-core-shorthands/dist/unconstrained_target'
 
 
-import * as d_target from "../../../interface/generated/liana/schemas/alan_light/data"
+import * as d_target from "../../../../interface/generated/liana/schemas/alan_light/data"
 
 export const root = (
-    numerical_types: p_.Raw_Or_Normal_Dictionary<d_target.Root.numerical_types.D>,
+    numerical_types: p_.Normal_Dictionary<d_target.Root.numerical_types.D>,
     root: d_target.Node
 ): d_target.Root => ({
     'numerical types': p_.dictionary(numerical_types),
@@ -54,7 +54,7 @@ export namespace prop {
     })
 
     export const state_group = (
-        states: p_.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D>,
+        states: p_.Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D>,
     ): d_target.Node.properties.D => ({
         'type': ['state group', {
             'states': p_.dictionary(states),
@@ -64,7 +64,7 @@ export namespace prop {
 }
 
 export const state = (
-    constraints: p_.Raw_Or_Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D.constraints.D>,
+    constraints: p_.Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D.constraints.D>,
     node: d_target.Node,
 ): d_target.Node.properties.D.type_.state_group.states.D => ({
     'constraints': p_.dictionary(constraints),
@@ -72,8 +72,8 @@ export const state = (
 })
 
 export const constraint = (
-    up_steps: p_.Raw_Or_Normal_List<d_target.Path.up_steps.L>,
-    selection_steps: p_.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
+    up_steps: p_.Normal_List<d_target.Path.up_steps.L>,
+    selection_steps: p_.Normal_List<d_target.Path.selection_steps.L>,
 ): d_target.Node.properties.D.type_.state_group.states.D.constraints.D => ({
     'path': {
         'up steps': p_.list(up_steps),
@@ -83,9 +83,9 @@ export const constraint = (
 })
 
 export const path = (
-    up_steps: p_.Raw_Or_Normal_List<d_target.Path.up_steps.L>,
+    up_steps: p_.Normal_List<d_target.Path.up_steps.L>,
     context: d_target.Path.context,
-    selection_steps: p_.Raw_Or_Normal_List<d_target.Path.selection_steps.L>,
+    selection_steps: p_.Normal_List<d_target.Path.selection_steps.L>,
 ): d_target.Path => ({
     'up steps': p_.list(up_steps),
     'context': context,
@@ -93,7 +93,7 @@ export const path = (
 })
 
 export const node = (
-    properties: p_.Raw_Or_Normal_Dictionary<d_target.Node.properties.D>,
+    properties: p_.Normal_Dictionary<d_target.Node.properties.D>,
 ): d_target.Node => ({
     'properties': p_.dictionary(properties),
 })
