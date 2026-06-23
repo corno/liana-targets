@@ -26,8 +26,7 @@ export const Schema_Tree: Schema_Tree = ($, abort) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'schema': return p_.ss($, ($) => ['model', Schema($, abort)])
-            case 'set': return p_.ss($, ($): d_out_package.Node => ['package', p_.from.dictionary($
-            ).map(
+            case 'set': return p_.ss($, ($): d_out_package.Node => ['package', p_.from.dictionary($).map(
                 ($) => Schema_Tree($, abort)
             )])
             default: return p_.au($[0])
@@ -35,8 +34,7 @@ export const Schema_Tree: Schema_Tree = ($, abort) => p_.from.state($).decide(
     })
 
 export const Schema: Schema = ($, abort) => ({
-    'numerical types': p_.from.dictionary($.globals['simple types']
-    ).map(
+    'numerical types': p_.from.dictionary($.globals['simple types']).map(
         ($) => sh.numerical_type()
     ),
     'root': p_implement_me("alan light")

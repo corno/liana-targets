@@ -112,8 +112,7 @@ export const Node: p_i.Transformer<
     sh.ph.literal("{"),
     sh.ph.indent(
         sh.pg.sentences(
-            p_.from.dictionary($.properties,
-            ).convert_to_list(
+            p_.from.dictionary($.properties).convert_to_list(
                 ($, id) => sh.sentence([
                     Identifier(id),
                     sh.ph.literal(": "),
@@ -135,8 +134,7 @@ export const Node: p_i.Transformer<
                                         sh.ph.literal("stategroup ("),
                                         sh.ph.indent(
                                             sh.pg.sentences(
-                                                p_.from.dictionary($,
-                                                ).convert_to_list(
+                                                p_.from.dictionary($).convert_to_list(
                                                     ($, id) => sh.sentence([
                                                         Identifier(id),
                                                         sh.ph.literal(" "),
