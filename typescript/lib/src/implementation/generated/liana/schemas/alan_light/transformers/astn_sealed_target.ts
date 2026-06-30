@@ -38,7 +38,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', p_.literal.d
                 ($): t_out.Value.state => {
                     switch ($[0]) {
                         case 'sibling':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'sibling',
@@ -48,7 +48,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', p_.literal.d
                                 }),
                             )
                         case 'state constraint':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ({
                                     'option': 'state constraint',
@@ -81,7 +81,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', p_.literal.d
                     ($): t_out.Value.state => {
                         switch ($[0]) {
                             case 'group':
-                                return p_.ss(
+                                return p_.option(
                                     $,
                                     ($) => ({
                                         'option': 'group',
@@ -98,7 +98,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', p_.literal.d
                                     }),
                                 )
                             case 'state constraint':
-                                return p_.ss(
+                                return p_.option(
                                     $,
                                     ($) => ({
                                         'option': 'state constraint',
@@ -115,7 +115,7 @@ export const Path: t_signatures.Path = ($) => ['group', ['verbose', p_.literal.d
                                     }),
                                 )
                             case 'reference':
-                                return p_.ss(
+                                return p_.option(
                                     $,
                                     ($) => ({
                                         'option': 'reference',
@@ -158,7 +158,7 @@ export const Node: t_signatures.Node = ($): t_out.Value => ['group', ['verbose',
                                 ($): t_out.Value.state => {
                                     switch ($[0]) {
                                         case 'collection':
-                                            return p_.ss(
+                                            return p_.option(
                                                 $,
                                                 ($) => ({
                                                     'option': 'collection',
@@ -181,7 +181,7 @@ export const Node: t_signatures.Node = ($): t_out.Value => ['group', ['verbose',
                                                 }),
                                             )
                                         case 'group':
-                                            return p_.ss(
+                                            return p_.option(
                                                 $,
                                                 ($) => ({
                                                     'option': 'group',
@@ -198,7 +198,7 @@ export const Node: t_signatures.Node = ($): t_out.Value => ['group', ['verbose',
                                                 }),
                                             )
                                         case 'text':
-                                            return p_.ss(
+                                            return p_.option(
                                                 $,
                                                 ($) => ({
                                                     'option': 'text',
@@ -232,7 +232,7 @@ export const Node: t_signatures.Node = ($): t_out.Value => ['group', ['verbose',
                                                 }),
                                             )
                                         case 'state group':
-                                            return p_.ss(
+                                            return p_.option(
                                                 $,
                                                 ($) => ({
                                                     'option': 'state group',

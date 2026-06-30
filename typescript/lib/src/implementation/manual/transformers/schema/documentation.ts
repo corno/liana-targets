@@ -25,8 +25,8 @@ export const Schema_Tree: p_i.Transformer<
 > = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'schema': return p_.ss($, ($) => Schema($))
-            case 'set': return p_.ss($, ($) => sh.f.div(Schemas($)))
+            case 'schema': return p_.option($, ($) => Schema($))
+            case 'set': return p_.option($, ($) => sh.f.div(Schemas($)))
             default: return p_.au($[0])
         }
     })

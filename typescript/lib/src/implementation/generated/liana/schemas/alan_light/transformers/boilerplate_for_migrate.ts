@@ -30,12 +30,12 @@ export const Path: t_signatures.Path = ($) => ({
             ($): t_out.Path.context => {
                 switch ($[0]) {
                     case 'sibling':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['sibling', p_.literal.nothing()],
                         )
                     case 'state constraint':
-                        return p_.ss(
+                        return p_.option(
                             $,
                             ($) => ['state constraint', {
                                 'name': p_change_context(
@@ -63,7 +63,7 @@ export const Path: t_signatures.Path = ($) => ({
                 ($): t_out.Path.selection_steps.L => {
                     switch ($[0]) {
                         case 'group':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ['group', {
                                     'name': p_change_context(
@@ -75,7 +75,7 @@ export const Path: t_signatures.Path = ($) => ({
                                 }],
                             )
                         case 'state constraint':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ['state constraint', {
                                     'name': p_change_context(
@@ -87,7 +87,7 @@ export const Path: t_signatures.Path = ($) => ({
                                 }],
                             )
                         case 'reference':
-                            return p_.ss(
+                            return p_.option(
                                 $,
                                 ($) => ['reference', {
                                     'name': p_change_context(
@@ -122,7 +122,7 @@ export const Node: t_signatures.Node = ($) => ({
                         ($): t_out.Node.properties.D.type_ => {
                             switch ($[0]) {
                                 case 'collection':
-                                    return p_.ss(
+                                    return p_.option(
                                         $,
                                         ($) => ['collection', {
                                             'node': p_change_context(
@@ -140,7 +140,7 @@ export const Node: t_signatures.Node = ($) => ({
                                         }],
                                     )
                                 case 'group':
-                                    return p_.ss(
+                                    return p_.option(
                                         $,
                                         ($) => ['group', {
                                             'node': p_change_context(
@@ -152,7 +152,7 @@ export const Node: t_signatures.Node = ($) => ({
                                         }],
                                     )
                                 case 'text':
-                                    return p_.ss(
+                                    return p_.option(
                                         $,
                                         ($) => ['text', {
                                             'constraint': p_change_context(
@@ -178,7 +178,7 @@ export const Node: t_signatures.Node = ($) => ({
                                         }],
                                     )
                                 case 'state group':
-                                    return p_.ss(
+                                    return p_.option(
                                         $,
                                         ($) => ['state group', {
                                             'states': p_change_context(

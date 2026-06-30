@@ -33,11 +33,11 @@ export const Value: p_i.Transformer_With_Parameter<
 > = ($, $p) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'simple': return p_.ss($, ($) => p_.literal.list([]))
-            case 'list': return p_.ss($, ($) => Value($.value, $p))
-            case 'nothing': return p_.ss($, ($) => p_.literal.list([]))
-            case 'reference': return p_.ss($, ($) => p_.literal.list([]))
-            case 'component': return p_.ss($, ($) => p_.literal.list<d_out.Graph.type_.directed.edges.L>([
+            case 'simple': return p_.option($, ($) => p_.literal.list([]))
+            case 'list': return p_.option($, ($) => Value($.value, $p))
+            case 'nothing': return p_.option($, ($) => p_.literal.list([]))
+            case 'reference': return p_.option($, ($) => p_.literal.list([]))
+            case 'component': return p_.option($, ($) => p_.literal.list<d_out.Graph.type_.directed.edges.L>([
                 {
                     'from': {
                         'start': $p['type name'],
@@ -48,9 +48,9 @@ export const Value: p_i.Transformer_With_Parameter<
                         'start': p_.from.state($.type).decide(
                             ($) => {
                                 switch ($[0]) {
-                                    case 'external': return p_.ss($, ($) => "FIXME")
-                                    case 'internal': return p_.ss($, ($) => $['l id'])
-                                    case 'internal acyclic': return p_.ss($, ($) => $['l id'])
+                                    case 'external': return p_.option($, ($) => "FIXME")
+                                    case 'internal': return p_.option($, ($) => $['l id'])
+                                    case 'internal acyclic': return p_.option($, ($) => $['l id'])
                                     default: return p_.au($[0])
                                 }
                             }),
@@ -60,9 +60,9 @@ export const Value: p_i.Transformer_With_Parameter<
                     'attributes': p_.from.state($.type).decide(
                         ($) => {
                             switch ($[0]) {
-                                case 'external': return p_.ss($, ($) => p_.literal.list([]))
-                                case 'internal': return p_.ss($, ($) => p_.literal.list([]))
-                                case 'internal acyclic': return p_.ss($, ($) => p_.literal.list([
+                                case 'external': return p_.option($, ($) => p_.literal.list([]))
+                                case 'internal': return p_.option($, ($) => p_.literal.list([]))
+                                case 'internal acyclic': return p_.option($, ($) => p_.literal.list([
                                     ['color', "red"],
                                 ]))
                                 default: return p_.au($[0])
@@ -71,15 +71,15 @@ export const Value: p_i.Transformer_With_Parameter<
                 }
 
             ]))
-            case 'dictionary': return p_.ss($, ($) => Value($.value, $p))
-            case 'group': return p_.ss($, ($) => p_.from.dictionary($).flatten_to_list(
+            case 'dictionary': return p_.option($, ($) => Value($.value, $p))
+            case 'group': return p_.option($, ($) => p_.from.dictionary($).flatten_to_list(
                 ($, id) => Value($.value, $p)
             ))
-            case 'optional': return p_.ss($, ($) => Value($, $p))
-            case 'state': return p_.ss($, ($) => p_.from.dictionary($.options).flatten_to_list(
+            case 'optional': return p_.option($, ($) => Value($, $p))
+            case 'state': return p_.option($, ($) => p_.from.dictionary($.options).flatten_to_list(
                 ($) => Value($.value, $p)
             ))
-            case 'text': return p_.ss($, ($) => p_.literal.list([]))
+            case 'text': return p_.option($, ($) => p_.literal.list([]))
             // case 'type parameter': return pa.ss($, ($) => pa.literal.list([]))
             default: return p_.au($[0])
         }

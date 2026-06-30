@@ -19,7 +19,7 @@ export const Schema_Tree: p_i.Transformer_With_Parameter<
 > = ($, $p) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'schema': return p_.ss($, ($) => p_.literal.dictionary({
+            case 'schema': return p_.option($, ($) => p_.literal.dictionary({
                 "graphviz.dot": sh.n.file(
                     t_graphviz_to_fountain_pen.Graph(
                         t_schema_to_graphviz.Schema($, {
@@ -28,7 +28,7 @@ export const Schema_Tree: p_i.Transformer_With_Parameter<
                     ),
                 )
             }))
-            case 'set': return p_.ss($, ($) => Schemas($))
+            case 'set': return p_.option($, ($) => Schemas($))
             default: return p_.au($[0])
         }
     })

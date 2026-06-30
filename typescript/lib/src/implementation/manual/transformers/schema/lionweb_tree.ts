@@ -39,14 +39,14 @@ import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-sys
 export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
-            case 'schema': return p_.ss($, ($) => p_.literal.dictionary({
+            case 'schema': return p_.option($, ($) => p_.literal.dictionary({
                 "lionweb.json": sh.n.file(
                     t_lionweb_to_fountain_pen.Serialization_Chunk(
                         t_schema_to_lionweb.Schema($)
                     ),
                 )
             }))
-            case 'set': return p_.ss($, ($) => Schemas($))
+            case 'set': return p_.option($, ($) => Schemas($))
             default: return p_.au($[0])
         }
     })
