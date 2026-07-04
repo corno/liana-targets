@@ -6,7 +6,7 @@ import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schem
 import * as d_out from "pareto-fountain-pen-file-structure/dist/interface/data/file-system"
 
 //dependencies
-import * as t_graphviz_to_fountain_pen from "pareto-graphviz/dist/implementation/manual/transformers/high_level/fountain_pen"
+import * as t_graphviz_to_prose from "pareto-graphviz/dist/implementation/manual/transformers/high_level/fountain_pen"
 import * as t_schema_to_graphviz from "./graphviz_high_level"
 
 //shorthands
@@ -21,7 +21,7 @@ export const Schema_Tree: p_i.Transformer_With_Parameter<
         switch ($[0]) {
             case 'schema': return p_.option($, ($) => p_.literal.dictionary({
                 "graphviz.dot": sh.n.file(
-                    t_graphviz_to_fountain_pen.Graph(
+                    t_graphviz_to_prose.Graph(
                         t_schema_to_graphviz.Schema($, {
                             'graph name': $p['graph name']
                         })

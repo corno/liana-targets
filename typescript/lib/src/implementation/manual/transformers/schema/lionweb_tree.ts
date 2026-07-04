@@ -30,7 +30,7 @@ namespace interface_ {
 }
 
 //dependencies
-import * as t_lionweb_to_fountain_pen from "pareto-lionweb/dist/modules/lionweb-core/implementation/manual/transformers/serialization_chunk/fountain_pen"
+import * as t_lionweb_to_prose from "pareto-lionweb/dist/modules/lionweb-core/implementation/manual/transformers/serialization_chunk/fountain_pen"
 import * as t_schema_to_lionweb from "./lionweb_serialization_chunk"
 
 //shorthands
@@ -41,7 +41,7 @@ export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).d
         switch ($[0]) {
             case 'schema': return p_.option($, ($) => p_.literal.dictionary({
                 "lionweb.json": sh.n.file(
-                    t_lionweb_to_fountain_pen.Serialization_Chunk(
+                    t_lionweb_to_prose.Serialization_Chunk(
                         t_schema_to_lionweb.Schema($)
                     ),
                 )
