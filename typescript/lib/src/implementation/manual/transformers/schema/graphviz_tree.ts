@@ -28,7 +28,7 @@ export namespace interface_ {
 }
 
 //dependencies
-import * as t_graphviz_to_prose from "pareto-graphviz/dist/implementation/manual/transformers/high_level/fountain_pen"
+import * as t_graphviz_to_prose from "pareto-graphviz/dist/implementation/manual/transformers/high_level/prose"
 import * as t_schema_to_graphviz from "./graphviz_high_level"
 
 //shorthands
