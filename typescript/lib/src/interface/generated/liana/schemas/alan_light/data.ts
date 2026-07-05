@@ -1,6 +1,6 @@
 
-import * as p_i from 'pareto-core/dist/interface/__internal/Abort'
-import * as p_di from 'pareto-core/dist/interface/data'
+import * as p_i from 'pareto-core/interface/__internal/Abort'
+import * as p_di from 'pareto-core/interface/data'
 
 export type Identifier_ = string
 
@@ -241,7 +241,7 @@ export type Root_ = {
     readonly 'root': Root_.root
 }
 
-export { 
+export type { 
     Identifier_ as Identifier, 
     Path_ as Path, 
     Node_ as Node, 

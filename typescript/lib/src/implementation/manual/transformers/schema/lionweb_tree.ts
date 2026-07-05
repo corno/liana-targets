@@ -1,9 +1,9 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
 
 //data types
-import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
-import * as d_out from "pareto-fountain-pen-file-structure/dist/interface/data/file-system"
+import * as d_in from "pareto-liana/interface/generated/liana/schemas/schema/data/resolved"
+import * as d_out from "pareto-fountain-pen-file-structure/interface/data/file-system"
 
 namespace interface_ {
 
@@ -30,11 +30,11 @@ namespace interface_ {
 }
 
 //dependencies
-import * as t_lionweb_to_prose from "pareto-lionweb/dist/modules/lionweb-core/implementation/manual/transformers/serialization_chunk/prose"
-import * as t_schema_to_lionweb from "./lionweb_serialization_chunk"
+import * as t_lionweb_to_prose from "pareto-lionweb/modules/lionweb-core/implementation/manual/transformers/serialization_chunk/prose"
+import * as t_schema_to_lionweb from "./lionweb_serialization_chunk.js"
 
 //shorthands
-import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-system/target"
+import * as sh from "pareto-fountain-pen-file-structure/shorthands/file-system/target"
 
 export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).decide(
     ($) => {

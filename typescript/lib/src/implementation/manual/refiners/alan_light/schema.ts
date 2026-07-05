@@ -1,14 +1,14 @@
-import * as p_ from 'pareto-core/dist/implementation/refiner'
-import * as p_i from 'pareto-core/dist/interface/refiner'
-import p_implement_me from 'pareto-core-dev/dist/implement_me'
+import * as p_ from 'pareto-core/implementation/refiner'
+import * as p_i from 'pareto-core/interface/refiner'
+import p_implement_me from 'pareto-core-dev/implement_me'
 
 //data types
-import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
-import * as d_out from "../../../../interface/generated/liana/schemas/alan_light/data"
-import * as d_out_package from "../../../../interface/data/alan_light_package"
+import * as d_in from "pareto-liana/interface/generated/liana/schemas/schema/data/resolved"
+import * as d_out from "../../../../interface/generated/liana/schemas/alan_light/data.js"
+import * as d_out_package from "../../../../interface/data/alan_light_package.js"
 
 //shorthands
-import * as sh from "../../../../modules/alan_light/shorthands/alan_light/target"
+import * as sh from "../../../../modules/alan_light/shorthands/alan_light/target.js"
 
 export namespace d_function {
 

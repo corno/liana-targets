@@ -1,9 +1,9 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
 
 //data types
-import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
-import * as d_out from "pareto-static-html/dist/interface/generated/liana/schemas/static-html/data"
+import * as d_in from "pareto-liana/interface/generated/liana/schemas/schema/data/resolved"
+import * as d_out from "pareto-static-html/interface/generated/liana/schemas/static-html/data"
 
 export namespace interface_ {
     export type Package = p_i.Transformer<
@@ -21,7 +21,7 @@ export namespace interface_ {
 }
 
 //shorthands
-import * as sh from "pareto-static-html/dist/shorthands/static_html/target"
+import * as sh from "pareto-static-html/shorthands/static_html/target"
 
 
 export const Package: interface_.Package = ($) => sh.document(

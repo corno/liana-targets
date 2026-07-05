@@ -1,6 +1,6 @@
-import * as p_ from 'pareto-core/dist/interface/data'
+import * as p_ from 'pareto-core/interface/data'
 
-import * as d_alan_light from "../generated/liana/schemas/alan_light/data"
+import * as d_alan_light from "../generated/liana/schemas/alan_light/data.js"
 
 
 export type Package = p_.Dictionary<Node>

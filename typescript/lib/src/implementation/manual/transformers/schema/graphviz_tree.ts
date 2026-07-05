@@ -1,9 +1,9 @@
-import * as p_ from 'pareto-core/dist/implementation/transformer'
-import * as p_i from 'pareto-core/dist/interface/transformer'
+import * as p_ from 'pareto-core/implementation/transformer'
+import * as p_i from 'pareto-core/interface/transformer'
 
 //data types
-import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
-import * as d_out from "pareto-fountain-pen-file-structure/dist/interface/data/file-system"
+import * as d_in from "pareto-liana/interface/generated/liana/schemas/schema/data/resolved"
+import * as d_out from "pareto-fountain-pen-file-structure/interface/data/file-system"
 
 export namespace interface_ {
     export type Package = p_i.Transformer_With_Parameter<
@@ -28,11 +28,11 @@ export namespace interface_ {
 }
 
 //dependencies
-import * as t_graphviz_to_prose from "pareto-graphviz/dist/implementation/manual/transformers/high_level/prose"
-import * as t_schema_to_graphviz from "./graphviz_high_level"
+import * as t_graphviz_to_prose from "pareto-graphviz/implementation/manual/transformers/high_level/prose"
+import * as t_schema_to_graphviz from "./graphviz_high_level.js"
 
 //shorthands
-import * as sh from "pareto-fountain-pen-file-structure/dist/shorthands/file-system/target"
+import * as sh from "pareto-fountain-pen-file-structure/shorthands/file-system/target"
 
 export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).decide(
     ($) => {
