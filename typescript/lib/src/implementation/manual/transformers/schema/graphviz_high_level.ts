@@ -1,15 +1,33 @@
 import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 
+//data types
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
 import * as d_out from "pareto-graphviz/dist/interface/generated/liana/schemas/high_level/data"
 
+export namespace d_function {
+    export type Schema_Parameters = {
+        'graph name': string
+    }
+    export type Value_Parameters = {
+        'type name': string
+    }
+}
 
-export const Schema: p_i.Transformer_With_Parameter<
-    d_in.Schema,
-    d_out.Graph,
-    { 'graph name': string }
-> = ($, $p) => ({
+export namespace interface_ {
+    export type Schema = p_i.Transformer_With_Parameter<
+        d_in.Schema,
+        d_out.Graph,
+        d_function.Schema_Parameters
+    >
+    export type Value = p_i.Transformer_With_Parameter<
+        d_in.Value,
+        d_out.Graph.type_.directed.edges,
+        d_function.Value_Parameters
+    >
+}
+
+export const Schema: interface_.Schema = ($, $p) => ({
     'name': p_.literal.set($p['graph name']),
     'tree': {
         'attributes': p_.literal.list([]),
@@ -25,19 +43,14 @@ export const Schema: p_i.Transformer_With_Parameter<
     }],
 })
 
-
-export const Value: p_i.Transformer_With_Parameter<
-    d_in.Value,
-    d_out.Graph.type_.directed.edges,
-    { 'type name': string }
-> = ($, $p) => p_.from.state($).decide(
+export const Value: interface_.Value = ($, $p) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'simple': return p_.option($, ($) => p_.literal.list([]))
             case 'list': return p_.option($, ($) => Value($.value, $p))
             case 'nothing': return p_.option($, ($) => p_.literal.list([]))
             case 'reference': return p_.option($, ($) => p_.literal.list([]))
-            case 'component': return p_.option($, ($) => p_.literal.list<d_out.Graph.type_.directed.edges.L>([
+            case 'component': return p_.option($, ($) => p_.literal.list([
                 {
                     'from': {
                         'start': $p['type name'],
@@ -80,7 +93,6 @@ export const Value: p_i.Transformer_With_Parameter<
                 ($) => Value($.value, $p)
             ))
             case 'text': return p_.option($, ($) => p_.literal.list([]))
-            // case 'type parameter': return pa.ss($, ($) => pa.literal.list([]))
             default: return p_.au($[0])
         }
     })

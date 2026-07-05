@@ -7,21 +7,26 @@ import p_implement_me from 'pareto-core-dev/dist/implement_me'
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
 import * as d_out from "pareto-lionweb/dist/interface/generated/liana/schemas/serialization_chunk/data"
 
+export namespace interface_ {
+    export type Schema = p_i.Transformer<
+        d_in.Schema,
+         d_out.Serialization_Chunk
+    >
+    export type Meta_Pointer = p_i.Transformer<
+        string, d_out.Meta_Pointer
+    >
+}
+
 // //dependencies
 
-export const Meta_Pointer: p_i.Transformer<
-string, d_out.Meta_Pointer
-> = ($) => ({
+export const Meta_Pointer: interface_.Meta_Pointer = ($) => ({
     'language': "astn",
     'version': "0.1",
     'key': $,
 })
 
 
-export const Schema: p_i.Transformer<
-    d_in.Schema,
-    d_out.Serialization_Chunk
-> = ($) => ({
+export const Schema: interface_.Schema = ($) => ({
     'range': p_unreachable_code_path("REMOVE range property"),
     'serializationFormatVersion': "2023.1",
     'languages': p_.literal.list([

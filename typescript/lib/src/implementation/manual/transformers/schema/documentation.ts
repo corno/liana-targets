@@ -5,13 +5,26 @@ import * as p_i from 'pareto-core/dist/interface/transformer'
 import * as d_in from "pareto-liana/dist/interface/generated/liana/schemas/schema/data/resolved"
 import * as d_out from "pareto-static-html/dist/interface/generated/liana/schemas/static-html/data"
 
+export namespace interface_ {
+    export type Package = p_i.Transformer<
+        d_in.Package, d_out.Document
+    >
+    export type Schema_Tree = p_i.Transformer<
+        d_in.Schema_Tree, d_out.Flow_Element
+    >
+    export type Schemas = p_i.Transformer<
+        d_in.Schemas, d_out.Flow_Content
+    >
+    export type Schema = p_i.Transformer<
+        d_in.Schema, d_out.Flow_Element
+    >
+}
+
 //shorthands
 import * as sh from "pareto-static-html/dist/shorthands/static_html/target"
 
 
-export const Package: p_i.Transformer<
-    d_in.Package, d_out.Document
-> = ($) => sh.document(
+export const Package: interface_.Package = ($) => sh.document(
     `/*CSS*/
     
     .div#modules
@@ -20,9 +33,7 @@ export const Package: p_i.Transformer<
     Schema_Tree($['schema tree'])
 )
 
-export const Schema_Tree: p_i.Transformer<
-    d_in.Schema_Tree, d_out.Flow_Element
-> = ($) => p_.from.state($).decide(
+export const Schema_Tree: interface_.Schema_Tree = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'schema': return p_.option($, ($) => Schema($))
@@ -31,9 +42,7 @@ export const Schema_Tree: p_i.Transformer<
         }
     })
 
-export const Schemas: p_i.Transformer<
-    d_in.Schemas, d_out.Flow_Content
-> = ($) => p_.from.dictionary($).convert_to_list(
+export const Schemas: interface_.Schemas = ($) => p_.from.dictionary($).convert_to_list(
     ($, id) => sh.f.div(
         p_.literal.list([
             sh.f.span(
@@ -48,9 +57,7 @@ export const Schemas: p_i.Transformer<
 )
 
 
-export const Schema: p_i.Transformer<
-    d_in.Schema, d_out.Flow_Element
-> = ($) => sh.f.classified_div(
+export const Schema: interface_.Schema = ($) => sh.f.classified_div(
     p_.literal.list([
         "modules"
     ]),

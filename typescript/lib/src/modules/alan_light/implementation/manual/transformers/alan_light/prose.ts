@@ -2,16 +2,30 @@ import * as p_ from 'pareto-core/dist/implementation/transformer'
 import * as p_i from 'pareto-core/dist/interface/transformer'
 import p_list_from_text from 'pareto-core/dist/implementation/refiner/specials/list_from_text'
 
+//data types
 import * as d_in from "../../../../../../interface/generated/liana/schemas/alan_light/data"
 import * as d_out from "pareto-fountain-pen/dist/interface/generated/liana/schemas/prose/data"
 
+export namespace interface_ {
+    export type Root = p_i.Transformer<
+        d_in.Root,
+        d_out.Paragraph
+    >
+    export type Node = p_i.Transformer<
+        d_in.Node,
+        d_out.Phrase
+    >
+    export type Identifier = p_i.Transformer<
+        d_in.Identifier,
+        d_out.Phrase
+    >
+}
+
+//shorthands
 import * as sh from "pareto-fountain-pen/dist/shorthands/prose/deprecated"
 
 
-export const Root: p_i.Transformer<
-    d_in.Root,
-    d_out.Paragraph
-> = ($) => sh.pg.sentences([
+export const Root: interface_.Root = ($) => sh.pg.sentences([
     sh.sentence(
         p_.literal.list([
             sh.ph.literal("users"),
@@ -53,10 +67,7 @@ export const Root: p_i.Transformer<
     ),
 ])
 
-export const Identifier: p_i.Transformer<
-    d_in.Identifier,
-    d_out.Phrase
-> = ($) => sh.ph.serialize(
+export const Identifier: interface_.Identifier = ($) => sh.ph.serialize(
     p_.literal.segmented_list([
         p_.literal.list([
             0x60, // `
@@ -121,10 +132,7 @@ export const Identifier: p_i.Transformer<
         ])
     ]))
 
-export const Node: p_i.Transformer<
-    d_in.Node,
-    d_out.Phrase
-> = ($) => sh.ph.composed([
+export const Node: interface_.Node = ($) => sh.ph.composed([
     sh.ph.literal("{"),
     sh.ph.indent(
         sh.pg.sentences(

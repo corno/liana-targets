@@ -10,29 +10,44 @@ import * as d_out_package from "../../../../interface/data/alan_light_package"
 //shorthands
 import * as sh from "../../../../modules/alan_light/shorthands/alan_light/target"
 
-export type My_Error =
-    | ['foo', null]
+export namespace d_function {
 
-//signatures
-export type Package = p_i.Refiner<
-d_out_package.Node, My_Error, d_in.Package
->
-export type Schema_Tree = p_i.Refiner<
-d_out_package.Node, My_Error, d_in.Schema_Tree
->
-export type Schema = p_i.Refiner<
-d_out.Root, My_Error, d_in.Schema
->
-export type Value_to_Node = p_i.Refiner<
-d_out.Node, My_Error, d_in.Value
->
-export type Value_to_Property = p_i.Refiner<
-d_out.Node.properties.D, My_Error, d_in.Value
->
+    export type Error =
+        | ['foo', null]
 
-export const Package: Package = ($, abort) => Schema_Tree($['schema tree'], abort)
+}
 
-export const Schema_Tree: Schema_Tree = ($, abort) => p_.from.state($).decide(
+export namespace interface_ {
+
+    //signatures
+    export type Package = p_i.Refiner<
+        d_out_package.Node,
+        d_function.Error, d_in.Package
+    >
+    export type Schema_Tree = p_i.Refiner<
+        d_out_package.Node,
+        d_function.Error, d_in.Schema_Tree
+    >
+    export type Schema = p_i.Refiner<
+        d_out.Root,
+        d_function.Error,
+        d_in.Schema
+    >
+    export type Value_to_Node = p_i.Refiner<
+        d_out.Node,
+        d_function.Error,
+        d_in.Value
+    >
+    export type Value_to_Property = p_i.Refiner<
+        d_out.Node.properties.D,
+        d_function.Error,
+        d_in.Value
+    >
+}
+
+export const Package: interface_.Package = ($, abort) => Schema_Tree($['schema tree'], abort)
+
+export const Schema_Tree: interface_.Schema_Tree = ($, abort) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'schema': return p_.option($, ($) => ['model', Schema($, abort)])
@@ -43,7 +58,7 @@ export const Schema_Tree: Schema_Tree = ($, abort) => p_.from.state($).decide(
         }
     })
 
-export const Schema: Schema = ($, abort) => ({
+export const Schema: interface_.Schema = ($, abort) => ({
     'numerical types': p_.from.dictionary($.globals['simple types']).map(
         ($) => sh.numerical_type()
     ),
