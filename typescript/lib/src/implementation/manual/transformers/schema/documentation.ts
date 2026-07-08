@@ -38,7 +38,7 @@ export const Schema_Tree: interface_.Schema_Tree = ($) => p_.from.state($).decid
         switch ($[0]) {
             case 'schema': return p_.option($, ($) => Schema($))
             case 'set': return p_.option($, ($) => sh.f.div(Schemas($)))
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     })
 

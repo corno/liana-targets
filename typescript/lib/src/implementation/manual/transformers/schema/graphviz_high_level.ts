@@ -64,7 +64,7 @@ export const Value: interface_.Value = ($, $p) => p_.from.state($).decide(
                                     case 'external': return p_.option($, ($) => "FIXME")
                                     case 'internal': return p_.option($, ($) => $['l id'])
                                     case 'internal acyclic': return p_.option($, ($) => $['l id'])
-                                    default: return p_.au($[0])
+                                    default: return p_.exhaustive($[0])
                                 }
                             }),
                         'tail': p_.literal.list([]),
@@ -78,7 +78,7 @@ export const Value: interface_.Value = ($, $p) => p_.from.state($).decide(
                                 case 'internal acyclic': return p_.option($, ($) => p_.literal.list([
                                     ['color', "red"],
                                 ]))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         }),
                 }
@@ -93,6 +93,6 @@ export const Value: interface_.Value = ($, $p) => p_.from.state($).decide(
                 ($) => Value($.value, $p)
             ))
             case 'text': return p_.option($, ($) => p_.literal.list([]))
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     })

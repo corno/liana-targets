@@ -47,7 +47,7 @@ export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).d
                 )
             }))
             case 'set': return p_.option($, ($) => Schemas($))
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     })
 

@@ -54,7 +54,7 @@ export const Schema_Tree: interface_.Schema_Tree = ($, abort) => p_.from.state($
             case 'set': return p_.option($, ($): d_out_package.Node => ['package', p_.from.dictionary($).map(
                 ($) => Schema_Tree($, abort)
             )])
-            default: return p_.au($[0])
+            default: return p_.exhaustive($[0])
         }
     })
 
@@ -94,7 +94,7 @@ export const Schema: interface_.Schema = ($, abort) => ({
 //                 Value($, abort)
 //             ))))
 //         case 'text': return p_.option($, ($) => )
-//         default: return p_.au($[0])
+//         default: return p_.exhaustive($[0])
 //     }
 // })
 
@@ -122,7 +122,7 @@ export const Schema: interface_.Schema = ($, abort) => ({
 //                     case 'external': return p_.option($, ($) => )
 //                     case 'internal': return p_.option($, ($) => )
 //                     case 'internal acyclic': return p_.option($, ($) => )
-//                     default: return p_.au($[0])
+//                     default: return p_.exhaustive($[0])
 //                 }
 //             }))
 //             case 'dictionary': return p_.option($, ($) => )
@@ -139,7 +139,7 @@ export const Schema: interface_.Schema = ($, abort) => ({
 //                     Value($, abort)
 //                 ))))
 //             case 'text': return p_.option($, ($) => )
-//             default: return p_.au($[0])
+//             default: return p_.exhaustive($[0])
 //         }
 //     })
 // }

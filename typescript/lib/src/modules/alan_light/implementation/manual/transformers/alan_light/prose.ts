@@ -172,7 +172,7 @@ export const Node: interface_.Node = ($) => sh.ph.composed([
                                     () => sh.ph.literal("group { }")
                                 ))
                                 case 'text': return p_.option($, ($) => sh.ph.literal("text"))
-                                default: return p_.au($[0])
+                                default: return p_.exhaustive($[0])
                             }
                         })
                 ])
