@@ -1,5 +1,5 @@
 import * as p_ from 'pareto-core/implementation/refiner'
-import * as p_i from 'pareto-core/interface/refiner'
+import type * as p_i from 'pareto-core/interface/refiner'
 import p_implement_me from 'pareto-core-dev/implement_me'
 
 //data types
