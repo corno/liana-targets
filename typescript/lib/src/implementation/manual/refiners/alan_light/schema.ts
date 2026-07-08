@@ -44,6 +44,7 @@ export namespace interface_ {
         d_in.Value
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/refiners/alan_light/schema.js"
 
 export const Package: interface_.Package = ($, abort) => Schema_Tree($['schema tree'], abort)
 

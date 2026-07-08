@@ -26,6 +26,7 @@ export namespace interface_ {
         { 'graph name': string }
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/schema/graphviz_tree.js"
 
 //dependencies
 import * as t_graphviz_to_prose from "pareto-graphviz/implementation/manual/transformers/high_level/prose"

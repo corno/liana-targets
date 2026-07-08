@@ -19,6 +19,7 @@ export namespace interface_ {
         d_in.Schema, d_out.Flow_Element
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/schema/documentation.js"
 
 //shorthands
 import * as sh from "pareto-static-html/shorthands/static_html/target"

@@ -26,6 +26,7 @@ export namespace interface_ {
         d_function.Value_Parameters
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/schema/graphviz_high_level.js"
 
 export const Schema: interface_.Schema = ($, $p) => ({
     'name': p_.literal.set($p['graph name']),

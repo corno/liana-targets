@@ -16,6 +16,7 @@ export namespace interface_ {
         string, d_out.Meta_Pointer
     >
 }
+import * as temp_interface_ from "../../../../interface/declarations/transformers/schema/lionweb_serialization_chunk.js"
 
 // //dependencies
 
