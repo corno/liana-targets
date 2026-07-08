@@ -4,8 +4,8 @@ import p_unreachable_code_path from 'pareto-core/implementation/transformer/spec
 import p_implement_me from 'pareto-core-dev/implement_me'
 
 //data types
-import * as d_in from "pareto-liana/interface/generated/liana/schemas/schema/data/resolved"
-import * as d_out from "pareto-lionweb/interface/generated/liana/schemas/serialization_chunk/data"
+import type * as d_in from "pareto-liana/interface/generated/liana/schemas/schema/data/resolved"
+import type * as d_out from "pareto-lionweb/interface/generated/liana/schemas/serialization_chunk/data"
 
 export namespace interface_ {
     export type Schema = p_i.Transformer<
