@@ -1,5 +1,5 @@
 import * as p_ from 'pareto-core/implementation/transformer'
-import type * as interface_ from "../../../../declarations/transformers/schema/graphviz_tree.js"
+import type * as interface_ from "../../../declarations/transformers/schema/graphviz_tree.js"
 
 //dependencies
 import * as t_graphviz_to_prose from "pareto-graphviz/implementation/manual/transformers/high_level/prose"
