@@ -3,7 +3,7 @@ import type * as p_i from 'pareto-core/interface/transformer'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
 //data types
-import type * as d_in from "../../../../../../interface/generated/liana/schemas/alan_light/data.js"
+import type * as d_in from "../../../../../interface/generated/liana/schemas/alan_light/data.js"
 import type * as d_out from "pareto-fountain-pen/interface/generated/liana/schemas/prose/data"
 
 export namespace interface_ {
