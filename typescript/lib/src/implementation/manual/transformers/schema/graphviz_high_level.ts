@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../../interface/declarations/transformers/schema/graphviz_high_level.js"
+import type * as interface_ from "../../../../declarations/transformers/schema/graphviz_high_level.js"
 
 export const Schema: interface_.Schema = ($, $p) => ({
     'name': p_.literal.set($p['graph name']),
