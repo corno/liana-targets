@@ -30,7 +30,7 @@ namespace interface_ {
 }
 
 //dependencies
-import * as t_lionweb_to_prose from "pareto-lionweb/modules/lionweb-core/implementation/manual/transformers/serialization_chunk/prose"
+import * as t_lionweb_to_prose from "pareto-lionweb/modules/lionweb-core/implementation/transformers/serialization_chunk/prose"
 import * as t_schema_to_lionweb from "./lionweb_serialization_chunk.js"
 
 //shorthands
