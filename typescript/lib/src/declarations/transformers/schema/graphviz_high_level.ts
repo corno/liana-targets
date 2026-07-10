@@ -2,8 +2,8 @@
 import type * as p_ from 'pareto-core/interface/transformer'
 
 //data types
-import type * as d_in from "pareto-liana/interface/generated/liana/schemas/schema/data/resolved"
-import type * as d_out from "pareto-graphviz/interface/generated/liana/schemas/high_level/data"
+import type * as d_in from "pareto-liana/modules/schema/interface/data/resolved"
+import type * as d_out from "pareto-graphviz/interface/data/high_level"
 
 export namespace d_function {
     export type Schema_Parameters = {

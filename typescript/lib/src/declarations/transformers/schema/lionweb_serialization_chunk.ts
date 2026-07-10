@@ -2,8 +2,8 @@
 import type * as p_ from 'pareto-core/interface/transformer'
 
 //data types
-import type * as d_in from "pareto-liana/interface/generated/liana/schemas/schema/data/resolved"
-import type * as d_out from "pareto-lionweb/interface/generated/liana/schemas/serialization_chunk/data"
+import type * as d_in from "pareto-liana/modules/schema/interface/data/resolved"
+import type * as d_out from "pareto-lionweb/interface/data/serialization_chunk"
 
 
 export type Schema = p_.Transformer<
