@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core-shorthands/unconstrained_target'
 
 
-import type * as d_target from "../../../../interface/data/alan_light.js"
+import type * as d_target from "../../../../interface/schemas/alan_light.js"
 
 export const root = (
     numerical_types: p_.Normal_Dictionary<d_target.Root.numerical_types.D>,

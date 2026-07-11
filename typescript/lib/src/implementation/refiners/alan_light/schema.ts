@@ -4,7 +4,7 @@ import p_implement_me from 'pareto-core-dev/implement_me'
 import type * as interface_ from "../../../declarations/refiners/alan_light/schema.js"
 
 //data types
-import type * as d_out_package from "../../../interface/data/alan_light_package.js"
+import type * as d_out_package from "../../../interface/schemas/alan_light_package.js"
 
 //shorthands
 import * as sh from "../../../submodules/alan_light/shorthands/alan_light/target.js"

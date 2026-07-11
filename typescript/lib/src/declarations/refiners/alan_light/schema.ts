@@ -3,8 +3,8 @@ import type * as p_ from 'pareto-core/interface/refiner'
 
 //data types
 import type * as d_in from "pareto-liana/modules/schema/interface/data/resolved"
-import type * as d_out from "../../../interface/data/alan_light.js"
-import type * as d_out_package from "../../../interface/data/alan_light_package.js"
+import type * as d_out from "../../../interface/schemas/alan_light.js"
+import type * as d_out_package from "../../../interface/schemas/alan_light_package.js"
 
 export namespace d_function {
 
