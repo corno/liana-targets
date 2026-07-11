@@ -2,10 +2,10 @@
 import type * as p_ from 'pareto-core/interface/transformer'
 
 //data types
-import type * as d_in from "pareto-liana/modules/schema/interface/data/resolved"
-import type * as d_out from "pareto-graphviz/interface/data/high_level"
+import type * as s_in from "pareto-liana/modules/schema/interface/data/resolved"
+import type * as s_out from "pareto-graphviz/interface/data/high_level"
 
-export namespace d_function {
+export namespace s_function {
     export type Schema_Parameters = {
         'graph name': string
     }
@@ -16,13 +16,13 @@ export namespace d_function {
 
 
 export type Schema = p_.Transformer_With_Parameter<
-    d_in.Schema,
-    d_out.Graph,
-    d_function.Schema_Parameters
+    s_in.Schema,
+    s_out.Graph,
+    s_function.Schema_Parameters
 >
 export type Value = p_.Transformer_With_Parameter<
-    d_in.Value,
-    d_out.Graph.type_.directed.edges,
-    d_function.Value_Parameters
+    s_in.Value,
+    s_out.Graph.type_.directed.edges,
+    s_function.Value_Parameters
 >
 

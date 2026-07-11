@@ -3,21 +3,21 @@ import type * as p_i from 'pareto-core/interface/transformer'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
 //data types
-import type * as d_in from "../../../../../interface/schemas/alan_light.js"
-import type * as d_out from "pareto-fountain-pen/interface/data/prose"
+import type * as s_in from "../../../../../interface/schemas/alan_light.js"
+import type * as s_out from "pareto-fountain-pen/interface/data/prose"
 
 export namespace interface_ {
     export type Root = p_i.Transformer<
-        d_in.Root,
-        d_out.Paragraph
+        s_in.Root,
+        s_out.Paragraph
     >
     export type Node = p_i.Transformer<
-        d_in.Node,
-        d_out.Phrase
+        s_in.Node,
+        s_out.Phrase
     >
     export type Identifier = p_i.Transformer<
-        d_in.Identifier,
-        d_out.Phrase
+        s_in.Identifier,
+        s_out.Phrase
     >
 }
 

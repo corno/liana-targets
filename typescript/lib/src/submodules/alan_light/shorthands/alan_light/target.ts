@@ -1,25 +1,25 @@
 import * as p_ from 'pareto-core-shorthands/unconstrained_target'
 
 
-import type * as d_target from "../../../../interface/schemas/alan_light.js"
+import type * as s_target from "../../../../interface/schemas/alan_light.js"
 
 export const root = (
-    numerical_types: p_.Normal_Dictionary<d_target.Root.numerical_types.D>,
-    root: d_target.Node
-): d_target.Root => ({
+    numerical_types: p_.Normal_Dictionary<s_target.Root.numerical_types.D>,
+    root: s_target.Node
+): s_target.Root => ({
     'numerical types': p_.dictionary(numerical_types),
     'root': root
 })
 
 export const numerical_type = (
-): d_target.Root.numerical_types.D => (p_.nothing())
+): s_target.Root.numerical_types.D => (p_.nothing())
 
 export namespace prop {
 
     export const collection = (
-        node: d_target.Node,
-        key: d_target.Identifier,
-    ): d_target.Node.properties.D => ({
+        node: s_target.Node,
+        key: s_target.Identifier,
+    ): s_target.Node.properties.D => ({
         'type': ['collection', {
             'node': node,
             'key': key
@@ -27,24 +27,24 @@ export namespace prop {
     })
 
     export const group = (
-        node: d_target.Node,
-    ): d_target.Node.properties.D => ({
+        node: s_target.Node,
+    ): s_target.Node.properties.D => ({
         'type': ['group', {
             'node': node,
         }]
     })
 
     export const text = (
-    ): d_target.Node.properties.D => ({
+    ): s_target.Node.properties.D => ({
         'type': ['text', {
             'constraint': p_.optional.not_set(),
         }]
     })
 
     export const text_constrained = (
-        path: d_target.Path,
-        dictionary: d_target.Identifier,
-    ): d_target.Node.properties.D => ({
+        path: s_target.Path,
+        dictionary: s_target.Identifier,
+    ): s_target.Node.properties.D => ({
         'type': ['text', {
             'constraint': p_.optional.set({
                 'path': path,
@@ -54,8 +54,8 @@ export namespace prop {
     })
 
     export const state_group = (
-        states: p_.Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D>,
-    ): d_target.Node.properties.D => ({
+        states: p_.Normal_Dictionary<s_target.Node.properties.D.type_.state_group.states.D>,
+    ): s_target.Node.properties.D => ({
         'type': ['state group', {
             'states': p_.dictionary(states),
         }]
@@ -64,17 +64,17 @@ export namespace prop {
 }
 
 export const state = (
-    constraints: p_.Normal_Dictionary<d_target.Node.properties.D.type_.state_group.states.D.constraints.D>,
-    node: d_target.Node,
-): d_target.Node.properties.D.type_.state_group.states.D => ({
+    constraints: p_.Normal_Dictionary<s_target.Node.properties.D.type_.state_group.states.D.constraints.D>,
+    node: s_target.Node,
+): s_target.Node.properties.D.type_.state_group.states.D => ({
     'constraints': p_.dictionary(constraints),
     'node': node,
 })
 
 export const constraint = (
-    up_steps: p_.Normal_List<d_target.Path.up_steps.L>,
-    selection_steps: p_.Normal_List<d_target.Path.selection_steps.L>,
-): d_target.Node.properties.D.type_.state_group.states.D.constraints.D => ({
+    up_steps: p_.Normal_List<s_target.Path.up_steps.L>,
+    selection_steps: p_.Normal_List<s_target.Path.selection_steps.L>,
+): s_target.Node.properties.D.type_.state_group.states.D.constraints.D => ({
     'path': {
         'up steps': p_.list(up_steps),
         'context': ['sibling', p_.nothing()],
@@ -83,18 +83,18 @@ export const constraint = (
 })
 
 export const path = (
-    up_steps: p_.Normal_List<d_target.Path.up_steps.L>,
-    context: d_target.Path.context,
-    selection_steps: p_.Normal_List<d_target.Path.selection_steps.L>,
-): d_target.Path => ({
+    up_steps: p_.Normal_List<s_target.Path.up_steps.L>,
+    context: s_target.Path.context,
+    selection_steps: p_.Normal_List<s_target.Path.selection_steps.L>,
+): s_target.Path => ({
     'up steps': p_.list(up_steps),
     'context': context,
     'selection steps': p_.list(selection_steps),
 })
 
 export const node = (
-    properties: p_.Normal_Dictionary<d_target.Node.properties.D>,
-): d_target.Node => ({
+    properties: p_.Normal_Dictionary<s_target.Node.properties.D>,
+): s_target.Node => ({
     'properties': p_.dictionary(properties),
 })
 
@@ -104,5 +104,5 @@ export const node = (
 //     export const group = (
 
 
-//     ): d_target.Path.selection_steps.L => ['group', {}]
+//     ): s_target.Path.selection_steps.L => ['group', {}]
 // }

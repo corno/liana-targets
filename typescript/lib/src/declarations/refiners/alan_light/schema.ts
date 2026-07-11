@@ -2,11 +2,11 @@
 import type * as p_ from 'pareto-core/interface/refiner'
 
 //data types
-import type * as d_in from "pareto-liana/modules/schema/interface/data/resolved"
-import type * as d_out from "../../../interface/schemas/alan_light.js"
-import type * as d_out_package from "../../../interface/schemas/alan_light_package.js"
+import type * as s_in from "pareto-liana/modules/schema/interface/data/resolved"
+import type * as s_out from "../../../interface/schemas/alan_light.js"
+import type * as s_out_package from "../../../interface/schemas/alan_light_package.js"
 
-export namespace d_function {
+export namespace s_function {
 
     export type Error =
         | ['foo', null]
@@ -17,26 +17,26 @@ export namespace d_function {
 
 //signatures
 export type Package = p_.Refiner<
-    d_out_package.Node,
-    d_function.Error, d_in.Package
+    s_out_package.Node,
+    s_function.Error, s_in.Package
 >
 export type Schema_Tree = p_.Refiner<
-    d_out_package.Node,
-    d_function.Error, d_in.Schema_Tree
+    s_out_package.Node,
+    s_function.Error, s_in.Schema_Tree
 >
 export type Schema = p_.Refiner<
-    d_out.Root,
-    d_function.Error,
-    d_in.Schema
+    s_out.Root,
+    s_function.Error,
+    s_in.Schema
 >
 export type Value_to_Node = p_.Refiner<
-    d_out.Node,
-    d_function.Error,
-    d_in.Value
+    s_out.Node,
+    s_function.Error,
+    s_in.Value
 >
 export type Value_to_Property = p_.Refiner<
-    d_out.Node.properties.D,
-    d_function.Error,
-    d_in.Value
+    s_out.Node.properties.D,
+    s_function.Error,
+    s_in.Value
 >
 

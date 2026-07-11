@@ -4,7 +4,7 @@ import p_implement_me from 'pareto-core-dev/implement_me'
 import type * as interface_ from "../../../declarations/refiners/alan_light/schema.js"
 
 //data types
-import type * as d_out_package from "../../../interface/schemas/alan_light_package.js"
+import type * as s_out_package from "../../../interface/schemas/alan_light_package.js"
 
 //shorthands
 import * as sh from "../../../submodules/alan_light/shorthands/alan_light/target.js"
@@ -15,7 +15,7 @@ export const Schema_Tree: interface_.Schema_Tree = ($, abort) => p_.from.state($
     ($) => {
         switch ($[0]) {
             case 'schema': return p_.option($, ($) => ['model', Schema($, abort)])
-            case 'set': return p_.option($, ($): d_out_package.Node => ['package', p_.from.dictionary($).map(
+            case 'set': return p_.option($, ($): s_out_package.Node => ['package', p_.from.dictionary($).map(
                 ($) => Schema_Tree($, abort)
             )])
             default: return p_.exhaustive($[0])

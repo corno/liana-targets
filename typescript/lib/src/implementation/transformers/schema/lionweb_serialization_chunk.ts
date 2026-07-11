@@ -38,21 +38,21 @@ export const Schema: interface_.Schema = ($) => ({
 })
 
 // export const Type_Node_2_properties = (
-//     $: d_in.Type_Node,
+//     $: s_in.Type_Node,
 //     $p: {
 //         'path': string,
 //     }
-// ): d_out.Serialization_Chunk.nodes.L.properties => p_.literal.list([])
+// ): s_out.Serialization_Chunk.nodes.L.properties => p_.literal.list([])
 
 // export const Type_Node_2_Document_nodes = (
-//     $: d_in.Type_Node,
+//     $: s_in.Type_Node,
 //     $p: {
 //         'path': string,
 //     }
-// ): d_out.Serialization_Chunk.nodes => p_.from.state($).decide(
+// ): s_out.Serialization_Chunk.nodes => p_.from.state($).decide(
 // ($) => {
 //     switch ($[0]) {
-//         case 'dictionary': return p_.option($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
+//         case 'dictionary': return p_.option($, ($): s_out.Serialization_Chunk.nodes => p_.literal.nested_ list<s_out.Serialization_Chunk.nodes.L>([
 //             p_.literal.list([
 //                 {
 //                     'id': $p.path,
@@ -90,7 +90,7 @@ export const Schema: interface_.Schema = ($) => ({
 //                 }
 //             ),
 //         ]))
-//         case 'group': return p_.option($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
+//         case 'group': return p_.option($, ($): s_out.Serialization_Chunk.nodes => p_.literal.nested_ list<s_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
@@ -119,7 +119,7 @@ export const Schema: interface_.Schema = ($) => ({
 //                 ($) => $,
 //             ),
 //         ]))
-//         case 'list': return p_.option($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
+//         case 'list': return p_.option($, ($): s_out.Serialization_Chunk.nodes => p_.literal.nested_ list<s_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
@@ -143,7 +143,7 @@ export const Schema: interface_.Schema = ($) => ({
 //                 }
 //             ),
 //         ]))
-//         case 'optional': return p_.option($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
+//         case 'optional': return p_.option($, ($): s_out.Serialization_Chunk.nodes => p_.literal.nested_ list<s_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
@@ -167,7 +167,7 @@ export const Schema: interface_.Schema = ($) => ({
 //                 }
 //             ),
 //         ]))
-//         case 'state group': return p_.option($, ($): d_out.Serialization_Chunk.nodes => p_.literal.nested_ list<d_out.Serialization_Chunk.nodes.L>([
+//         case 'state group': return p_.option($, ($): s_out.Serialization_Chunk.nodes => p_.literal.nested_ list<s_out.Serialization_Chunk.nodes.L>([
 //             [
 //                 {
 //                     'id': $p.path,
