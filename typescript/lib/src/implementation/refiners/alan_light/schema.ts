@@ -7,7 +7,7 @@ import type * as interface_ from "../../../declarations/refiners/alan_light/sche
 import type * as d_out_package from "../../../interface/data/alan_light_package.js"
 
 //shorthands
-import * as sh from "../../../modules/alan_light/shorthands/alan_light/target.js"
+import * as sh from "../../../submodules/alan_light/shorthands/alan_light/target.js"
 
 export const Package: interface_.Package = ($, abort) => Schema_Tree($['schema tree'], abort)
 
