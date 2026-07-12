@@ -3,7 +3,7 @@ import p_implement_me from 'pareto-core-dev/implement_me'
 
 import type * as interface_ from "../../../declarations/refiners/alan_light/schema.js"
 
-//data types
+//schemas
 import type * as s_out_package from "../../../interface/schemas/alan_light_package.js"
 
 //shorthands

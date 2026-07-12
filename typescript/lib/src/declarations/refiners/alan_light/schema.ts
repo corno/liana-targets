@@ -1,7 +1,7 @@
 
 import type * as p_ from 'pareto-core/interface/refiner'
 
-//data types
+//schemas
 import type * as s_in from "pareto-liana/modules/schema/interface/data/resolved"
 import type * as s_out from "../../../interface/schemas/alan_light.js"
 import type * as s_out_package from "../../../interface/schemas/alan_light_package.js"

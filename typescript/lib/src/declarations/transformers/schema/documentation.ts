@@ -1,7 +1,7 @@
 
 import type * as p_ from 'pareto-core/interface/transformer'
 
-//data types
+//schemas
 import type * as s_in from "pareto-liana/modules/schema/interface/data/resolved"
 import type * as s_out from "pareto-static-html/interface/data/static_html"
 
