@@ -2,10 +2,10 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
 
 //schemas
-import type * as s_in from "pareto-liana/modules/schema/interface/data/resolved"
-import type * as s_out from "pareto-fountain-pen-file-structure/interface/data/file-system"
+import type * as s_in from "./resolved.js"
 
-namespace interface_ {
+import type * as s_out from "./file-system.js"
+namespace declarations {
 
     export type Schema_Tree = p_i.Transformer_With_Parameter<
         s_in.Schema_Tree,
@@ -36,7 +36,7 @@ import * as t_schema_to_lionweb from "./lionweb_serialization_chunk.js"
 //shorthands
 import * as sh from "pareto-fountain-pen-file-structure/shorthands/file-system/target"
 
-export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).decide(
+export const Schema_Tree: declarations.Schema_Tree = ($, $p) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'schema': return p_.option($, ($) => p_.literal.dictionary({
@@ -51,7 +51,7 @@ export const Schema_Tree: interface_.Schema_Tree = ($, $p) => p_.from.state($).d
         }
     })
 
-export const Schemas: interface_.Schemas = ($) => p_.from.dictionary($).map(
+export const Schemas: declarations.Schemas = ($) => p_.from.dictionary($).map(
     ($, id) => sh.n.directory(Schema_Tree($, { 'graph name': id })))
 
-export const Package: interface_.Package = ($, $p) => Schema_Tree($['schema tree'], { 'graph name': $p['graph name'] })
+export const Package: declarations.Package = ($, $p) => Schema_Tree($['schema tree'], { 'graph name': $p['graph name'] })

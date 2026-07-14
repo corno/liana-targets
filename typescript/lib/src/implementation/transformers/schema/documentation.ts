@@ -1,12 +1,30 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../declarations/transformers/schema/documentation.js"
+import type * as s_in from "./resolved.js"
+namespace declarations {
+    export type Package = p_.Transformer<
+        s_in.Package,
+        s_out.Document
+    >
+    export type Schema_Tree = p_.Transformer<
+        s_in.Schema_Tree,
+        s_out.Flow_Element
+    >
+    export type Schemas = p_.Transformer<
+        s_in.Schemas,
+        s_out.Flow_Content
+    >
+    export type Schema = p_.Transformer<
+        s_in.Schema,
+        s_out.Flow_Element
+    >
+}
 
 //shorthands
 import * as sh from "pareto-static-html/shorthands/static_html/target"
 
 
-export const Package: interface_.Package = ($) => sh.document(
+export const Package: declarations.Package = ($) => sh.document(
     `/*CSS*/
     
     .div#modules
@@ -15,7 +33,7 @@ export const Package: interface_.Package = ($) => sh.document(
     Schema_Tree($['schema tree'])
 )
 
-export const Schema_Tree: interface_.Schema_Tree = ($) => p_.from.state($).decide(
+export const Schema_Tree: declarations.Schema_Tree = ($) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'schema': return p_.option($, ($) => Schema($))
@@ -24,7 +42,7 @@ export const Schema_Tree: interface_.Schema_Tree = ($) => p_.from.state($).decid
         }
     })
 
-export const Schemas: interface_.Schemas = ($) => p_.from.dictionary($).convert_to_list(
+export const Schemas: declarations.Schemas = ($) => p_.from.dictionary($).convert_to_list(
     ($, id) => sh.f.div(
         p_.literal.list([
             sh.f.span(
@@ -39,7 +57,7 @@ export const Schemas: interface_.Schemas = ($) => p_.from.dictionary($).convert_
 )
 
 
-export const Schema: interface_.Schema = ($) => sh.f.classified_div(
+export const Schema: declarations.Schema = ($) => sh.f.classified_div(
     p_.literal.list([
         "modules"
     ]),

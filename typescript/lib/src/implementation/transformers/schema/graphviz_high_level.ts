@@ -1,8 +1,20 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as interface_ from "../../../declarations/transformers/schema/graphviz_high_level.js"
+import type * as s_in from "./resolved.js"
+namespace declarations {
+    export type Schema = p_.Transformer_With_Parameter<
+        s_in.Schema,
+        s_out.Graph,
+        s_parameters.Schema_Parameters
+    >
+    export type Value = p_.Transformer_With_Parameter<
+        s_in.Value,
+        s_out.Graph.type_.directed.edges,
+        s_parameters.Value_Parameters
+    >
+}
 
-export const Schema: interface_.Schema = ($, $p) => ({
+export const Schema: declarations.Schema = ($, $p) => ({
     'name': p_.literal.set($p['graph name']),
     'tree': {
         'attributes': p_.literal.list([]),
@@ -18,7 +30,7 @@ export const Schema: interface_.Schema = ($, $p) => ({
     }],
 })
 
-export const Value: interface_.Value = ($, $p) => p_.from.state($).decide(
+export const Value: declarations.Value = ($, $p) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'simple': return p_.option($, ($) => p_.literal.list([]))

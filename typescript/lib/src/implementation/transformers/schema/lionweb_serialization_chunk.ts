@@ -2,18 +2,28 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 import p_implement_me from 'pareto-core-dev/implement_me'
 
-import type * as interface_ from "../../../declarations/transformers/schema/lionweb_serialization_chunk.js"
+import type * as s_in from "./resolved.js"
+namespace declarations {
+    export type Schema = p_.Transformer<
+        s_in.Schema,
+        s_out.Serialization_Chunk
+    >
+    export type Meta_Pointer = p_.Transformer<
+        string,
+        s_out.Meta_Pointer
+    >
+}
 
 // //dependencies
 
-export const Meta_Pointer: interface_.Meta_Pointer = ($) => ({
+export const Meta_Pointer: declarations.Meta_Pointer = ($) => ({
     'language': "astn",
     'version': "0.1",
     'key': $,
 })
 
 
-export const Schema: interface_.Schema = ($) => ({
+export const Schema: declarations.Schema = ($) => ({
     'range': p_unreachable_code_path("REMOVE range property"),
     'serializationFormatVersion': "2023.1",
     'languages': p_.literal.list([

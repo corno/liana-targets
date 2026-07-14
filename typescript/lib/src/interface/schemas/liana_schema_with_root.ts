@@ -1,4 +1,4 @@
-import type * as s_schema from "pareto-liana/modules/schema/interface/data/resolved"
+import type * as s_schema from "./resolved.js"
 
 export type Temp_Schema = {
     'schema': s_schema.Schema,

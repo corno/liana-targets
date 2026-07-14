@@ -4,9 +4,9 @@ import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_f
 
 //schemas
 import type * as s_in from "../../../../../interface/schemas/alan_light.js"
-import type * as s_out from "pareto-fountain-pen/interface/data/prose"
 
-export namespace interface_ {
+import type * as s_out from "../../../interface/schemas/prose.js"
+namespace declarations {
     export type Root = p_i.Transformer<
         s_in.Root,
         s_out.Paragraph
@@ -25,7 +25,7 @@ export namespace interface_ {
 import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
 
 
-export const Root: interface_.Root = ($) => sh.pg.sentences([
+export const Root: declarations.Root = ($) => sh.pg.sentences([
     sh.sentence(
         p_.literal.list([
             sh.ph.literal("users"),
@@ -67,7 +67,7 @@ export const Root: interface_.Root = ($) => sh.pg.sentences([
     ),
 ])
 
-export const Identifier: interface_.Identifier = ($) => sh.ph.serialize(
+export const Identifier: declarations.Identifier = ($) => sh.ph.serialize(
     p_.literal.segmented_list([
         p_.literal.list([
             0x60, // `
@@ -132,7 +132,7 @@ export const Identifier: interface_.Identifier = ($) => sh.ph.serialize(
         ])
     ]))
 
-export const Node: interface_.Node = ($) => sh.ph.composed([
+export const Node: declarations.Node = ($) => sh.ph.composed([
     sh.ph.literal("{"),
     sh.ph.indent(
         sh.pg.sentences(
