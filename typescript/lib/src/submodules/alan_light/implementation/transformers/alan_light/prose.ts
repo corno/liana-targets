@@ -22,17 +22,17 @@ namespace declarations {
 }
 
 //shorthands
-import * as sh from "pareto-fountain-pen/shorthands/prose/deprecated"
+import * as sh from "pareto-fountain-pen/shorthands/prose_simple/deprecated"
 
 
 export const Root: declarations.Root = ($) => sh.pg.sentences([
     sh.sentence(
         p_.literal.list([
-            sh.ph.literal("users"),
+            sh.ph.text("users"),
             sh.ph.indent(
                 sh.pg.sentences([
                     sh.sentence([
-                        sh.ph.literal("anonymous")
+                        sh.ph.text("anonymous")
                     ])
                 ]),
             ),
@@ -43,14 +43,14 @@ export const Root: declarations.Root = ($) => sh.pg.sentences([
     ),
     sh.sentence(
         p_.literal.list([
-            sh.ph.literal("interfaces")
+            sh.ph.text("interfaces")
         ])
     ),
     sh.sentence(
         p_.literal.list([])
     ),
     sh.sentence([
-        sh.ph.literal("root "),
+        sh.ph.text("root "),
         Node($.root)
     ]),
     sh.sentence(
@@ -59,7 +59,7 @@ export const Root: declarations.Root = ($) => sh.pg.sentences([
     sh.sentence(
 
         p_.literal.list([
-            sh.ph.literal("numerical-types ")
+            sh.ph.text("numerical-types ")
         ]),
     ),
     sh.sentence(
@@ -133,45 +133,45 @@ export const Identifier: declarations.Identifier = ($) => sh.ph.serialize(
     ]))
 
 export const Node: declarations.Node = ($) => sh.ph.composed([
-    sh.ph.literal("{"),
+    sh.ph.text("{"),
     sh.ph.indent(
         sh.pg.sentences(
             p_.from.dictionary($.properties).convert_to_list(
                 ($, id) => sh.sentence([
                     Identifier(id),
-                    sh.ph.literal(": "),
+                    sh.ph.text(": "),
                     p_.from.state($.type).decide(
                         ($) => {
                             switch ($[0]) {
                                 case 'collection': return p_.option($, ($) => sh.ph.composed([
-                                    sh.ph.literal("collection ["),
+                                    sh.ph.text("collection ["),
                                     Identifier($.key),
-                                    sh.ph.literal("] "),
+                                    sh.ph.text("] "),
                                     Node($.node)
                                 ]))
                                 case 'group': return p_.option($, ($) => sh.ph.composed([
-                                    sh.ph.literal("group "),
+                                    sh.ph.text("group "),
                                     Node($.node)
                                 ]))
                                 case 'state group': return p_.option($, ($) => p_.from.dictionary($.states).on_has_entries(
                                     ($) => sh.ph.composed([
-                                        sh.ph.literal("stategroup ("),
+                                        sh.ph.text("stategroup ("),
                                         sh.ph.indent(
                                             sh.pg.sentences(
                                                 p_.from.dictionary($).convert_to_list(
                                                     ($, id) => sh.sentence([
                                                         Identifier(id),
-                                                        sh.ph.literal(" "),
+                                                        sh.ph.text(" "),
                                                         Node($.node)
                                                     ])
                                                 )
                                             )
                                         ),
-                                        sh.ph.literal(")")
+                                        sh.ph.text(")")
                                     ]),
-                                    () => sh.ph.literal("group { }")
+                                    () => sh.ph.text("group { }")
                                 ))
-                                case 'text': return p_.option($, ($) => sh.ph.literal("text"))
+                                case 'text': return p_.option($, ($) => sh.ph.text("text"))
                                 default: return p_.exhaustive($[0])
                             }
                         })
@@ -180,5 +180,5 @@ export const Node: declarations.Node = ($) => sh.ph.composed([
         ),
 
     ),
-    sh.ph.literal("}"),
+    sh.ph.text("}"),
 ])
