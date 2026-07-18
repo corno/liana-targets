@@ -1,10 +1,11 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 import type * as p_i from 'pareto-core/interface/transformer'
+import p_implement_me from 'pareto-core-dev/implement_me'
 
 //schemas
-import type * as s_in from "./resolved.js"
+import type * as s_in from "pareto-liana/modules/liana.generated/modules/schema/schemas/resolved"
+import type * as s_out from "../../../interface/schemas/to_be_written_directory_content.js"
 
-import type * as s_out from "./file-system.js"
 namespace declarations {
 
     export type Schema_Tree = p_i.Transformer_With_Parameter<
@@ -30,20 +31,22 @@ namespace declarations {
 }
 
 //dependencies
-import * as t_lionweb_to_prose from "pareto-lionweb/modules/lionweb-core/implementation/transformers/serialization_chunk/prose"
+// import * as t_lionweb_to_serialized from "pareto-lionweb/modules/lionweb-core/implementation/transformers/serialization_chunk/serialized"
 import * as t_schema_to_lionweb from "./lionweb_serialization_chunk.js"
 
 //shorthands
-import * as sh from "pareto-fountain-pen-file-structure/shorthands/file-system/target"
+import * as sh from "pareto-filesystem-unrestricted-api/modules/helpers/shorthands/to_be_written_diretory_content/target"
 
 export const Schema_Tree: declarations.Schema_Tree = ($, $p) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'schema': return p_.option($, ($) => p_.literal.dictionary({
                 "lionweb.json": sh.n.file(
-                    t_lionweb_to_prose.Serialization_Chunk(
-                        t_schema_to_lionweb.Schema($)
-                    ),
+                    p_implement_me("TODO: implement lionweb serialization"),
+                    // t_lionweb_to_serialized.Serialization_Chunk(
+                    //     t_schema_to_lionweb.Schema($)
+                    // ),
+                    "\n"
                 )
             }))
             case 'set': return p_.option($, ($) => Schemas($))

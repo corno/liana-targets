@@ -1,0 +1,1 @@
+export * from "pareto-static-html/interface/schemas/static_html"

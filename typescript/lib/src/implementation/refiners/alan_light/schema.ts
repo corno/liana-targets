@@ -3,8 +3,9 @@ import p_implement_me from 'pareto-core-dev/implement_me'
 
 
 //schemas
-import type * as s_in from "./resolved.js"
+import type * as s_in from "pareto-liana/modules/liana.generated/modules/schema/schemas/resolved"
 import type * as s_out_package from "../../../interface/schemas/alan_light_package.js"
+import type * as s_out from "../../../interface/schemas/alan_light.js"
 
 export namespace s_function {
 
@@ -13,43 +14,41 @@ export namespace s_function {
 
 }
 
+namespace declarations {
 
+    export type Package = p_.Refiner<
+        s_out_package.Node,
+        s_function.Error, s_in.Package
+    >
+    export type Schema_Tree = p_.Refiner<
+        s_out_package.Node,
+        s_function.Error, s_in.Schema_Tree
+    >
+    export type Schema = p_.Refiner<
+        s_out.Root,
+        s_function.Error,
+        s_in.Schema
+    >
+    export type Value_to_Node = p_.Refiner<
+        s_out.Node,
+        s_function.Error,
+        s_in.Value
+    >
+    export type Value_to_Property = p_.Refiner<
+        s_out.Node.properties.D,
+        s_function.Error,
+        s_in.Value
+    >
 
-//signatures
-export type Package = p_.Refiner<
-    s_out_package.Node,
-    s_function.Error, s_in.Package
->
-export type Schema_Tree = p_.Refiner<
-    s_out_package.Node,
-    s_function.Error, s_in.Schema_Tree
->
-export type Schema = p_.Refiner<
-    s_out.Root,
-    s_function.Error,
-    s_in.Schema
->
-export type Value_to_Node = p_.Refiner<
-    s_out.Node,
-    s_function.Error,
-    s_in.Value
->
-export type Value_to_Property = p_.Refiner<
-    s_out.Node.properties.D,
-    s_function.Error,
-    s_in.Value
->
+}
 
-
-//schemas
-import type * as s_out_package from "../../../interface/schemas/alan_light_package.js"
 
 //shorthands
 import * as sh from "../../../submodules/alan_light/shorthands/alan_light/target.js"
 
-export const Package: interface_.Package = ($, abort) => Schema_Tree($['schema tree'], abort)
+export const Package: declarations.Package = ($, abort) => Schema_Tree($['schema tree'], abort)
 
-export const Schema_Tree: interface_.Schema_Tree = ($, abort) => p_.from.state($).decide(
+export const Schema_Tree: declarations.Schema_Tree = ($, abort) => p_.from.state($).decide(
     ($) => {
         switch ($[0]) {
             case 'schema': return p_.option($, ($) => ['model', Schema($, abort)])
@@ -60,7 +59,7 @@ export const Schema_Tree: interface_.Schema_Tree = ($, abort) => p_.from.state($
         }
     })
 
-export const Schema: interface_.Schema = ($, abort) => ({
+export const Schema: declarations.Schema = ($, abort) => ({
     'numerical types': p_.from.dictionary($.globals['simple types']).map(
         ($) => sh.numerical_type()
     ),

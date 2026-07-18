@@ -1,16 +1,22 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as s_in from "./resolved.js"
+import type * as s_in from "pareto-liana/modules/liana.generated/modules/schema/schemas/resolved"
+import type * as s_out from "../../../interface/schemas/graphviz_high_level.js"
+
 namespace declarations {
     export type Schema = p_.Transformer_With_Parameter<
         s_in.Schema,
         s_out.Graph,
-        s_parameters.Schema_Parameters
+        {
+            'graph name': string
+        }
     >
     export type Value = p_.Transformer_With_Parameter<
         s_in.Value,
         s_out.Graph.type_.directed.edges,
-        s_parameters.Value_Parameters
+        {
+            'type name': string
+        }
     >
 }
 
