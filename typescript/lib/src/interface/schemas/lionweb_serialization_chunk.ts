@@ -1,1 +1,0 @@
-export * from "pareto-lionweb/modules/chunk.to_be_generated/schemas/chunk"

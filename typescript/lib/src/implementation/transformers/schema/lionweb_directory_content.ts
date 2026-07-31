@@ -3,7 +3,7 @@ import type * as p_i from 'pareto-core/interface/transformer'
 import p_implement_me from 'pareto-core-dev/implement_me'
 
 //schemas
-import type * as s_in from "pareto-liana/modules/liana.generated/modules/schema/schemas/resolved"
+import type * as s_in from "pareto-liana/modules/schema.generated/schemas/resolved/schema"
 import type * as s_out from "../../../schemas/to_be_written_directory_content.js"
 
 namespace declarations {
@@ -31,7 +31,7 @@ namespace declarations {
 }
 
 //dependencies
-// import * as t_lionweb_to_serialized from "pareto-lionweb/modules/lionweb-core/implementation/transformers/serialization_chunk/serialized"
+// import * as t_lionweb_to_serialized from "pareto-lionweb/modules/lionweb-core/schemas/serialization_chunk/transformers/serialized"
 import * as t_schema_to_lionweb from "./lionweb_serialization_chunk.js"
 
 //shorthands

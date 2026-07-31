@@ -2,7 +2,7 @@ import * as p_ from 'pareto-core/implementation/transformer'
 import p_unreachable_code_path from 'pareto-core/implementation/transformer/specials/unreachable_code_path'
 import p_implement_me from 'pareto-core-dev/implement_me'
 
-import type * as s_in from "pareto-liana/modules/liana.generated/modules/schema/schemas/resolved"
+import type * as s_in from "pareto-liana/modules/schema.generated/schemas/resolved/schema"
 import type * as s_out from "../../../schemas/lionweb_serialization_chunk.js"
 
 namespace declarations {

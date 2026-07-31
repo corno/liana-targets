@@ -3,7 +3,7 @@ import type * as p_i from 'pareto-core/interface/transformer'
 
 //schemas
 import type * as s_in from "../../../../../schemas/alan_light.js"
-import type * as s_out from "../../../schemas/paragraph.js"
+import type * as s_out from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/schema"
 
 namespace declarations {
     export type Root = p_i.Transformer<

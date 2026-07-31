@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as s_in from "pareto-liana/modules/liana.generated/modules/schema/schemas/resolved"
+import type * as s_in from "pareto-liana/modules/schema.generated/schemas/resolved/schema"
 import type * as s_out from "../../../schemas/to_be_written_directory_content.js"
 
 namespace declarations {
@@ -38,7 +38,7 @@ namespace declarations {
 }
 
 //dependencies
-import * as t_graphviz_to_serialized from "pareto-graphviz/implementation/transformers/high_level/serialized"
+import * as t_graphviz_to_serialized from "pareto-graphviz/schemas/high_level/transformers/serialized"
 import * as t_schema_to_graphviz from "./graphviz_high_level.js"
 
 //shorthands

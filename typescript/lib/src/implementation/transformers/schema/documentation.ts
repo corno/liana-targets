@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as s_in from "pareto-liana/modules/liana.generated/modules/schema/schemas/resolved"
+import type * as s_in from "pareto-liana/modules/schema.generated/schemas/resolved/schema"
 import type * as s_out from "../../../schemas/static_html_document.js"
 
 namespace declarations {

@@ -3,7 +3,7 @@ import p_implement_me from 'pareto-core-dev/implement_me'
 
 
 //schemas
-import type * as s_in from "pareto-liana/modules/liana.generated/modules/schema/schemas/resolved"
+import type * as s_in from "pareto-liana/modules/schema.generated/schemas/resolved/schema"
 import type * as s_out_package from "../../../schemas/alan_light_package.js"
 import type * as s_out from "../../../schemas/alan_light.js"
 
