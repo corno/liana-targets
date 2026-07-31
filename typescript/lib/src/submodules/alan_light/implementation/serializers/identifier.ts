@@ -2,7 +2,7 @@ import * as p_ from 'pareto-core/implementation/serializer'
 import p_list_from_text from 'pareto-core/implementation/refiner/specials/list_from_text'
 
 //schemas
-import type * as s_in from "../../../../interface/schemas/alan_light.js"
+import type * as s_in from "../../../../schemas/alan_light.js"
 
 namespace declarations {
 
@@ -12,7 +12,7 @@ namespace declarations {
 }
 
 //shorthands
-import * as sh from "pareto-fountain-pen/modules/paragraph/shorthands/deprecated"
+import * as sh from "pareto-fountain-pen/modules/paragraph/schemas/paragraph/shorthands/deprecated"
 
 
 

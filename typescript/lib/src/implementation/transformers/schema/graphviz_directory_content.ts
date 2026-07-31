@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
 import type * as s_in from "pareto-liana/modules/liana.generated/modules/schema/schemas/resolved"
-import type * as s_out from "../../../interface/schemas/to_be_written_directory_content.js"
+import type * as s_out from "../../../schemas/to_be_written_directory_content.js"
 
 namespace declarations {
     export type Package = p_.Transformer_With_Parameter<

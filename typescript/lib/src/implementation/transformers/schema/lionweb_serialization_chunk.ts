@@ -3,7 +3,7 @@ import p_unreachable_code_path from 'pareto-core/implementation/transformer/spec
 import p_implement_me from 'pareto-core-dev/implement_me'
 
 import type * as s_in from "pareto-liana/modules/liana.generated/modules/schema/schemas/resolved"
-import type * as s_out from "../../../interface/schemas/lionweb_serialization_chunk.js"
+import type * as s_out from "../../../schemas/lionweb_serialization_chunk.js"
 
 namespace declarations {
     export type Schema = p_.Transformer<
