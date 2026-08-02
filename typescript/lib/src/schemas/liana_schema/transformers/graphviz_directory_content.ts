@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as s_in from "pareto-liana/modules/schema.generated/schemas/resolved/schema"
-import type * as s_out from "../../../schemas/to_be_written_directory_content.js"
+import type * as s_in from "../schema.js"
+import type * as s_out from "pareto-filesystem-unrestricted-api/modules/helpers/schemas/to_be_written_directory_content/schema"
 
 namespace declarations {
     export type Package = p_.Transformer_With_Parameter<
@@ -42,7 +42,7 @@ import * as t_graphviz_to_serialized from "pareto-graphviz/schemas/high_level/tr
 import * as t_schema_to_graphviz from "./graphviz_high_level.js"
 
 //shorthands
-import * as sh from "pareto-filesystem-unrestricted-api/modules/helpers/shorthands/to_be_written_diretory_content/target"
+import * as sh from "pareto-filesystem-unrestricted-api/modules/helpers/schemas/to_be_written_directory_content/shorthands/target"
 
 export const Schema_Tree: declarations.Schema_Tree = ($, $p) => p_.from.state($).decide(
     ($): s_out.Directory => {

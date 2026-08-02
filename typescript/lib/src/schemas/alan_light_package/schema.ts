@@ -1,6 +1,6 @@
 import * as p_ from 'pareto-core/interface/schema'
 
-import type * as s_alan_light from "./alan_light.js"
+import type * as s_alan_light from "../../modules/alan_light/schemas/alan_light/schema.js"
 
 
 export type Package = p_.Dictionary<Node>

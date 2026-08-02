@@ -3,8 +3,8 @@ import type * as p_i from 'pareto-core/interface/transformer'
 import p_implement_me from 'pareto-core-dev/implement_me'
 
 //schemas
-import type * as s_in from "pareto-liana/modules/schema.generated/schemas/resolved/schema"
-import type * as s_out from "../../../schemas/to_be_written_directory_content.js"
+import type * as s_in from "../schema.js"
+import type * as s_out from "pareto-filesystem-unrestricted-api/modules/helpers/schemas/to_be_written_directory_content/schema"
 
 namespace declarations {
 
@@ -35,7 +35,7 @@ namespace declarations {
 import * as t_schema_to_lionweb from "./lionweb_serialization_chunk.js"
 
 //shorthands
-import * as sh from "pareto-filesystem-unrestricted-api/modules/helpers/shorthands/to_be_written_diretory_content/target"
+import * as sh from "pareto-filesystem-unrestricted-api/modules/helpers/schemas/to_be_written_directory_content/shorthands/target"
 
 export const Schema_Tree: declarations.Schema_Tree = ($, $p) => p_.from.state($).decide(
     ($) => {

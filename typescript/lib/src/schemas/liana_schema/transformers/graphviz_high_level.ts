@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as s_in from "pareto-liana/modules/schema.generated/schemas/resolved/schema"
-import type * as s_out from "../../../schemas/graphviz_high_level.js"
+import type * as s_in from "../schema.js"
+import type * as s_out from "pareto-graphviz/schemas/high_level/schema"
 
 namespace declarations {
     export type Schema = p_.Transformer_With_Parameter<

@@ -1,7 +1,7 @@
 import * as p_ from 'pareto-core/implementation/transformer'
 
-import type * as s_in from "pareto-liana/modules/schema.generated/schemas/resolved/schema"
-import type * as s_out from "../../../schemas/static_html_document.js"
+import type * as s_in from "../schema.js"
+import type * as s_out from "pareto-static-html/schemas/static_html/schema"
 
 namespace declarations {
     export type Package = p_.Transformer<
@@ -23,7 +23,7 @@ namespace declarations {
 }
 
 //shorthands
-import * as sh from "pareto-static-html/shorthands/static_html/target"
+import * as sh from "pareto-static-html/schemas/static_html/shorthands/target"
 
 
 export const Package: declarations.Package = ($) => sh.document(
