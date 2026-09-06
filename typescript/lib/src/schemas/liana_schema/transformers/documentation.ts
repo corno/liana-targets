@@ -4,9 +4,12 @@ import type * as s_in from "../schema.js"
 import type * as s_out from "pareto-static-html/schemas/static_html/schema"
 
 namespace declarations {
-    export type Package = p_.Transformer<
+    export type Package = p_.Transformer_With_Parameter<
         s_in.Package,
-        s_out.Document
+        s_out.Document,
+        {
+            'css': string
+        }
     >
     export type Schema_Tree = p_.Transformer<
         s_in.Schema_Tree,
@@ -26,12 +29,8 @@ namespace declarations {
 import * as sh from "pareto-static-html/schemas/static_html/shorthands/target"
 
 
-export const Package: declarations.Package = ($) => sh.document(
-    `/*CSS*/
-    
-    .div#modules
-    
-    `,
+export const Package: declarations.Package = ($, $p) => sh.document(
+    $p.css,
     Schema_Tree($['schema tree'])
 )
 
